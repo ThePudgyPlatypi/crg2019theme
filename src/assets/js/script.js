@@ -132,11 +132,6 @@ function flipFlop(x, y, z) {
     // };
 }
 
-function testing() {
-    alert("please work");
-    console.log("work");
-};
-
 jQuery(document).ready(function($) {
     
     
@@ -146,10 +141,10 @@ jQuery(document).ready(function($) {
 
     if(video) {
             video.addEventListener("ended", function() {
-            var $video = $(video);
-            $video.fadeOut("slow");
-            $("#video-container").append("<img id='video-ended-poster' src='../wp-content/uploads/2019/06/HeaderMovie4k-Poster.jpg' alt='critical response group map image'>").fadeIn("slow");
-        });
+                var $video = $(video);
+                $video.fadeOut("slow");
+                $("#header-video-container").append("<img class='video-ended-poster' src='../wp-content/uploads/2019/06/HeaderMovie4k-Poster.jpg' alt='critical response group map image'>").fadeIn("slow");
+            });
     };
 
 
