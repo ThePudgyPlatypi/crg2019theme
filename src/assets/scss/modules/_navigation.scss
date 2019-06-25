@@ -1,244 +1,220 @@
 $navHeight: 130px + 20px;
 
-// Navigation breakpoints
-.mobile-menu,
-.site-title-bar {
-  @include hide-for(medium);
-}
-//
-.desktop-menu,
-.site-navigation .top-bar-left {
-  @include show-for(medium);
-}
-
-// Site title
-.site-desktop-title a {
-  font-weight: bold;
-}
-
-// WP post navigation
-.post-navigation {
-  @include clearfix;
-}
-
-.nav-previous {
-  float:left;
-}
-
-.nav-next {
-  float:right;
-}
-
-
 // ========================
 // navigation
 // ========================
+   
+.site-header {
+    @include flex();
+    @include flex-align($y: bottom);
+    // @include xy-grid-container(100vw);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
 
-div#page {
+    // Sticky Style
+    .sticky {
+        @include flex-align($y: top);
+        position: fixed;
+        min-height: 50px;
+        height: 50px;
+        padding: 5px 40px;
+        
+        .nav-logo {
+            position: absolute;
+            margin-top: -10px;
+            -webkit-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+
+        & > .main-navigation ul li:hover > ul {
+            transform: translateY(0);
+            top: initial;
+            padding-bottom: 80px;
+        };
+
+        & > .main-navigation .page_item_has_children > li::after {
+            &:hover,
+            &:focus {
+                transform: translateY(10px);
+
+                &:before {
+                    transform: rotate(180deg) !important;
+                }
+            }
+        }
+        
+    }
+
+    .desktop-nav {
+        @include xy-grid();
+        background-color: white;
+        height: 130px;
+        width: 100vw;
+
+        .nav-logo {
+            width: 150px;
+        }
+
+        .site-branding {
+            @include xy-cell(2);
+            transition: all 0.2s;
+
+            img {
+                width: 150px;
+            }
+
+            &:hover,
+            &:focus {
+                transform: scale(1.2);
+            }
+        }
+
+        // #site-navigation
+        .main-navigation {
+            @include xy-cell(10);
+            color: #313131;
+            text-align: center;
+            
+            // #primary menu
+            .primary-menu {
+                @include xy-grid;
+
+                ul.menu {
+                    @include xy-cell(12);
+                    @include flex;
+                    @include flex-align($x: right);
+        
+                    // lil yellow bars under each item
+                    &:first-child {
+                        & > li {
+                            &:after {
+                                position: relative;
+                                z-index: 10;
+                                content: "";
+                                display: block;
+                                opacity: 0;
+                                transform: translateY(20px);
+                                width: 100%;
+                                height: 5px;
+                                background-color: #ffc52a;
+                                transition: all 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+                            }
     
-  .site-header {
-      @include flex();
-      @include flex-align($y: bottom);
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 100vh;
+                            &:hover,
+                            &:focus {
+                                &:after {
+                                    transform: translateY(0px);
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+    
+                    
+                    li {
+                        padding-top: 35px;
+                        margin-top: -20px;
+                        list-style: none;
+    
+                        &.menu-item-has-children {
+                            position: relative;
 
-       // Sticky Style
-       .sticky {
-          @include flex-align($y: top);
-          position: fixed;
-          min-height: 50px;
-          height: 50px;
-          padding: 5px 40px;
-          
-          .nav-logo {
-              position: absolute;
-              margin-top: -10px;
-              -webkit-transition: all 0.5s;
-              -o-transition: all 0.5s;
-              transition: all 0.5s;
-          }
+                            a {
+                                @include flex;
+                            }
+                            
+                            & > a:before {
+                                content: "";
+                                display: inline-block;
+                                margin-right: 10px;
+                                width: 0; 
+                                height: 0; 
+                                border-left: 8px solid transparent;
+                                border-right: 8px solid transparent;
+                                border-bottom: 12px solid #ffc52a;
+                                transition: transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+                                transition: transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1), -webkit-transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+                            }
+    
+                            &:hover > ul {
+                                transform: translateY(calc(-100% - 35px));
+                                display: block;
+                            }
+    
+                            &:hover:before {
+                                transform: translateY(-5px);
+                            }
 
-          & > .main-navigation ul li:hover > ul {
-              transform: translateY(0);
-              top: initial;
-              padding-bottom: 80px;
-          };
+                            // drop down box
+                            .sub-menu {
+                                display: none;
+                                position: absolute;
+                                z-index: 10;
+                                margin: 0;
+                                background: url(../../../../../uploads/2018/05/grid_1.png) repeat, -webkit-linear-gradient(top, rgba(48,48,48,0) 1%,rgba(48,48,48,0) 7%,rgba(48,48,48,1) 57%,rgba(48,48,48,1) 100%); /* Chrome10-25,Safari5.1-6 */
+                                background: url(../../../../../uploads/2018/05/grid_1.png) repeat, -webkit-gradient(linear, left top, left bottom, color-stop(1%, rgba(48,48,48,0)),color-stop(7%, rgba(48,48,48,0)),color-stop(57%, rgba(48,48,48,1)),to(rgba(48,48,48,1)));
+                                background: url(../../../../../uploads/2018/05/grid_1.png) repeat, -o-linear-gradient(top, rgba(48,48,48,0) 1%,rgba(48,48,48,0) 7%,rgba(48,48,48,1) 57%,rgba(48,48,48,1) 100%);
+                                background: url(../../../../../uploads/2018/05/grid_1.png) repeat, linear-gradient(to bottom, rgba(48,48,48,0) 1%,rgba(48,48,48,0) 7%,rgba(48,48,48,1) 57%,rgba(48,48,48,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00303030', endColorstr='#303030',GradientType=0 ); /* IE6-9 */
+                                // padding-bottom: 40px;
+                                // display: none;
 
-          & > .main-navigation .page_item_has_children > li::after {
-              &:hover,
-              &:focus {
-                  transform: translateY(10px);
+                                li {
+                                    // padding: 10px 0 10px 0;
+                                    background-color: initial;
+                                    text-align: center;
+                                    padding: 10px 0 10px 0;
+        
+                                    &:first-child {
+                                        margin-top: 40px;
+                                    }
+        
+                                    a {
+                                        color: white;
+                                        transition: all 0.2s;
+        
+                                        &:hover,
+                                        &:focus {
+                                            transform: scale(1.1, 1.1); 
+                                            transform-origin: 35% 50%;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+    
+                        a {
+                            padding: 0.5rem 2rem;
+                        }
+    
+                        &:hover,
+                        &:focus {
+    
+                            &:before {
+                                transform: translateY(-5px);
+                            }
+                        }
+    
+    
+                        & > li::after {
+                            
+                        }
+                    }
+                }
+            } 
+        }
+    }
 
-                  &:before {
-                      transform: rotate(180deg) !important;
-                  }
-              }
-          }
-          
-      }
+    .mobile-nav, .mobile-nav-center {
+        display: block;
 
-      .desktop-nav {
-          @include xy-grid();
-          background-color: white;
-          height: 130px;
-          width: 100vw;
-
-          .nav-logo {
-              width: 150px;
-          }
-
-          .site-branding {
-              @include xy-cell(2);
-              width: 150px;
-              transition: all 0.2s;
-
-              &:hover,
-              &:focus {
-                  transform: scale(1.2);
-              }
-          };
-
-          // #site-navigation
-          .main-navigation {
-              @include xy-cell(10);
-              color: #313131;
-              text-align: center;
-              
-              // #primary menu
-              .menu {
-                  @include flex;
-                  @include flex-align($x: right);
-              }
-
-              .menu ul {
-                  @include xy-grid();
-                  width: 70%;
-
-                  // lil yellow bars under each item
-                  &:first-child {
-                      & > li {
-                          &:after {
-                              position: relative;
-                              z-index: 10;
-                              content: "";
-                              display: block;
-                              opacity: 0;
-                              transform: translateY(20px);
-                              width: 100%;
-                              height: 5px;
-                              background-color: #ffc52a;
-                              transition: all 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
-                          }
-
-                          &:hover,
-                          &:focus {
-                              &:after {
-                                  transform: translateY(0px);
-                                  opacity: 1;
-                              }
-                          }
-                      }
-                  }
-
-                 
-                  li {
-                      @include xy-cell(auto);
-                      // padding-top: 35px;
-                      // margin-top: -20px;
-                      list-style: none;
-
-                      &.page_item_has_children {
-                          
-                          &:before {
-                              content: "";
-                              display: inline-block;
-                              margin-right: 10px;
-                              width: 0; 
-                              height: 0; 
-                              border-left: 8px solid transparent;
-                              border-right: 8px solid transparent;
-                              border-bottom: 12px solid #ffc52a;
-                              transition: transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
-                              transition: transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1), -webkit-transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
-                          };
-
-                          &:hover > ul {
-                              transform: translateY(-100%);
-                              display: block;
-                          }
-
-                          &:hover:before {
-                              transform: translateY(-5px);
-                          }
-                      }
-                  }
-
-                  // drop down box
-                  ul {
-                      &.children {
-                          display: none;
-                          background: url(../../../../../uploads/2018/05/grid_1.png) repeat, -webkit-linear-gradient(top, rgba(48,48,48,0) 1%,rgba(48,48,48,0) 7%,rgba(48,48,48,1) 57%,rgba(48,48,48,1) 100%); /* Chrome10-25,Safari5.1-6 */
-                          background: url(../../../../../uploads/2018/05/grid_1.png) repeat, -webkit-gradient(linear, left top, left bottom, color-stop(1%, rgba(48,48,48,0)),color-stop(7%, rgba(48,48,48,0)),color-stop(57%, rgba(48,48,48,1)),to(rgba(48,48,48,1)));
-                          background: url(../../../../../uploads/2018/05/grid_1.png) repeat, -o-linear-gradient(top, rgba(48,48,48,0) 1%,rgba(48,48,48,0) 7%,rgba(48,48,48,1) 57%,rgba(48,48,48,1) 100%);
-                          background: url(../../../../../uploads/2018/05/grid_1.png) repeat, linear-gradient(to bottom, rgba(48,48,48,0) 1%,rgba(48,48,48,0) 7%,rgba(48,48,48,1) 57%,rgba(48,48,48,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00303030', endColorstr='#303030',GradientType=0 ); /* IE6-9 */
-                          padding-bottom: 40px;
-                          // display: none;
-                      }
-
-                      li {
-                          // padding: 10px 0 10px 0;
-                          background-color: initial;
-                          text-align: center;
-                          padding: 10px 0 10px 0;
-
-                          &:first-child {
-                              margin-top: 40px;
-                          }
-
-                          a {
-                              color: white;
-                              transition: all 0.2s;
-
-                              &:hover,
-                              &:focus {
-                                  transform: scale(1.1, 1.1); 
-                                  transform-origin: 35% 50%;
-                              }
-                          }
-                      }
-
-                      a {
-                          padding: 0.5rem 2rem;
-                      }
-
-                      &:hover,
-                      &:focus {
-
-                          &:before {
-                              transform: translateY(-5px);
-                          }
-                      }
-
-
-                      & > li::after {
-                          
-                      }
-                  }
-              }
-          };
-      };
-
-      .mobile-nav, .mobile-nav-center {
-          display: block;
-
-          @include breakpoint(medium) {
-              display: none;
-          }
-      }
-  };
-};
+        @include breakpoint(medium) {
+            display: none;
+        }
+    }
+}

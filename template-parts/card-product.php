@@ -13,23 +13,23 @@ $q = new WP_Query($args);
 if ( $q->have_posts() ) { 
   while ( $q->have_posts() ) {
     $q->the_post();
-    $index = $q->current_post + 1;
-        if ($index <= 2) {  ?>
-            <div class="card-container animation-element slide-left"> 
-        <?php  } else { ?>
-            <div class="card-container animation-element slide-right">
-        <?php } ?>
-            <div class="card-img">
+    $index = $q->current_post + 1; ?>
+    <?php if ($index <= 2) {  ?>
+        <div class="card animation-element slide-left"> 
+    <?php  } else { ?>
+        <div class="card animation-element slide-right">
+    <?php } ?>
+            <div class="card-section card-img">
                 <?php the_post_thumbnail(); ?>
             </div>
 
-            <h3 class="card-title">
+            <h3 class="card-divider card-title">
                 <strong>
                     <?php the_title(); ?>
                 </strong>
             </h3>
 
-            <div class="card-paragraph align-left">
+            <div class="card-section card-paragraph align-left">
                 <?php the_content(); ?>
             </div>
         </div>

@@ -1,0 +1,159 @@
+
+.site-footer {
+    background-color: white;
+    margin-top: 0;
+
+    .explore-crg-container {
+        background-color: #313131;
+        margin: 0 20px 165px 20px;
+        padding: 80px 0 100px 0;
+        overflow: hidden;
+        @include flex;
+        @include flex-align($x: center);
+
+        & > div {
+            @include xy-grid-container;
+
+            .explore-crg {
+                @include flex;
+                @include flex-direction(column);
+                text-align: center;
+
+                & > div {
+                    @include flex;
+                    @include flex-direction(column);
+                    margin: 0 auto;
+
+                    @include breakpoint(medium) {
+                        @include flex-direction(row);
+                    }
+                    
+                    a {
+                        @include xy-gutters($gutter-position: right left);
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-contact-container {
+        position: relative;
+        background-size: cover;
+        margin: 20px 20px 0 20px;
+        background-position: center center;
+
+        .footer-box-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+            img {
+                z-index: 0;
+            }
+        }
+
+        .footer-contact-main {
+            @include xy-grid-container;
+            text-align: center;
+            color: $white;
+
+            a {
+                color: $white;
+            }
+
+            .crg-center-logo-container {
+                position: relative;
+                margin-top: -115px;
+                width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .crg-center-logo-container img {
+                height: auto;
+                width: 400px;
+                margin: auto;
+                left: 0;
+                right: 0;
+                position: absolute;
+                top: -88px;
+            }
+    
+            .crg-center-logo-container h2 {
+                padding-top: 155px;
+            }
+
+            .site-footer .bp-contact-card, 
+            .site-footer .contact-info label {
+                color: white;
+            }
+
+            .bp-opening-hours {
+                display: block;
+                margin: 0 auto;
+                padding: 20px 0;
+            }
+            
+        }
+    }
+    
+    .footer-bottom {
+        background-color: $dark-gray;
+        color: white;
+        @include xy-grid;
+
+        a {
+            color: $medium-gray;
+
+            &:hover,
+            &:focus {
+                color: $secondary-color;
+            }
+        }
+
+        .widget-container {
+            @include xy-cell(12);
+            background-color: #303030;
+            margin-top: 80px;
+            position: relative;
+
+            .widget-area {
+                @include xy-grid;
+
+                aside {
+                    padding: 0 40px 40px 40px;
+
+                    @include breakpoint(medium) {
+                        @include xy-cell(12);
+                    }
+
+                    @include breakpoint(large) {
+                        @include xy-cell(4);
+                    }
+
+                    ul {
+                        li {
+                            list-style: none;
+                            border-bottom: 1px solid #303030;
+                        }
+                    }
+                }
+            }
+        }
+    
+        .footer-bottom-info {
+            @include xy-cell(12);
+            background-color: $blue-gray;
+            color: $light-blue-gray;
+            text-align: center;
+            padding: 20px 0;
+
+            @include social-media;
+        }
+    }
+    
+}
+
+

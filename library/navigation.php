@@ -9,8 +9,10 @@
 
 register_nav_menus(
 	array(
-		'top-bar-r'  => esc_html__( 'Right Top Bar', 'foundationpress' ),
-		'mobile-nav' => esc_html__( 'Mobile', 'foundationpress' ),
+		// 'top-bar-r'  => esc_html__( 'Right Top Bar', 'foundationpress' ),
+		// 'mobile-nav' => esc_html__( 'Mobile', 'foundationpress' ),
+		'social' => __( 'Social' ),
+		'primary' => __( 'Primary Menu' ),
 	)
 );
 

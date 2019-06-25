@@ -1,0 +1,14 @@
+// social media menu
+@mixin social-media() {
+    ul {
+        @include flex;
+        @include flex-align($x: center);
+        li {
+            list-style: none;
+            padding: 20px 20px;
+            a {
+                color: $light-blue-gray;
+            }
+        }
+    }
+}

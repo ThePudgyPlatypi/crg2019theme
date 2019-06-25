@@ -13,76 +13,56 @@
 	?>
 
 	<!-- Short CRG description  -->
-	<div class="shadow-box animation-element slide-left">
-		<div class="home content description align-center animation-element slide-left">
-			<h2 class="home description header blue yellow-line yellow-line-center align-center">Critical Response Group</h2>
-			
-				<?php 
-					$content = get_page_by_title($CRG_Description, OBJECT, 'post'); 
-					echo $content->post_content;
-				?>
-			
-			<a href="#contact" class="blue-button">Contact</a>
+	<div class="shadow-box main-container animation-element slide-left">
+		<div class="home description-container">
+			<div>
+				<h2 class="home description header blue yellow-line yellow-line-center align-center">Critical Response Group</h2>
+				
+					<?php 
+						$content = get_page_by_title($CRG_Description, OBJECT, 'post'); 
+						echo $content->post_content;
+					?>
+				<div class="button-container">
+					<a href="#contact" class="blue-button">Contact</a>\
+				</div>
+			</div>
 		</div>
 	</div>
 
 	<!-- Featured PRODUCT Section -->
-	<div class="home products" <?php echo 'style="background-image: url('. get_image($CRG_home_image_bg, "full", null, "src") .');"'?>>
-		<div class="overlay"></div>
-		<div class="white-gradient overlay-nocolor"></div>
-		<div class="products-container content align-center">
-			<h2 class="home description header blue yellow-line yellow-line-center align-center">Products</h2>
-			<div class="animation-element slide-up">
-				<div class="home products-img-container">
-					<?php get_image($CRG_Home_image, "full", "home products-img"); ?>
-				</div>
-				<h2 class="home products header yellow blue-line blue-line-center align-center">Collaborative Response Graphics</h2>
-					<p class="home description crg paragraph align-left">
-						<?php 
-							$content = get_page_by_title($CRG_Product, OBJECT, 'post'); 
-							echo $content->post_content;
-						?>
-					</p>
+	<div class="header-container main-container">
+		<h2 class="home description header blue yellow-line yellow-line-center align-center">Products</h2>
+	</div>
+
+	<div class="home products image-main" <?php echo 'style="background-image: url('. get_image($CRG_home_image_bg, "full", null, "src") .');"'?>>
+		<!-- grid overlay -->
+		<img class="grids" src="<?php bloginfo('template_url'); ?>\src\assets\images\svgGrid.png">
+		
+		<div class="products-container main-container">
+			<div class="home products-img-container animation-element slide-up">
+				<?php get_image($CRG_Home_image, "full", "home products-img"); ?>
+			</div>
+		</div>
+	</div>
+	
+	<div class="home products description-container">
+		<div>
+			<h2 class="home products header yellow blue-line blue-line-center align-center">Collaborative Response Graphics</h2>
+				<p><?php 
+					$content = get_page_by_title($CRG_Product, OBJECT, 'post'); 
+					echo $content->post_content;
+				?></p>
+			<div class="button-container">
 				<a href="products/collaborative-response-graphics" class="yellow-button">Learn More</a>
 			</div>
 		</div>
-		<?php get_template_part( 'template-parts/box', 'grid' ); ?>
 	</div>
 
 	<!-- PRODUCTS LIST AND CLIENT SLIDER -->
-	<div class="home other-products align-center">
-		<div class="card-table">
+	<div class="home other-products">
+		<div class="spacer"></div>
+		<div class="product-cards">
 			<?php get_template_part('template-parts/card', 'product'); ?>
 		</div>
-		<h3 class="align-center"><strong>CRG Customers</strong></h3>
-		<!-- <div class="clients-slider"> -->
-		<?php dynamic_sidebar('client_slider'); ?>
-		<!-- </div> -->
-		<a href="products" class="yellow-button">Explore</a>
-	</div>
-
-
-	<!-- Meet the Team  -->
-	<div class="mtt-container">
-		<div class="mtt-header align-center">
-			<!-- get the post for meet the team  -->
-			<?php $meet_the_team = get_page_by_title('meet the leadership team', OBJECT, 'post') ?>
-
-			<h2 class="home mtt header yellow blue-line blue-line-center"><?php echo $meet_the_team->post_title; ?></h2>
-			<p class="home paragraph align-left content"><?php echo $meet_the_team->post_content; ?></p>
-		</div>
-		<div class="mtt-slider-container">
-			<div class="background-image" <?php echo "style='background-image: url(".get_the_post_thumbnail_url($meet_the_team->ID).");'"?>></div>
-			<div class="mtt-slider">
-				<?php get_template_part('template-parts/card', 'team'); ?>
-			</div>
-		</div>
-	</div>
-
-
-	<!-- Media -->
-	<div class="media-slider">
-	<h2 class="home description header blue yellow-line yellow-line-center align-center">Recent Media Posts</h2>
-		<?php dynamic_sidebar('media_slider'); ?>
 	</div>
 </div>

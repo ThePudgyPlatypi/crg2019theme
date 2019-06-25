@@ -14,9 +14,8 @@ a.blue-button,
 a.yellow-button,
 a.yellow-button-small,
 a.blue-button-small {
-    -webkit-transition: all 0.2s;
-    -o-transition: all 0.2s;
     transition: all 0.2s;
+    max-width: 200px;
 }
 
 a.blue-button {

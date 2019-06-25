@@ -22,74 +22,47 @@
 
 /* -------------------------------------O-------------------------------------------------------------------------------CARDS---------------------- */
 /* CARD STYLING */
-.card-container,
-.card-container-faq {
-    max-width: 20%;
-    /* height: 500px; */
-    margin-bottom: 40px;
-    display: inline-block;
-    vertical-align: top;
-}
 
-.card-table {
-    display: table;
-    max-width: 90%;
-    margin: 0 auto;
-    height: 1px;
-    margin-bottom: 60px;
-}
+.product-cards {
+    @include xy-grid;
+    @include xy-gutters($gutter-position: top left right bottom);
 
-.card-container {
-    margin: 0 auto;
-    padding: 10px 30px 30px 30px;
-}
+    .card {
+        @include xy-cell(12);
+        border: 0;
 
-.card-table .card-container {
-    display: table-cell;
-}
+        @include breakpoint(medium) {
+            @include xy-cell(6);
+        }
 
-.card-container-faq {
-    color: white;
-    padding: 40px 30px 0 30px;
-}
+        @include breakpoint(large) {
+            @include xy-cell(3);
+        }
 
-.card-container.mtt {
-    background-color: white;
-    margin-left: 40px;
-    margin-right: 40px;
-}
+        .card-section {
+            &.card-img {
+                
+                img {
+                    width: 100%;
+                    object-fit: fill;
+                }
+            }
 
-.card-img {
-    width: auto;
-    /* height: 170px; */
-}
+            &.card-title {
 
-.card-table .card-img img {
-    height: auto;
-}
+            
+            }
+            &.card-paragraph {
+                min-height: 300px;
+                
+                .align-right {
+                    
+                }
+            }
+        }
+    }
 
-.card-img.mtt {
-    /* height: 240px; */
-}
-
-.card-container-faq .card-title {
-    color: #ffc52a;
-}
-
-.MTTtitle {
-    font-size: 0.7em;
-    /* display: block; */
-    color: grey;
-}
-
-.card-paragraph.align-left .align-right {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    padding-right: 30px;
-}
-
-.card-paragraph p {
-    font-size: 0.75em;
-    min-height: 200px
+    .card-divider {
+        background: transparent;
+    }
 }

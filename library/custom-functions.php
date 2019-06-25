@@ -11,6 +11,15 @@ $partner_page = 42;
 $story_page = 36;
 
 
+// add social menu 
+// function register_my_menus() {
+// 	register_nav_menus(
+// 	  array(
+// 		'social' => __( 'Social' ),
+// 	   )
+// 	);
+// }
+// add_action( 'init', 'register_my_menus' );
 
 // adding widget area
 function crg_widgets() {
@@ -48,6 +57,15 @@ function crg_widgets() {
 		'before_widget' => '<div class="contact-info">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h3>',
+		'after_title'   => '</h3>',
+	) );
+	register_sidebar( array(
+		'name'          => "Footer",
+		'id'            => 'footer',
+		'description'   => esc_html__( 'Displays in footer area.'),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
 	) );
 }

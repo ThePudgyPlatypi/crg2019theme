@@ -64,6 +64,8 @@
 @import "global/wp-admin";
 @import "global/wp-overrides";
 @import "global/gutenberg";
+@import "global/custom-mixins";
+@import "global/globals";
 
 // Modules
 @import "modules/navigation";
@@ -77,11 +79,13 @@
 @import "components/featured-image";
 @import "components/dividers";
 @import "components/links";
+@import "components/custom-components";
+@import "components/forms";
 
 // Templates
 @import "templates/front";
 @import "templates/kitchen-sink";
 @import "templates/home";
+@import "templates/footer";
+@import "templates/banner-full";
 
-// Custom Styles
-@import "styles.scss";
