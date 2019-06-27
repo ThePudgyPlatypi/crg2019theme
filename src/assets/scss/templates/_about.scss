@@ -1,0 +1,10 @@
+.site-banner-content .site-banner-media .story {
+    .banner-video {
+        z-index: -1;
+        object-position: 50% 50%;
+    }
+}
+
+.story-container {
+    @include xy-grid-container;
+}

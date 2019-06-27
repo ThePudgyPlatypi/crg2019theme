@@ -14,30 +14,8 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'dyad' ); ?></a>
-	<header id="masthead" class="noHeader sticky site-header nav" role="banner">
-		<div class="desktop-nav">
-			<div class="site-branding">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-					<?php get_image("CRG Logo", "full","nav-logo bottom"); ?>
-                    <!-- <img id="nav-logo" class="bottom" src="http://crg-wordpress.net/wp-content/uploads/2018/04/Full-color-No-header-No-text.png" alt="CRG Logo"> -->
-                </a>
-			</div><!-- .site-branding -->
-
-			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'dyad' ); ?></button> -->
-				<?php wp_nav_menu( array(
-					'theme_location' => 'primary',
-					'menu_id' => 'primary-menu',
-					'container_class' => 'primary-menu',
-				) ); ?>
-			</nav>
-		</div>
-
-		<?php get_template_part( 'template-parts/mobile', 'nav' ); ?>
-
-	</header><!-- #masthead -->
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'foundation' ); ?></a>
+	<?php get_template_part( 'template-parts/navigation' ) ?>
 
 	<div class="site-inner">
-
 		<div id="content" class="site-content">

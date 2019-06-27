@@ -1,3 +1,17 @@
 // ++++++++++++++++++++++++++++
 // Components
 // ++++++++++++++++++++++++++++
+
+// Cards - Clients and Partners
+.partner-card,
+.client-card {
+    @include flex;
+    @include flex-align($x: center);
+    border: none;
+
+    .card-section {
+        img {
+            width: 100%;
+        }
+    }
+}

@@ -1,12 +1,39 @@
-.site-banner-content {
+.absolute-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    top: 0;
+}
 
+.site-banner-content {
     .site-banner-media {
         // @include xy-grid();
         @include xy-gutters($gutter-position: top left right);
         height: calc(100vh - #{$navHeight});
         position: relative;
         overflow: hidden;
-        border: 4px solid #E6E6E6;
+
+        .story {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+            img {
+                position: absolute;
+                z-index: -1;
+            }
+        }
+
+        .silver-border {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            border: 4px solid #E6E6E6;
+        }
 
         .banner-video, .video-ended-poster {
             object-fit: cover;
@@ -14,7 +41,7 @@
             position: absolute;
             height: 100vh;
             width: 100vw;
-            z-index: -1;
+            z-index: -2;
         }
 
         .mobile {
@@ -83,10 +110,10 @@
                 
                 .banner-title {
                     position: relative;
-                    margin-bottom: 10px;
                     line-height: 1rem;
-                    font-size: 1.5em;
-                    padding: 0 20px 20px 20px;
+                    font-size: 2rem;
+                    text-transform: uppercase;
+                    padding: 20px 20px 20px 20px;
 
                     &:after {
                         @include yellow-line-center();
@@ -95,6 +122,7 @@
 
                 strong {
                     font-size: 1.2rem;
+                    text-transform: lowercase;
                 }
 
                 a {
@@ -110,6 +138,7 @@
                 position: absolute;
                 bottom: 0;
                 right: 0;
+                z-index: -2;
                 background-color: black;
                 color: $light-gray;
                 padding: 20px;

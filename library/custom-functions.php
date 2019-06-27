@@ -158,4 +158,3 @@ function new_content_more($more) {
 	}
 }
 add_filter('the_content_more_link', 'new_content_more');
-

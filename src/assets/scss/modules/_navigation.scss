@@ -1,4 +1,4 @@
-$navHeight: 130px + 20px;
+$navHeight: 130px + 15px;
 
 // ========================
 // navigation
@@ -8,205 +8,228 @@ $navHeight: 130px + 20px;
     @include flex();
     @include flex-align($y: bottom);
     // @include xy-grid-container(100vw);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100vh;
 
     // Sticky Style
-    .sticky {
+    &.sticky {
+        @include flex;
         @include flex-align($y: top);
+        height: 80px;
         position: fixed;
-        min-height: 50px;
-        height: 50px;
-        padding: 5px 40px;
-        
-        .nav-logo {
-            position: absolute;
-            margin-top: -10px;
-            -webkit-transition: all 0.5s;
-            -o-transition: all 0.5s;
-            transition: all 0.5s;
-        }
+        width: 100%;
+        top: 0;
+        padding: 0;
+        z-index: 10;
 
-        & > .main-navigation ul li:hover > ul {
-            transform: translateY(0);
-            top: initial;
-            padding-bottom: 80px;
-        };
+        .grid-container .desktop-nav {
+            height: initial;
 
-        & > .main-navigation .page_item_has_children > li::after {
-            &:hover,
-            &:focus {
-                transform: translateY(10px);
+            .site-branding {
+                img {
+                    position: absolute;
+                    transform: translateY(23px);
+                }
+            }
 
-                &:before {
-                    transform: rotate(180deg) !important;
+            & .main-navigation .primary-menu .menu .menu-item-has-children:hover > .sub-menu {
+                transform: translateY(0);
+                margin: auto;
+                top: initial;
+                padding: 10px 0 80px 0;
+                background: url(../../../../../uploads/2018/05/grid_1.png) repeat, linear-gradient(to bottom, rgba(48,48,48,1) 1%,rgba(48,48,48,1) 50%,rgba(48,48,48,0.5) 80%,rgba(48,48,48,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00303030', endColorstr='#303030',GradientType=0 ); /* IE6-9 */
+
+                li:first-child {
+                    margin-top: 0;
+                }
+            };
+    
+            & .main-navigation .primary-menu .menu .menu-item-has-children {
+                &:hover,
+                &:focus  {
+                    & > li::after {
+                        transform: translateY(10px);
+                    }
+
+                    & a:before {
+                        transform: rotate(180deg) !important;
+                    }
                 }
             }
         }
-        
     }
 
-    .desktop-nav {
-        @include xy-grid();
-        background-color: white;
-        height: 130px;
-        width: 100vw;
+    .grid-container {
+        width: 100%;
+        position: relative;
 
-        .nav-logo {
-            width: 150px;
-        }
+        .desktop-nav {
+            @include xy-grid();
+            background-color: white;
+            height: 130px;
+            width: 100%;
 
-        .site-branding {
-            @include xy-cell(2);
-            transition: all 0.2s;
+            .site-branding {
+                @include xy-cell(2);
 
-            img {
-                width: 150px;
+                img {
+                    width: 150px;
+                    height: auto;
+                    transform-origin: center;
+                    transition: all 0.2s;
+                }
+
+                & a:hover img,
+                & a:focus img {
+                    transform: scale(1.2);
+                }
             }
 
-            &:hover,
-            &:focus {
-                transform: scale(1.2);
-            }
-        }
+            // #site-navigation
+            .main-navigation {
+                @include xy-cell(10);
+                color: #313131;
+                text-align: center;
+                
+                // #primary menu
+                .primary-menu {
+                    @include xy-grid;
 
-        // #site-navigation
-        .main-navigation {
-            @include xy-cell(10);
-            color: #313131;
-            text-align: center;
+                    ul.menu {
+                        @include xy-cell(12);
+                        @include flex;
+                        @include flex-align($x: right);
             
-            // #primary menu
-            .primary-menu {
-                @include xy-grid;
+                        // lil yellow bars under each item
+                        &:first-child {
+                            & > li {
+                                font-size: 1.2rem;
+                                text-transform: uppercase;
 
-                ul.menu {
-                    @include xy-cell(12);
-                    @include flex;
-                    @include flex-align($x: right);
-        
-                    // lil yellow bars under each item
-                    &:first-child {
-                        & > li {
-                            &:after {
-                                position: relative;
-                                z-index: 10;
-                                content: "";
-                                display: block;
-                                opacity: 0;
-                                transform: translateY(20px);
-                                width: 100%;
-                                height: 5px;
-                                background-color: #ffc52a;
-                                transition: all 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
-                            }
-    
-                            &:hover,
-                            &:focus {
+                                &.is-active:after,
                                 &:after {
-                                    transform: translateY(0px);
-                                    opacity: 1;
+                                    position: relative;
+                                    z-index: 10;
+                                    content: "";
+                                    display: block;
+                                    opacity: 0;
+                                    transform: translateY(20px);
+                                    width: 100%;
+                                    height: 5px;
+                                    background-color: #ffc52a;
+                                    transition: all 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+                                }
+                                
+                                &.is-active > a {
+                                    background-color: initial;
+                                    color: $primary-color;
+                                }
+
+                                &:hover,
+                                &:focus,
+                                &.is-active {
+                                    &:after {
+                                        transform: translateY(0px);
+                                        opacity: 1;
+                                    }
                                 }
                             }
                         }
-                    }
-    
-                    
-                    li {
-                        padding-top: 35px;
-                        margin-top: -20px;
-                        list-style: none;
-    
-                        &.menu-item-has-children {
-                            position: relative;
-
-                            a {
-                                @include flex;
-                            }
-                            
-                            & > a:before {
-                                content: "";
-                                display: inline-block;
-                                margin-right: 10px;
-                                width: 0; 
-                                height: 0; 
-                                border-left: 8px solid transparent;
-                                border-right: 8px solid transparent;
-                                border-bottom: 12px solid #ffc52a;
-                                transition: transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
-                                transition: transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1), -webkit-transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
-                            }
-    
-                            &:hover > ul {
-                                transform: translateY(calc(-100% - 35px));
-                                display: block;
-                            }
-    
-                            &:hover:before {
-                                transform: translateY(-5px);
-                            }
-
-                            // drop down box
-                            .sub-menu {
-                                display: none;
-                                position: absolute;
-                                z-index: 10;
-                                margin: 0;
-                                background: url(../../../../../uploads/2018/05/grid_1.png) repeat, -webkit-linear-gradient(top, rgba(48,48,48,0) 1%,rgba(48,48,48,0) 7%,rgba(48,48,48,1) 57%,rgba(48,48,48,1) 100%); /* Chrome10-25,Safari5.1-6 */
-                                background: url(../../../../../uploads/2018/05/grid_1.png) repeat, -webkit-gradient(linear, left top, left bottom, color-stop(1%, rgba(48,48,48,0)),color-stop(7%, rgba(48,48,48,0)),color-stop(57%, rgba(48,48,48,1)),to(rgba(48,48,48,1)));
-                                background: url(../../../../../uploads/2018/05/grid_1.png) repeat, -o-linear-gradient(top, rgba(48,48,48,0) 1%,rgba(48,48,48,0) 7%,rgba(48,48,48,1) 57%,rgba(48,48,48,1) 100%);
-                                background: url(../../../../../uploads/2018/05/grid_1.png) repeat, linear-gradient(to bottom, rgba(48,48,48,0) 1%,rgba(48,48,48,0) 7%,rgba(48,48,48,1) 57%,rgba(48,48,48,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00303030', endColorstr='#303030',GradientType=0 ); /* IE6-9 */
-                                // padding-bottom: 40px;
-                                // display: none;
-
-                                li {
-                                    // padding: 10px 0 10px 0;
-                                    background-color: initial;
-                                    text-align: center;
-                                    padding: 10px 0 10px 0;
         
-                                    &:first-child {
-                                        margin-top: 40px;
-                                    }
+                        
+                        li {
+                            list-style: none;
+                            padding-top: 14px;
+                            margin-top: -5px;
         
-                                    a {
-                                        color: white;
-                                        transition: all 0.2s;
+                            &.menu-item-has-children {
+                                position: relative;
+                                text-align: center;
+                                
+                                & > a:before {
+                                    content: "";
+                                    display: inline-block;
+                                    margin-right: 10px;
+                                    width: 0; 
+                                    height: 0; 
+                                    border-left: 8px solid transparent;
+                                    border-right: 8px solid transparent;
+                                    border-bottom: 12px solid #ffc52a;
+                                    transition: transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+                                    transition: transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1), -webkit-transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+                                }
         
-                                        &:hover,
-                                        &:focus {
-                                            transform: scale(1.1, 1.1); 
-                                            transform-origin: 35% 50%;
+                                &:hover > ul {
+                                    transform: translateY(-100%);
+                                    display: block;
+                                }
+        
+                                &:hover a:before {
+                                    transform: translateY(-5px);
+                                }
+
+                                // drop down box
+                                .sub-menu {
+                                    display: none;
+                                    position: absolute;
+                                    top: 0;
+                                    min-width: 200px;
+                                    z-index: 10;
+                                    margin: 0;
+                                    background: url(../../../../../uploads/2018/05/grid_1.png) repeat, -webkit-linear-gradient(top, rgba(48,48,48,0) 1%,rgba(48,48,48,0) 7%,rgba(48,48,48,1) 57%,rgba(48,48,48,1) 100%); /* Chrome10-25,Safari5.1-6 */
+                                    background: url(../../../../../uploads/2018/05/grid_1.png) repeat, -webkit-gradient(linear, left top, left bottom, color-stop(1%, rgba(48,48,48,0)),color-stop(7%, rgba(48,48,48,0)),color-stop(57%, rgba(48,48,48,1)),to(rgba(48,48,48,1)));
+                                    background: url(../../../../../uploads/2018/05/grid_1.png) repeat, -o-linear-gradient(top, rgba(48,48,48,0) 1%,rgba(48,48,48,0) 7%,rgba(48,48,48,1) 57%,rgba(48,48,48,1) 100%);
+                                    background: url(../../../../../uploads/2018/05/grid_1.png) repeat, linear-gradient(to bottom, rgba(48,48,48,0) 1%,rgba(48,48,48,0) 7%,rgba(48,48,48,1) 57%,rgba(48,48,48,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00303030', endColorstr='#303030',GradientType=0 ); /* IE6-9 */
+
+                                    li {
+                                        background-color: initial;
+                                        text-align: center;
+                                        padding: 10px 0 10px 0;
+                                        font-size: 1rem;
+
+                                        &.is-active a {
+                                            background-color: transparent;
+                                        }
+            
+                                        &:first-child {
+                                            margin-top: 40px;
+                                        }
+            
+                                        a {
+                                            color: white;
+                                            transition: all 0.2s;
+            
+                                            &:hover,
+                                            &:focus {
+                                                transform: scale(1.1, 1.1); 
+                                                transform-origin: 50% 50%;
+                                            }
                                         }
                                     }
                                 }
                             }
-                        }
-    
-                        a {
-                            padding: 0.5rem 2rem;
-                        }
-    
-                        &:hover,
-                        &:focus {
-    
-                            &:before {
-                                transform: translateY(-5px);
+        
+                            a {
+                                width: 100%;
+                                height: 100%;
+                            }
+        
+                            &:hover,
+                            &:focus {
+        
+                                &:before {
+                                    transform: translateY(-5px);
+                                }
+                            }
+        
+        
+                            & > li::after {
+                                
                             }
                         }
-    
-    
-                        & > li::after {
-                            
-                        }
                     }
-                }
-            } 
+                } 
+            }
         }
     }
 

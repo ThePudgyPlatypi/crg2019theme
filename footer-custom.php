@@ -21,6 +21,8 @@
 		</div>
 	</div>
 
+	
+
 	<div class="footer-contact-container" id="contact" style="<?php echo 'background-image: url('.get_image("footer", "full", null, "src").')' ?>">
 		<div class="footer-box-container" title="<?php the_title_attribute(); ?>">
 			<div class="overlay"></div>

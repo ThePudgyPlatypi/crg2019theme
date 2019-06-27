@@ -54,6 +54,9 @@ require_once( 'library/responsive-images.php' );
 /** Gutenberg editor support */
 require_once( 'library/gutenberg.php' );
 
+/** Custom post types */
+require_once( 'library/post-types.php' );
+
 /** Custom Functions from previous theme */
 require_once( 'library/custom-functions.php' );
 
