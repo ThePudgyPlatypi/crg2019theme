@@ -26,7 +26,14 @@ $navHeight: 130px + 15px;
             .site-branding {
                 img {
                     position: absolute;
-                    transform: translateY(23px);
+                    transform-origin: center;
+                    transition: all 0.2s;
+                    margin-top: 23px;
+
+                    & a:hover img,
+                    & a:focus img {
+                        transform: scale(1.2);
+                    }
                 }
             }
 
@@ -72,10 +79,14 @@ $navHeight: 130px + 15px;
                 @include xy-cell(2);
 
                 img {
-                    width: 150px;
+                    width: 100px;
                     height: auto;
                     transform-origin: center;
                     transition: all 0.2s;
+
+                    @include breakpoint(large) {
+                        width: 150px;
+                    }
                 }
 
                 & a:hover img,
@@ -87,7 +98,6 @@ $navHeight: 130px + 15px;
             // #site-navigation
             .main-navigation {
                 @include xy-cell(10);
-                color: #313131;
                 text-align: center;
                 
                 // #primary menu
@@ -102,8 +112,23 @@ $navHeight: 130px + 15px;
                         // lil yellow bars under each item
                         &:first-child {
                             & > li {
-                                font-size: 1.2rem;
                                 text-transform: uppercase;
+
+                                @include breakpoint(medium) {
+                                    font-size: 0.75rem;
+                                }
+
+                                @include breakpoint(large) {
+                                    font-size: 1rem;
+                                }
+
+                                @include breakpoint(xlarge) {
+                                    font-size: 1.2rem;
+                                }
+
+                                @include breakpoint(xxlarge) {
+                                    font-size: 1.3rem;
+                                }
 
                                 &.is-active:after,
                                 &:after {
@@ -121,7 +146,6 @@ $navHeight: 130px + 15px;
                                 
                                 &.is-active > a {
                                     background-color: initial;
-                                    color: $primary-color;
                                 }
 
                                 &:hover,
@@ -212,6 +236,7 @@ $navHeight: 130px + 15px;
                             a {
                                 width: 100%;
                                 height: 100%;
+                                color: #313131;
                             }
         
                             &:hover,
@@ -220,11 +245,6 @@ $navHeight: 130px + 15px;
                                 &:before {
                                     transform: translateY(-5px);
                                 }
-                            }
-        
-        
-                            & > li::after {
-                                
                             }
                         }
                     }

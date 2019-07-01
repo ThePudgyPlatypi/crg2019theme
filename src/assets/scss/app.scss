@@ -69,6 +69,7 @@
 
 // Modules
 @import "modules/navigation";
+@import "modules/mobile-navigation";
 @import "modules/content";
 @import "modules/footer";
 @import "modules/editor-style";
@@ -89,6 +90,7 @@
 @import "templates/about";
 @import "templates/footer";
 @import "templates/banner-full";
+@import "templates/banner-no";
 
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Oswald:300&display=swap');

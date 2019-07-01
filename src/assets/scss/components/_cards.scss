@@ -66,3 +66,63 @@
         background: transparent;
     }
 }
+
+.card-relative {
+  position: relative;
+}
+
+.hover-cards {
+  .partner-name-hover {
+    display: block;
+    position: absolute;
+    color: $secondary-color;
+    z-index: 100;
+    width: 100%; 
+    opacity: 0;
+    transition: 0.2s all;
+    transform: translateY(100%);
+    text-align: center;
+    background-color: $dark-gray;
+    padding: 10px;
+  }
+  
+  .card-section {
+    margin: 0 auto;
+
+    img {
+      max-width: 200px;
+      
+      @include breakpoint(medium) {
+        max-width: 300px;
+      }
+
+      @include breakpoint(medium) {
+        max-width: 400px;
+      }
+    }
+  }
+
+  .hover-card-activator {
+    width: 100%;
+    height: 100%;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.2);
+
+      img {
+        @include blur(5);
+      }
+
+      .partner-name-hover {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .card {
+    transition: 0.2s all;
+    position: relative;
+  }
+}

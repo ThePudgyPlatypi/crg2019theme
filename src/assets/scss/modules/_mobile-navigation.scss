@@ -1,0 +1,128 @@
+.site-header.mobile {
+    bottom: 0;
+    top: auto;
+    @include flex;
+    @include flex-direction(column);
+    text-align: center;
+
+    .title-bar[data-responsive-toggle="mobile-menu"] {
+        background-color: $secondary-color;
+        display: block;
+        order: 2;
+        width: 100%;
+        height: 50px;
+        padding: 0.1rem;
+
+        @include breakpoint(medium) {
+            order: 1;
+        }
+    
+        .title-bar-left {
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            @include flex;
+            @include flex-align($x: center, $y: middle);
+
+            .menu-icon {
+                width: 20%;
+                height: 100%;
+
+                &:after {
+                    top: 35%;
+                }
+            }
+
+            .site-mobile-title {
+                a {
+                    display: none;
+                }
+            }
+        }
+
+    
+    }
+
+    .site-navigation {
+        order: 1;
+        padding: 0;
+
+        @include breakpoint(medium) {
+            order: 2;
+        }
+
+        .top-bar-right {
+            &:before {
+                display: none;
+            }
+
+            .round-top {
+                display: none;
+            }
+
+            #menu-logo-container {
+                #menu-logo {
+                    display: none;
+                }
+            }
+
+            .mobile-menu {
+                ul {
+                    background-color: $dark-nav-color;
+
+                    li {
+                        a {
+                            color: white;
+                        }
+
+                        &.is-accordion-submenu-parent {
+                            &:focus,
+                            &:hover {
+                                & > a {
+                                    &:after {
+                                        transform: rotate(180deg);
+                                    }
+                                }
+                            }
+
+                            & > a {
+                                @include flex;
+                                @include flex-align($x: center, $y: middle);
+                                
+
+                                &:after {
+                                    content: '';
+                                    margin-left: 10px;
+                                    @include css-triangle(4px, $secondary-color, down);
+                                }
+                            }
+
+                            ul {
+                                &.menu.nested {
+                                    margin: 0;
+                                    background-color: $light-gray;
+                                }
+
+                                li {
+                                    a {
+                                        color: $dark-gray;
+                                    }
+
+                                    &.is-active{
+                                        & > a {
+                                            color: white;
+                                        }
+                                    }
+
+                                    ul.menu.nested {
+                                        background-color: white;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
