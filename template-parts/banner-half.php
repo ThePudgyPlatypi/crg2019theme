@@ -1,19 +1,21 @@
-<?php $faq_page = 114; ?>
-<div class="half-header-container align-center 
-    <?php if (is_page($faq_page)) { echo ("faq"); }; ?>" 
-    <?php if (is_page($faq_page)) { echo("style='background: #303030;'"); }
-    else { echo("style='background-image: url(".get_image("Media BG", "full", null, "src").")'"); }; ?>>
-    <?php get_template_part( 'template-parts/box', 'grid' ); ?>
-        <?php if ( is_home() ) { ?>
-            <div class="overlay"></div>
-            <div class="title">
-                <h1 class="header yellow blue-line blue-line-center"><?php single_post_title(); ?></h1>
-                <!-- CRG Logo -->
-                <?php get_image("CRG Logo", "large"); ?>
-            </div>
-        <?php 
-        } elseif (is_page($faq_page)) { ?>
-            <h1 class="header header-FAQ yellow blue-line blue-line-center align-center"><?php single_post_title(); ?></h1>
-            <?php get_template_part('template-parts/card', 'faq');
-        } ?>
+<div class="half-header-container grid-container full collaborative-response-graphic" style="background-image: url(<?php the_post_thumbnail_url(); ?>)">
+        <div class="overlay"></div>  
+        <?php if (is_page('Collaborative Response Graphics')) { ?>
+            <!-- video -->
+            <!-- header-video-container only here to get the ending video image in -->
+                <video autoplay muted loop preload="metadata" class="half-banner-video" <?php echo 'poster="'. get_the_post_thumbnail_url() .'"'?>>
+                    <source src="<?php bloginfo('template_url'); ?>\src\assets\images\CRG_map_Alex_VO.mp4" type="video/mp4">
+                </video> 
+        <?php } else if (is_page('Consulting Service, Policy Development, and Training')) { ?>
+            <!-- video -->
+            <!-- header-video-container only here to get the ending video image in -->
+                <video autoplay muted loop preload="metadata" class="half-banner-video" <?php echo 'poster="'. get_the_post_thumbnail_url() .'"'?>>
+                    <source src="<?php bloginfo('template_url'); ?>\src\assets\images\Crgtraining-720Gmail.m4v" type="video/mp4">
+                </video> 
+        <?php } else { ?>
+                <img class="grids" src="<?php bloginfo('template_url'); ?>\src\assets\images\svgGrid.png">
+        <?php } ?>
+        <div class="title">
+            <h1 class="header yellow blue-line blue-line-center"><?php single_post_title(); ?></h1>
+        </div>
 </div>

@@ -1,6 +1,5 @@
-
+.page-template-page-extra .wpcf7,
 .wpcf7 {
-
     .wpcf7-form {
         @include xy-grid;
         p {
@@ -39,6 +38,13 @@
                 }
             }
         }
+    }
+}
+
+.page-template-page-extra .entry-content-page {
+    .wpcf7 label {
+        color: $black !important;
+        text-align: center;
     }
 }
 

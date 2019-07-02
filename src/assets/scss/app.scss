@@ -82,15 +82,19 @@
 @import "components/links";
 @import "components/custom-components";
 @import "components/forms";
+@import "components/image-grid";
 
 // Templates
 @import "templates/front";
 @import "templates/kitchen-sink";
 @import "templates/home";
 @import "templates/about";
+@import "templates/product";
 @import "templates/footer";
 @import "templates/banner-full";
 @import "templates/banner-no";
+@import "templates/banner-small";
+@import "templates/page-extra";
 
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Oswald:300&display=swap');

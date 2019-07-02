@@ -1,0 +1,20 @@
+.page-template-page-extra {
+
+    .entry-content-page {
+
+        .page-extra-container {
+            @include xy-grid-container;
+        
+            .bp-contact-card {
+
+                div {
+                    text-align: center;
+                }
+
+                .bp-opening-hours {
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}

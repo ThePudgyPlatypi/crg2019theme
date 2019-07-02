@@ -1,9 +1,25 @@
 html {
     width: 100%;
     height: 100%;
+
+    .no-js {
+        // @include breakpoint(small only) {
+            #nav-bar {
+                display: none;
+                
+                ul {
+                    display: none;
+                }
+            }
+        // }
+    }
 }
 
 body {
+
+    .site-content {
+        margin-top: 0;
+    }
 
 }
 
@@ -35,6 +51,15 @@ h2 {
 
     @include breakpoint(large) {
         font-size: 3rem;
+    }
+}
+
+.entry-content-page {
+    // @include xy-grid-container;
+    // padding: 50px 30px 30px 50px;
+
+    @include breakpoint(medium) {
+        padding-top: 100px;
     }
 }
 
@@ -355,4 +380,8 @@ a {
     width: 200%;
     max-width: initial; 
     min-height: 200%;
+    
+    @include breakpoint(medium) {
+        
+    }
 }

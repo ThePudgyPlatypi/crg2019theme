@@ -8,11 +8,12 @@
 	
 	<body <?php body_class(); ?>>
 		<div id="page" class="hfeed site">
+			<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'foundation' ); ?></a>
 			<!-- Grab header that has title and images and such -->
 			<?php get_template_part( 'template-parts/banner', 'full' ) ?>
 			<?php get_template_part( 'template-parts/navigation' ) ?>
 
-			<div id="full-float-fix" class="site-inner">
+			<div class="site-inner">
 				<!-- Start of content DIV -->
 				<div id="content" class="site-content">
 		

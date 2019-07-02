@@ -6,18 +6,19 @@
             <?php if (is_page('Critical Response Group')) { ?>
                 <!-- video -->
                 <!-- header-video-container only here to get the ending video image in -->
-                
                 <video autoplay muted preload="metadata" id="myVideo" class="banner-video" <?php echo 'poster="'. get_image("poster4k", "full", null, "src") .'"'?>>
                     <source src="<?php bloginfo('template_url'); ?>\src\assets\images\HeaderVideo4k-4KMS-6mbps.mp4" type="video/mp4">
                 </video>
-            <?php } else { ?>
+            <?php } else if (is_page('about')) { ?>
                 <!-- <div class="story">  -->
                 <div class="story">
-                    <video autoplay loop muted class="banner-video" <?php echo 'poster="'. get_image("Corporate-Profile-e1550862641226", "full", null, "src") .'"'?>>
+                    <video autoplay loop muted class="banner-video" <?php echo 'poster="'. get_the_post_thumbnail_url() .'"'?>>
                         <source src="<?php bloginfo('template_url'); ?>\src\assets\images\Critical_Response_Group_Corporate_Profile.mp4" type="video/mp4">
                     </video>
                 </div>
-            <?php } ?>
+            <?php } else {
+                get_the_post_thumbnail();            
+            } ?>
         </div>
             
             <!-- grid overlay -->

@@ -72,11 +72,12 @@
 }
 
 .hover-cards {
+  
   .partner-name-hover {
     display: block;
     position: absolute;
     color: $secondary-color;
-    z-index: 100;
+    z-index: 9;
     width: 100%; 
     opacity: 0;
     transition: 0.2s all;
@@ -117,6 +118,7 @@
       .partner-name-hover {
         opacity: 1;
         transform: translateY(0);
+        opacity: 0.8;
       }
     }
   }

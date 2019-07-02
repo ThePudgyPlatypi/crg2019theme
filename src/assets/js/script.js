@@ -1,4 +1,5 @@
 import $ from 'jquery';
+"use strict";
 
 // FUNCTIONS
 function throttling(callback, limit, time) {
@@ -146,6 +147,13 @@ jQuery(document).ready(function($) {
                 $("#header-video-container").append("<img class='video-ended-poster' src='../wp-content/uploads/2019/06/HeaderMovie4k-Poster.jpg' alt='critical response group map image'>").fadeIn("slow");
             });
     };
+
+    // moving the figcaption into the anchor tag of gallery items to allow for linking clicking 
+    $(".blocks-gallery-item").each(function() {
+        let anchor = $(this).find("a");
+        let figcaption = $(this).find("figcaption");
+        $(anchor).append(figcaption);
+    });
 
 
     // RESIZE SCRIPT

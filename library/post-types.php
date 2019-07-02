@@ -157,6 +157,6 @@ function custom_post_type_team() {
         }
      
     add_action( 'init', 'custom_post_type_team', 0 );
-    add_action( 'init', 'custom_post_type_clients', 0 );
+    // add_action( 'init', 'custom_post_type_clients', 0 );
     add_action( 'init', 'custom_post_type_partners', 0 );
  ?>

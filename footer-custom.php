@@ -27,7 +27,7 @@
 		<div class="footer-box-container" title="<?php the_title_attribute(); ?>">
 			<div class="overlay"></div>
 			<!-- grid overlay -->
-			<img class="grids" src="<?php bloginfo('template_url'); ?>\src\assets\images\svgGrid.png">
+			<!-- <img class="grids" src="<?php bloginfo('template_url'); ?>\src\assets\images\svgGrid.png"> -->
 		</div>
 		<div class="footer-contact-main">
 			<div class="crg-center-logo-container footer">

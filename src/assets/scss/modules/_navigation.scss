@@ -24,6 +24,13 @@ $navHeight: 130px + 15px;
             height: initial;
 
             .site-branding {
+                display: none; 
+
+                @include breakpoint(middle) {
+                    @include xy-cell(2);
+                    display: flex;
+                }
+
                 img {
                     position: absolute;
                     transform-origin: center;
@@ -75,8 +82,22 @@ $navHeight: 130px + 15px;
             height: 130px;
             width: 100%;
 
+
+            &#mobile-switch {
+                display: none;
+
+                @include breakpoint(medium) {
+                    display: flex;
+                }
+            }
+
             .site-branding {
-                @include xy-cell(2);
+                display: none;
+
+                @include breakpoint(middle) {
+                    @include xy-cell(2);
+                    display: flex;
+                }
 
                 img {
                     width: 100px;
@@ -97,8 +118,12 @@ $navHeight: 130px + 15px;
 
             // #site-navigation
             .main-navigation {
-                @include xy-cell(10);
+                @include xy-cell(12);
                 text-align: center;
+
+                @include breakpoint(middle) {
+                    @include xy-cell(10);
+                }
                 
                 // #primary menu
                 .primary-menu {
@@ -107,7 +132,11 @@ $navHeight: 130px + 15px;
                     ul.menu {
                         @include xy-cell(12);
                         @include flex;
-                        @include flex-align($x: right);
+                        @include flex-align($x: center);
+
+                        @include breakpoint(middle) {
+                            @include flex-align($x: right);
+                        }
             
                         // lil yellow bars under each item
                         &:first-child {
@@ -115,7 +144,7 @@ $navHeight: 130px + 15px;
                                 text-transform: uppercase;
 
                                 @include breakpoint(medium) {
-                                    font-size: 0.75rem;
+                                    font-size: 0.65rem;
                                 }
 
                                 @include breakpoint(large) {
@@ -175,11 +204,17 @@ $navHeight: 130px + 15px;
                                     margin-right: 10px;
                                     width: 0; 
                                     height: 0; 
-                                    border-left: 8px solid transparent;
-                                    border-right: 8px solid transparent;
-                                    border-bottom: 12px solid #ffc52a;
+                                    border-left: 4px solid transparent;
+                                    border-right: 4px solid transparent;
+                                    border-bottom: 6px solid #ffc52a;
                                     transition: transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
                                     transition: transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1), -webkit-transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+                                    @include breakpoint(large) {
+                                        border-left: 8px solid transparent;
+                                        border-right: 8px solid transparent;
+                                        border-bottom: 12px solid #ffc52a;
+                                    }
                                 }
         
                                 &:hover > ul {
@@ -209,7 +244,19 @@ $navHeight: 130px + 15px;
                                         background-color: initial;
                                         text-align: center;
                                         padding: 10px 0 10px 0;
-                                        font-size: 1rem;
+                                        font-size: .65rem;
+
+                                        @include breakpoint(medium) {
+                                            font-size: .65rem;
+                                        }
+
+                                        @include breakpoint(middle) {
+                                            font-size: .75rem;
+                                        }
+
+                                        @include breakpoint(large) {
+                                            font-size: 1rem;
+                                        }
 
                                         &.is-active a {
                                             background-color: transparent;
@@ -222,6 +269,7 @@ $navHeight: 130px + 15px;
                                         a {
                                             color: white;
                                             transition: all 0.2s;
+                                            
             
                                             &:hover,
                                             &:focus {

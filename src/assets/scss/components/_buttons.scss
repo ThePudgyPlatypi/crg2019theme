@@ -15,7 +15,6 @@ a.yellow-button,
 a.yellow-button-small,
 a.blue-button-small {
     transition: all 0.2s;
-    max-width: 200px;
 }
 
 a.blue-button {
@@ -123,31 +122,4 @@ a.blue-button:focus {
 .textwidget .juicer-feed.slider .slick-next:before,
 .textwidget .juicer-feed.slider .slick-prev:before {
     content: none;
-}
-
-
-/* CLIENT/PARTNER/CONTACT/PRODUCT Page */
-
-.page-template-page-extra .site-content {
-    margin-top: 50px;
-}
-
-.entry-content-page {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 30px 0 30px;
-}
-
-.page-template-page-extra address {
-    color: #303030;
-    text-align: center;
-}
-
-.page-template-page-extra address .bp-opening-hours {
-    margin: 0 auto;
-    text-align: left;
-}
-
-.page-template-page-extra .wpcf7 {
-    text-align: center;
 }

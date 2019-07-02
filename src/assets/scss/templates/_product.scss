@@ -1,0 +1,18 @@
+.content-area.product {
+    .crg-header {
+        @include xy-grid;
+        text-align: center;
+        // margin: 0 auto;
+
+        h1 {
+            @include xy-cell(12);
+        }
+
+        a {
+            @include xy-cell(12);
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+    }
+}

@@ -1,0 +1,52 @@
+/* CLIENT/CONTACT/PRODUCT Page */
+.half-header-container {
+    height: 25vh;
+    // background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 0;
+    position: relative;
+    overflow: hidden;
+
+    @include breakpoint(medium) {
+        height: 50vh;
+    }
+
+    .grids {
+        z-index: 0;
+    }
+
+    .overlay {
+        z-index: 1;
+    }
+
+    .half-banner-video {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        z-index: 0;
+    }
+
+    .title {
+        @include flex;
+        @include flex-align($x: center, $y: middle);
+        height: 25vh;
+
+        @include breakpoint(medium) {
+            height: 50vh;
+        }
+
+        h1 {
+            z-index: 2;
+            font-size: 2rem;
+
+            @include breakpoint(medium) {
+                font-size: 6rem;
+            }
+        }
+    }
+}
+
+.small-header-none-product-container {
+    @include xy-grid-container;
+}
