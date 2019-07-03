@@ -1,7 +1,6 @@
 /* CLIENT/CONTACT/PRODUCT Page */
 .half-header-container {
     height: 25vh;
-    // background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 0;
@@ -22,7 +21,7 @@
 
     .half-banner-video {
         position: absolute;
-        width: 100%;
+        min-width: 100%;
         height: auto;
         z-index: 0;
     }
@@ -41,7 +40,11 @@
             font-size: 2rem;
 
             @include breakpoint(medium) {
-                font-size: 6rem;
+                font-size: 4rem;
+            }
+
+            @include breakpoint(middle) {
+                font-size: 5rem;
             }
         }
     }

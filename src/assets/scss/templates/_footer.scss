@@ -29,8 +29,11 @@
                     }
                     
                     a {
-                        @include xy-gutters($gutter-position: right left);
-                        display: inline-block;
+                        display: block;
+
+                        @include breakpoint(medium) {
+                            @include xy-gutters($gutter-position: right left);
+                        }
                     }
                 }
             }
@@ -93,6 +96,10 @@
                 display: block;
                 margin: 0 auto;
                 padding: 20px 0;
+
+                .bp-times {
+                    text-align: center;
+                }
             }
             
         }
@@ -123,6 +130,7 @@
 
                 aside {
                     padding: 0 40px 40px 40px;
+                    width: 100%;
 
                     @include breakpoint(medium) {
                         @include xy-cell(12);
@@ -147,7 +155,15 @@
             background-color: $blue-gray;
             color: $light-blue-gray;
             text-align: center;
-            padding: 20px 0;
+            padding-bottom: 60px;
+
+            @include breakpoint(medium) {
+                padding: 20px 0;
+            }
+
+            .site-info {
+                font-size: 0.75rem;
+            }
 
             @include social-media;
         }

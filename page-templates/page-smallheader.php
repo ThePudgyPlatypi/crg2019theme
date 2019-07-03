@@ -15,7 +15,8 @@ get_header('small');
 	            get_template_part('template-parts/content', 'product');
             } else { ?>
                 <div class="small-header-none-product-container">
-                   <?php the_content();  ?>
+                    <div class="page-content yellow-line yellow-line-center"><?php the_content(); ?></div>
+                   <?php get_template_part('template-parts/content'); ?>
                 </div>
             <?php }; ?> <!-- Page Content -->
         </div><!-- .entry-content-page -->

@@ -7,7 +7,6 @@ $navHeight: 130px + 15px;
 .site-header {
     @include flex();
     @include flex-align($y: bottom);
-    // @include xy-grid-container(100vw);
 
     // Sticky Style
     &.sticky {

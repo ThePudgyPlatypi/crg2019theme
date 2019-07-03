@@ -19,7 +19,7 @@
 	<body <?php body_class(); ?>>
 		<div id="page" class="hfeed site">
 			<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'dyad' ); ?></a>
-			<header id="masthead" class="noHeader sticky site-header nav" role="banner">
+			<header id="masthead" class="noHeader site-header nav" role="banner">
 				<div class="desktop-nav">
 					<div class="site-branding">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>">

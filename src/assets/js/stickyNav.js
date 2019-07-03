@@ -1,8 +1,9 @@
-jQuery(document).ready(function($) {
+$(document).ready(function() {
     var stickyNavTop = $('.desktop-nav').offset().top;
     var width = $(window).width();
     var isStuck = false;
-    // console.log("top offset: " + stickyNavTop + ", is stuck? " + isStuck);
+
+    console.log("top offset: " + stickyNavTop + ", is stuck? " + isStuck);
     if($('#masthead').hasClass('noHeader')) {
       isStuck = true;
     } else {
@@ -15,15 +16,15 @@ jQuery(document).ready(function($) {
           // console.log("sticky added");
         } else {
           $('#masthead').removeClass('sticky'); 
-          // console.log("sticky removed");
+          // console.log("sticky removed"); 
         }
       };
     
       stickyNav();
 
       $(window).resize(function() {
-        stickyNavTop = $('.desktop-nav').offset().top;
-        width = $(window).width();
+        // stickyNavTop = $('.desktop-nav').offset().top;
+        // width = $(window).width();
         // console.log("Resize: top offset: " + stickyNavTop + ", is stuck? " + isStuck);
         stickyNav();
       });

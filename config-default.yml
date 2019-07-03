@@ -28,9 +28,6 @@ PATHS:
   entries:
     - "src/assets/js/app.js"
     - "src/assets/js/script.js"
-    - "src/assets/js/navigationScript.js"
-    - "src/assets/js/resizeScript.js"
-    - "src/assets/js/slick.min.js"
     - "src/assets/js/stickyNav.js"
   # Paths for the package task to include/exclude in .zip archive
   package:

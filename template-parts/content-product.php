@@ -21,7 +21,7 @@
 
 <main id="primary" class="content-area product" role="main">
     <?php if(is_page($consultation_page)) { ?>
-        <div class="product-bullets-container">
+        <div class="product-bullets-container yellow-line yellow-line-center">
             <ul class="product-bullets">
                 <?php
 

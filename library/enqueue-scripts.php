@@ -57,10 +57,7 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 		// Enqueue Foundation scripts
 		wp_enqueue_script( 'foundation', get_stylesheet_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'app.js' ), array( 'jquery' ), '2.10.4', true );
 		wp_enqueue_script( 'script', get_stylesheet_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'script.js' ), array(), null , true );
-		wp_enqueue_script( 'navScript', get_stylesheet_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'navigationScript.js' ), array(), null , true );
 		wp_enqueue_script( 'navSticky', get_stylesheet_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'stickyNav.js' ), array(), null , true );
-		wp_enqueue_script( 'resize', get_stylesheet_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'resizeScript.js' ), array(), null , true );
-		wp_enqueue_script( 'slick', get_stylesheet_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'slick.min.js' ), array(), null , true );
 
 		// Enqueue FontAwesome from CDN. Uncomment the line below if you need FontAwesome.
 		wp_enqueue_script( 'fontawesome', 'https://kit.fontawesome.com/ff8eea03ea.js', array(), '5.9.0', true );
