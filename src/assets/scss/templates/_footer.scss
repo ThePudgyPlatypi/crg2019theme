@@ -165,7 +165,7 @@
                 font-size: 0.75rem;
             }
 
-            @include social-media;
+            @include social-media(center);
         }
     }
     

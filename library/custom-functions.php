@@ -11,16 +11,6 @@ $partner_page = 42;
 $story_page = 36;
 
 
-// add social menu 
-// function register_my_menus() {
-// 	register_nav_menus(
-// 	  array(
-// 		'social' => __( 'Social' ),
-// 	   )
-// 	);
-// }
-// add_action( 'init', 'register_my_menus' );
-
 // adding widget area
 function crg_widgets() {
 	register_sidebar( array(
@@ -152,7 +142,7 @@ add_filter('excerpt_more', 'new_excerpt_more');
 function new_content_more($more) {
 	global $post;
 	if (get_post_meta($post->ID, 'url', true)){
-		return '<div class="align-right"><a href="' .get_post_meta($post->ID, 'url', true). '" class="yellow-button-small">More<span class="screen-reader-text"> "' . get_the_title() . '"</span></a></div>';
+		return '<div><a href="' .get_post_meta($post->ID, 'url', true). '" class="yellow-button-small">More<span class="screen-reader-text"> "' . get_the_title() . '"</span></a></div>';
 	} else {
 		return '<a href="' .get_permalink($post->ID). '" class="yellow-button-small">More<span class="screen-reader-text"> "' . get_the_title() . '"</span></a>';;
 	}

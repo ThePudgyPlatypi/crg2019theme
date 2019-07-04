@@ -15,9 +15,9 @@ if ( $q->have_posts() ) {
     $q->the_post();
     $index = $q->current_post + 1; ?>
     <?php if ($index <= 2) {  ?>
-        <div class="card animation-element slide-left"> 
+        <div class="card animation-element slide-left" data-equalizer-watch> 
     <?php  } else { ?>
-        <div class="card animation-element slide-right">
+        <div class="card animation-element slide-right" data-equalizer-watch>
     <?php } ?>
             <div class="card-section card-img">
                 <?php the_post_thumbnail(); ?>
@@ -29,7 +29,7 @@ if ( $q->have_posts() ) {
                 </strong>
             </h3>
 
-            <div class="card-section card-paragraph align-left">
+            <div class="card-section card-paragraph">
                 <?php the_content(); ?>
             </div>
         </div>

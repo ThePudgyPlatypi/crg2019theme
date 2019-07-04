@@ -3,9 +3,9 @@
 	<?php 
 		// This is for the Collaborative response graphic image under products
 		// String must align with image title
-		$CRG_Home_image = "CRG Home Main Image";
+		$CRG_Home_image = "CRG-Home-Main-Image-Overlay";
 		// THis is for the background image behind the above image
-		$CRG_home_image_bg = "CRG Home Main Image BG";
+		$CRG_home_image_bg = "CRG-Home-Main-Image-BG";
 		// This is for the description and title of CRG's
 		$CRG_Product = "collaborative response graphics";
 		// This is for the description right after the main header taling about Critical Response Group
@@ -34,12 +34,15 @@
 		<h2 class="home description header blue yellow-line yellow-line-center align-center">Products</h2>
 	</div>
 
-	<div class="home products image-main" <?php echo 'style="background-image: url('. get_image($CRG_home_image_bg, "full", null, "src") .');"'?>>
+	<div class="home products image-main">
 		<!-- grid overlay -->
 		<img class="grids" src="<?php bloginfo('template_url'); ?>\src\assets\images\svgGrid.png">
 		
-		<div class="products-container main-container">
-			<div class="home products-img-container animation-element slide-up">
+		<div class="products-container">
+			<div class="home products-img-container-bg" >
+				<?php get_image($CRG_home_image_bg, "full", null); ?>
+			</div>
+			<div class="home products-img-container animation-element slide-up" >
 				<?php get_image($CRG_Home_image, "full", "home products-img"); ?>
 			</div>
 		</div>
@@ -61,7 +64,7 @@
 	<!-- PRODUCTS LIST AND CLIENT SLIDER -->
 	<div class="home other-products">
 		<div class="spacer"></div>
-		<div class="product-cards">
+		<div class="product-cards" data-equalizer>
 			<?php get_template_part('template-parts/card', 'product'); ?>
 		</div>
 	</div>

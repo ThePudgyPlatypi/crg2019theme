@@ -46,27 +46,47 @@
     overflow: hidden;
 
     &.image-main {
-        
-        background-position: 50% 0%;
-        max-height: 75vh;
+        // height: 70vh;
 
         @include breakpoint(medium) {
-            background-attachment: fixed;
         }
     }
 
     .grids {
-        z-index: 0;
+        z-index: 1;
     }
     
     .products-container {
         @include flex;
         @include flex-align($x: center);
+        position: relative;
         height: 100%;
+        width: 100%;        
 
-        img {
-            padding: 40px 0;
+        .products-img-container-bg {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+
+            img {
+                object-fit: cover;
+                object-position: center;
+          
+            }
         }
+
+        .products-img-container {
+            // position: absolute;
+            height: 100%;
+            max-width: 100%;
+
+            img {
+                object-fit: cover;
+                object-position: center;
+                
+            }
+        }
+
     }
 
     &.description-container {

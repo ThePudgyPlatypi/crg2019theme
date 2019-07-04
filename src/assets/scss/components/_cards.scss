@@ -29,6 +29,7 @@
 
     .card {
         @include xy-cell(12);
+        height: 100%;
         border: 0;
 
         @include breakpoint(medium) {
@@ -40,6 +41,9 @@
         }
 
         .card-section {
+          @include flex;
+          @include flex-direction(column);
+
             &.card-img {
                 
                 img {
@@ -49,14 +53,13 @@
             }
 
             &.card-title {
-
-            
             }
+
             &.card-paragraph {
-                min-height: 300px;
-                
-                .align-right {
-                    
+                div {
+                  margin-top: auto;
+                  width: 50%;
+                  
                 }
             }
         }

@@ -1,11 +1,19 @@
 // social media menu
-@mixin social-media() {
+@mixin social-media($alignment) {
     ul {
         @include flex;
-        @include flex-align($x: center);
+        @include flex-align($x: $alignment);
         li {
             list-style: none;
             padding: 20px 20px;
+
+            &:hover,
+            &:focus {
+                a {
+                    color: $secondary-color;
+                }
+            }
+
             a {
                 color: $light-blue-gray;
             }
