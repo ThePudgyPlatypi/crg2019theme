@@ -11,16 +11,22 @@ get_header('small');
     while ( have_posts() ) : the_post(); ?> <!--Because the_content() works only inside a WP Loop -->
 
         <div class="entry-content-page">
-            <?php if(is_page("Collaborative Response Graphics") || is_page("Consulting Service, Policy Development, and Training")) { ?>
+            <?php if(is_page("collaborative-response-graphics") || is_page("consultation-development-training")) { ?>
+
                 <?php get_template_part('template-parts/content', 'product'); ?>
-            <?php } elseif(is_page("Meet the Team") ) { ?>
+
+            <?php } elseif(is_page("meet-the-team") ) { ?>
+
                 <div class="small-header-none-product-container">
                     <div class="page-content yellow-line yellow-line-center">
                         <?php the_content(); ?>
                     </div>
+
                     <?php get_template_part('template-parts/content'); ?>
+
                 </div>
             <?php } else { ?>
+            
                 <div class="small-header-none-product-container">
                 <div class="page-content yellow-line yellow-line-center"></div>
                 <?php the_content(); ?>

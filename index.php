@@ -13,38 +13,54 @@
  * @since FoundationPress 1.0.0
  */
 
-get_header(); ?>
+get_header('small'); ?>
 
-<div class="main-container">
-	<div class="main-grid">
-		<main class="main-content">
-		<?php if ( have_posts() ) : ?>
+<div class="entry-content-page full">
+	<div class="post-grid">
+			<?php $news_cat_args = array(
+				'posts_per_page' => 10,
+				'order' => 'DESC',
+				'orderby' => 'post_date',
+				'cat' => get_cat_ID('Critical Response Group Post')
+			); 
+			
+			$news_cat = new WP_Query($news_cat_args);
+			?>
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
-			<?php endwhile; ?>
+			<?php if ( $news_cat->have_posts() ) { ?>
 
-			<?php else : ?>
+				<?php /* Start the Loop */ ?>
+				<?php while ( $news_cat->have_posts() ) { 
+					$news_cat->the_post(); ?>
+					<!-- testing out grid block, will need more elegant solution -->
+					<?php get_template_part( 'template-parts/content', 'block'); ?>
+					<?php //get_template_part( 'template-parts/content', get_post_format() ); ?>
+
+				<?php }; ?>
+
+				<?php wp_reset_postdata(); ?>
+
+			<?php } else { ?>
+
 				<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-			<?php endif; // End have_posts() check. ?>
+			<?php }; // End have_posts() check. ?>
 
 			<?php /* Display navigation to next/previous pages when applicable */ ?>
-			<?php
-			if ( function_exists( 'foundationpress_pagination' ) ) :
-				foundationpress_pagination();
-			elseif ( is_paged() ) :
-			?>
-				<nav id="post-nav">
-					<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
-					<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
-				</nav>
-			<?php endif; ?>
+	</div> <!-- end post grid -->
 
-		</main>
-		<?php get_sidebar(); ?>
+	<?php
+		if ( function_exists( 'foundationpress_pagination' ) ) :
+			foundationpress_pagination();
+		elseif ( is_paged() ) : ?>
+			<nav id="post-nav">
+				<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
+				<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
+			</nav>
+	<?php endif; ?>	
+		
+	<?php //get_sidebar(); ?>
 
-	</div>
 </div>
-<?php get_footer();
+
+<?php get_footer('custom');
