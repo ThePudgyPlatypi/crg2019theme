@@ -130,6 +130,28 @@ a {
     }
 }
 // ++++++++++++++++++++++++++++++++++++++++++++++++
+// Search
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+
+.search-widget {
+    display: flex;
+    justify-content: center;
+
+    input[value="Submit"] {
+        background: white;
+        border: 1px solid $light-gray;
+        padding: 10px;
+
+        &:hover,
+        &:focus {
+            background-color: $light-gray;
+        }
+    }
+}
+
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++
 // GRADIENTS and OVERLAYS
 // ++++++++++++++++++++++++++++++++++++++++++++++++
 .grey-gradient { /* FF3.6-15 */

@@ -1,4 +1,4 @@
-<<?php
+<?php
 /**
  * The template for displaying archive pages.
  *
@@ -9,33 +9,40 @@
 
 get_header('no'); ?>
 
-	<main id="primary" class="content-area" role="main">
 
-		<div id="posts" class="posts">
+<div class="entry-content-page full">
+	<div class="post-grid">
 
 			<?php if ( have_posts() ) : ?>
 
-				<header class="page-header">
-                    <h1 class="page-title blue yellow-line yellow-line-center">
-                        <?php printf( esc_html__( 'Search Results for: %s', 'dyad' ), '<span>' . get_search_query() . '</span>' ); ?>
-                    </h1>
-				</header><!-- .page-header -->
+				<div class="grid-container full">
+					<header class="page-header grid-y grid-padding-x align-center">
+						<h1 class="page-title blue yellow-line yellow-line-center">
+							<?php printf( esc_html__( 'Search Results for: %s', 'dyad' ), '<span>' . get_search_query() . '</span>' ); ?>
+						</h1>
 
+						<div class="search-widget">
+							<?php dynamic_sidebar( 'Post Widgets' ); ?>
+						</div>
+					</header><!-- .page-header -->
+				</div>
 
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+				<div class="post-wrapper">
+					<?php /* Start the Loop */ ?>
+					<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php
+						<?php
 
-						/*
-						 * Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'template-parts/content', 'blocks' );
-					?>
+							/*
+							* Include the Post-Format-specific template for the content.
+							* If you want to override this in a child theme, then include a file
+							* called content-___.php (where ___ is the Post Format name) and that will be used instead.
+							*/
+							get_template_part( 'template-parts/content', 'block' );
+						?>
 
-				<?php endwhile; ?>
+					<?php endwhile; ?>
+				</div>
 
 				<?php the_posts_navigation(); ?>
 
@@ -45,9 +52,9 @@ get_header('no'); ?>
 
 			<?php endif; ?>
 
-		</div><!-- .posts -->
+	</div><!-- .post-grid -->
 
-	</main><!-- #main -->
+</div><!-- #main -->
 
 
 <?php get_footer('custom'); ?>

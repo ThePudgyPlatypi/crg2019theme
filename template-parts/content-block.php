@@ -1,8 +1,7 @@
 <?php
 /**
- * Template part for displaying posts.
+ * Template part for displaying standard post.
  *
- * @package Dyad
  */
 
 ?>
@@ -18,10 +17,13 @@
 		<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnails' ); ?>
 
 		
-		<?php if($thumb) { ?>
+		<?php if(has_post_thumbnail()) { ?>
 			<!-- Thumbnial exists  -->
 			<div class="post-grid-block-inside-cell">
-				<div class="entry-media" <?php if (has_post_thumbnail()) { echo 'style="background-image: url(' . esc_url( $thumb['0'] ) . ')"'; } ?>></div>
+				<div class="entry-media">
+					<?php the_post_thumbnail('small');  ?>
+					<div class="overlay"></div>
+				</div>
 			</div>
 
 			<div class="post-grid-block-inside-cell">

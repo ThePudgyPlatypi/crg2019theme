@@ -1,5 +1,11 @@
-<div class="half-header-container grid-container full collaborative-response-graphic" style="background-image: url(<?php the_post_thumbnail_url(); ?>)">
+<?php 
+    // this will always get the ID of the current page instead of the post
+    $featured_image= get_queried_object_id();
+?>
+
+<div class="half-header-container grid-container full collaborative-response-graphic" style="background-image: url(<?php echo get_the_post_thumbnail_url($featured_image, "full"); ?>)">
         <div class="overlay"></div>  
+   
         <?php if (is_page('Collaborative Response Graphics')) { ?>
             <!-- video -->
             <!-- header-video-container only here to get the ending video image in -->
@@ -16,4 +22,6 @@
         <div class="title">
             <h1 class="header yellow blue-line blue-line-center"><?php single_post_title(); ?></h1>
         </div>
+
+        <?php print_r($featured_image); ?>
 </div>

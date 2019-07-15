@@ -36,16 +36,77 @@ function addUniqueIDCreator(element, prefix) {
     };
 }
 
-jQuery(document).ready(function($) {
-    // make page visible once all is loaded
-    $("html").css({opacity: 0, visibility: "visible"}).animate({opacity: 1}, 500);
+//chunking function
+function chunk (arr, len) {
 
-    moveFigcaptionIntoAnchor(".blocks-gallery-item", "a", "figcaption");
-    hiResVideoEnding("myVideo","#header-video-container", "../wp-content/uploads/2019/06/HeaderMovie4k-Poster.jpg");
-    
+    var chunks = [],
+        i = 0,
+        n = arr.length;
+  
+    while (i < n) {
+      chunks.push(arr.slice(i, i += len));
+    }
+  
+    return chunks;
+}
 
+function chunkAndReorder(arr, col, flipBlock) {
+    for(let reset of arr) {
+        $(reset).find(flipBlock).each(function(index) {
+            $(this).removeClass("reorder-1 reorder-2");
+        })
+    }
+    let threeArray = chunk(arr, col);
+    for(let i = 0; i < threeArray.length; i++) {
+        if(i % 2 !== 0) {
+            for(let change of threeArray[i]) {
+                $(change).find(flipBlock).last().addClass("reorder-1");
+                $(change).find(flipBlock).first().addClass("reorder-2");
+            }
+        }
+    }
+}
+
+//add classes to news page to flip text from right to left at different screen sizes
+function newsBlockFlip(container, block) {
+    let flipContainer = $(container);
+    let flipBlock = $(block);
+    let width = $(window).width();
+    let widths = {
+        medium: 640,
+        middle: 840,
+        large: 1024,
+        xlarge: 1200,
+        xxlarge: 1440,
+    };
+
+    let switcher = function() {
+        if(width > widths.xxlarge) {
+            chunkAndReorder(flipContainer, 3, flipBlock);
+        } else if (width > widths.large && width < widths.xxlarge) {
+            chunkAndReorder(flipContainer, 2, flipBlock);
+        } else if (width > widths.medium && width < widths.large) {
+            chunkAndReorder(flipContainer, 1, flipBlock);
+        } else {
+            for(let reset of flipContainer) {
+                $(reset).find(flipBlock).each(function(index) {
+                    $(this).removeClass("reorder-1 reorder-2");
+                })
+            }
+        }
+    };
+
+    $(window).resize(function() {
+        width = $(window).width();
+        switcher();
+    });
+
+    switcher();
+}
+
+function animationEvent(animationClass) {
     // Cache all animated elements
-    var $animation_elements = $('.animation-element');
+    var $animation_elements = $(animationClass);
     // var $animation_elements_quick = $('.animation-element-quick');
     var $window = $(window);
     var $window_width = $window.width();
@@ -103,4 +164,43 @@ jQuery(document).ready(function($) {
     } else {
         check_if_in_view();
     };
+}
+
+$(document).ready(function($) {
+    // make page visible once all is loaded
+    $("html").css({opacity: 0, visibility: "visible"}).animate({opacity: 1}, 500);
+
+    moveFigcaptionIntoAnchor(".blocks-gallery-item", "a", "figcaption");
+
+    hiResVideoEnding("myVideo","#header-video-container", "../wp-content/uploads/2019/06/HeaderMovie4k-Poster.jpg");
+
+    newsBlockFlip(".post-grid-block-inside", ".post-grid-block-inside-cell");
+
+    animationEvent('.animation-element');
+
+    // Colored slide up thing on news page
+    let colorArray = [
+        "#23408a",
+        "#8a6d23",
+        "#408a23",
+        "#6d238a", 
+        "#ffffff",
+        "#23408a",
+        "#ffc52a",
+        "#3adb76",
+        "#ffae00",
+        "#cc4b37"
+    ];
+
+    $(".cover-link").hover(function() {
+        let overlay = $(this).siblings(".post-grid-block-inside-cell").children(".entry-media").children(".overlay");
+        if($(overlay).is(":hidden")) {
+            $(overlay).css("background", colorArray[Math.floor(Math.random() * 10)]).slideDown(200);
+        }
+    }, function() {
+        let overlay = $(this).siblings(".post-grid-block-inside-cell").children(".entry-media").children(".overlay");
+        if($(overlay).is(":visible")) {
+            $(overlay).slideUp(200);
+        }
+    });
 });

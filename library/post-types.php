@@ -181,9 +181,9 @@ function custom_post_type_resources() {
         'description'         => __( 'Resources of Critical Response Group', 'CRG2019' ),
         'labels'              => $labels,
         // Features this CPT supports in Post Editor
-        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'post-formats'),
         // You can associate this CPT with a taxonomy or custom taxonomy. 
-        'taxonomies'          => array( 'category' ),
+        'taxonomies'          => array( 'category' , 'post_tag'),
         /* A hierarchical CPT is like Pages and can have
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.

@@ -15,30 +15,37 @@
 
 get_header('small'); ?>
 
+<div class="search-widget">
+	<?php dynamic_sidebar( 'Post Widgets' ); ?>
+</div>
+
 <div class="entry-content-page full">
 	<div class="post-grid">
-			<?php $news_cat_args = array(
-				'posts_per_page' => 10,
+
+		<div class="post-wrapper">
+			<?php 
+			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+			$news_cat_args = array(
+				'posts_per_page' => 9,
+				'paged' => $paged,
 				'order' => 'DESC',
 				'orderby' => 'post_date',
-				'cat' => get_cat_ID('Critical Response Group Post')
+				'category_name' => 'crg_post'
 			); 
 			
-			$news_cat = new WP_Query($news_cat_args);
+			$wp_query = new WP_Query($news_cat_args);
 			?>
 
-			<?php if ( $news_cat->have_posts() ) { ?>
+			<?php if ( $wp_query->have_posts() ) { ?>
 
 				<?php /* Start the Loop */ ?>
-				<?php while ( $news_cat->have_posts() ) { 
-					$news_cat->the_post(); ?>
+				<?php while ( $wp_query->have_posts() ) { 
+					$wp_query->the_post(); ?>
 					<!-- testing out grid block, will need more elegant solution -->
 					<?php get_template_part( 'template-parts/content', 'block'); ?>
 					<?php //get_template_part( 'template-parts/content', get_post_format() ); ?>
 
 				<?php }; ?>
-
-				<?php wp_reset_postdata(); ?>
 
 			<?php } else { ?>
 
@@ -46,7 +53,8 @@ get_header('small'); ?>
 
 			<?php }; // End have_posts() check. ?>
 
-			<?php /* Display navigation to next/previous pages when applicable */ ?>
+			<?php wp_reset_postdata(); ?>
+		</div>
 	</div> <!-- end post grid -->
 
 	<?php
