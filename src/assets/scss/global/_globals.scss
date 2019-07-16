@@ -30,6 +30,15 @@ body {
         @include xy-grid-container;
         padding: 0 0 50px 0;
     }
+
+    &.archive .page-content {
+        padding-left: 30px;
+        padding-right: 30px;
+        
+        @include breakpoint(medium) {
+            padding: 0 0 50px 0;
+        }
+    }
 }
 
 h1 {
@@ -63,8 +72,17 @@ h2 {
     }
 }
 
-.entry-content-page {
+.blog .entry-content-page {
     // @include xy-grid-container;
+    padding-top: 0;
+
+    @include breakpoint(medium) {
+        padding-top: 40px;
+    }
+}
+
+.archive .entry-content-page,
+.search .entry-content-page  {
     padding-top: 50px;
 
     @include breakpoint(medium) {
@@ -115,7 +133,7 @@ ul, ol {
     display: block;
     width: 300px;
     height: 2px;
-    
+    transition: all 0.2s ease-in-out;
 }
 
 .spacer {
@@ -136,11 +154,108 @@ a {
 .search-widget {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+}
 
+.searchandfilter {
     input[value="Submit"] {
         background: white;
         border: 1px solid $light-gray;
         padding: 10px;
+        margin: 0 auto;
+
+        &:hover,
+        &:focus {
+            background-color: $light-gray;
+        }
+    }
+
+    div {
+        display: block;
+        padding-right: rem-calc(30);
+        padding-left: rem-calc(30);
+
+        @include breakpoint(medium) {
+            display: flex;
+            justify-content: center;
+        }
+
+        ul {
+            @include flex;
+            flex-direction: column;
+            padding-top: rem-calc(30);
+
+            li {
+                padding: 0;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+
+            li:last-child {
+                margin: 0 auto;
+                padding-bottom: rem-calc(30);
+
+                @include breakpoint(medium) {
+                    padding-bottom: 0;
+                }
+
+                br {
+                    display: none;
+                }
+            }
+            
+            @include breakpoint(medium) {
+                flex-direction: row;
+            }
+        }
+    }
+}
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+// NewsLetter WIDGET
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+.post-widget-container {
+    @include xy-grid-container;
+    border: 1px solid $CRG-gray;
+    padding: rem-calc(30);
+    text-align: center;
+    margin-bottom: rem-calc(30);
+
+    h6 {
+        font-size: 2rem;
+    }
+
+    .mc4wp-form-fields {
+        .mailchimp-signup {
+            @include xy-grid;
+            margin: 0 auto;
+            width: 90%;
+
+            @include breakpoint(medium) {
+                width: 50%;
+            }
+            
+            
+            div {
+                @include xy-cell(12);
+            }
+
+            p {
+                @include xy-cell(12);
+            }
+
+            p:last-child {
+                @include xy-cell(12);
+            }
+        }
+    }
+
+    input[value="Sign up"] {
+        background: white;
+        border: 1px solid $light-gray;
+        padding: 10px;
+        margin: 0 auto;
 
         &:hover,
         &:focus {
@@ -148,8 +263,6 @@ a {
         }
     }
 }
-
-
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++
 // GRADIENTS and OVERLAYS

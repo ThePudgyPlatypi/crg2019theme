@@ -243,3 +243,26 @@ function dyad_categorized_blog() {
 		return false;
 	}
 }
+
+function prefix_category_title( $title ) {
+    if ( is_category() ) {
+        $title = single_cat_title( '', false );
+    }
+    return $title;
+}
+add_filter( 'get_the_archive_title', 'prefix_category_title' );
+
+
+// add in custom post type to standard loop query
+function query_post_type($query) {
+	if( is_archive() && (is_category() || is_tag()) && empty( $query->query_vars['suppress_filters'] ) ) {
+		$post_type = get_query_var('post_type');
+		if($post_type)
+			$post_type = $post_type;
+		else
+			$post_type = array('post','attachment','resources');
+		$query->set('post_type',$post_type);
+		return $query;
+	}
+}
+add_filter('pre_get_posts', 'query_post_type');

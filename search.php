@@ -17,12 +17,12 @@ get_header('no'); ?>
 
 				<div class="grid-container full">
 					<header class="page-header grid-y grid-padding-x align-center">
-						<h1 class="page-title blue yellow-line yellow-line-center">
-							<?php printf( esc_html__( 'Search Results for: %s', 'dyad' ), '<span>' . get_search_query() . '</span>' ); ?>
+						<h1 class="page-title blue yellow-line yellow-line-center text-center">
+							<?php printf( esc_html__( 'Search Results for: %s', 'CRG_2019' ), '<span>' . get_search_query() . '</span>' ); ?>
 						</h1>
 
 						<div class="search-widget">
-							<?php dynamic_sidebar( 'Post Widgets' ); ?>
+							<?php dynamic_sidebar( 'search-all-widget' ); ?>
 						</div>
 					</header><!-- .page-header -->
 				</div>
@@ -43,8 +43,17 @@ get_header('no'); ?>
 
 					<?php endwhile; ?>
 				</div>
-
-				<?php the_posts_navigation(); ?>
+				<?php /* Display navigation to next/previous pages when applicable */ ?>
+					<?php
+					if ( function_exists( 'foundationpress_pagination' ) ) :
+						foundationpress_pagination();
+					elseif ( is_paged() ) :
+					?>
+						<nav id="post-nav">
+							<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
+							<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
+						</nav>
+				<?php endif; ?>
 
 			<?php else : ?>
 

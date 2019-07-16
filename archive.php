@@ -27,10 +27,14 @@ get_header('no'); ?>
 							the_archive_title( '<h1 class="cell small-12 text-center page-title blue yellow-line yellow-line-center">', '</h1>' );
 							the_archive_description( '<div class="cell small-12 text-center taxonomy-description">', '</div>' );
 						?>
+
+						<div class="search-widget">
+							<?php dynamic_sidebar( 'search-all-widget' ); ?>
+						</div>
 					</header><!-- .page-header -->
 				</div>
 
-			<div class="post-wrapper">
+				<div class="post-wrapper">
 					<?php /* Start the Loop */ ?>
 					<?php while ( have_posts() ) : the_post(); ?>
 							<?php

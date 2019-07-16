@@ -25,6 +25,22 @@ get_header('small');
                     <?php get_template_part('template-parts/content'); ?>
 
                 </div>
+            <?php } elseif(is_page("database") ) { ?>
+                <div class="search-widget">
+                    <?php dynamic_sidebar( 'search-all-widget' ); ?>
+                </div>
+                
+                <div class="grid-container">
+                    <div class="resource-wrapper">
+
+                        <?php get_template_part('template-parts/content', 'block-resource'); ?>
+
+                    </div>
+                </div>
+
+                <div class="post-widget-container">
+                    <?php dynamic_sidebar( 'post-widgets' ); ?>
+                </div>
             <?php } else { ?>
             
                 <div class="small-header-none-product-container">

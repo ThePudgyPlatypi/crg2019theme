@@ -96,13 +96,22 @@ Individual post stylings
 
             .entry-meta {
                 .cat-links {
+                    display: flex;
+                    justify-content: left;
+                    align-content: flex-start;
+                    flex-wrap: wrap;
 
                     a {
-                        padding: 13px 15px;
+                        flex: 0 0 auto;
+                        padding: 7px 10px;
+                        font-size: 0.75rem;
+                        margin: 14px 7px 0 7px;
                         background-color: $secondary-color; 
-                        width: 100%;
-                        height: 100%;
                         color: $white;
+
+                        @include breakpoint(medium) {
+                            font-size: 1rem;
+                        }
 
                         &:hover,
                         &:focus {
@@ -150,8 +159,12 @@ Individual post stylings
         }
 
         .entry-content{
-            padding-top: rem-calc(100);
-            
+            padding-top: rem-calc(50);
+
+            nav {
+                padding-top: rem-calc(30);
+            }
+
             .nav-links {
                 position: relative;
                 margin: 2em auto 0;

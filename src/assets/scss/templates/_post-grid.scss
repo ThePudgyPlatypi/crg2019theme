@@ -5,6 +5,7 @@ of the Resource center.
 
 */
 
+// NEWS PAGE
 .post-grid {
     @include xy-grid();
     flex-direction: column;
@@ -34,6 +35,7 @@ of the Resource center.
             @include xy-grid();
             @include flex;
             height: 100%;
+            width: 100%;
             position: relative;
             margin: 0 auto;
 
@@ -126,6 +128,7 @@ of the Resource center.
                                 position: absolute;
                                 width: 50px;
                                 z-index: 1;
+                                transition: 0.2s all ease-in-out;
                             }
         
                             &:after {
@@ -187,21 +190,23 @@ of the Resource center.
                 z-index: 2;
 
                 &:hover ~ .no-thumbnail,
-                &:focus ~ .no-thumbnail  {
+                &:focus ~ .no-thumbnail {
                     .entry-content {
                         &:before {
                             transform-origin: center center;
                             transform: translate(-50%, -55px) rotate(90deg);
-                            transition: 0.2s all ease-in-out;
                         }
+                    }
+
+                    h4:after {
+                        width: 150px;
                     }
                 }
 
                 &:hover,
                 &:focus {
                     & ~ .post-grid-block-inside-cell .entry-media img {
-                       @include blur(5);
-                        transform: scale(1.05);
+                       transform: scale(1.05);
                     }
                 }
             }
@@ -211,4 +216,113 @@ of the Resource center.
 
 nav[aria-label="Pagination"] {
     padding: rem-calc(20);
+}
+
+//Resource page
+.resource-wrapper {
+    @include xy-grid;
+    justify-content: center;
+}
+
+.resource-grid-block {
+    @include xy-cell(12);
+
+    @include breakpoint(medium) {
+        @include xy-cell(6);
+    }
+
+    @include breakpoint(middle) {
+        @include xy-cell(4);
+    }
+
+    .post-grid-block-inside {
+        padding: 50px;
+        display: flex;
+        justify-content: center;
+
+        .post-grid-block-inside-cell {
+            align-self: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            height: 350px;
+            width: 350px;
+            min-height: 350px;
+            min-width: 350px;
+            padding: 20px;
+            transition: all 0.2s ease-in-out;
+
+            @include breakpoint(medium) {
+                min-height: 250px;
+                min-width: 250px;
+                height: 250px;
+                width: 250px;
+            }
+
+
+            &:hover,
+            &:focus {
+                border-radius: 100%;
+            }
+
+            a.cover-link {
+                z-index: 2;
+            }
+           
+            a.cover-link, 
+            .background {
+                bottom: 0;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                opacity: 0;
+                transition: all 0.2s ease-in-out;
+
+
+                &:hover,
+                &:focus {
+                    
+                    & ~ .entry-inner {
+                        color: white;
+                    }
+
+                    & ~ .background {
+                        opacity: 0.8;
+                        border-radius: 100%;
+                    }
+                }
+            }
+
+            .entry-inner {
+                align-self: center;
+                z-index: 1;
+                
+
+                .entry-inner-content {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: left;
+    
+                    .entry-header,
+                    .entry-content {
+                        text-align: center;
+                        font-size: 1.2rem;
+
+                        @include breakpoint(medium) {
+                            font-size: 1rem;
+                        }
+                    }
+
+                    h4 {
+                        font-size: 2rem;
+
+                        @include breakpoint(medium) {
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

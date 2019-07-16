@@ -12,7 +12,7 @@
 	
 	<body <?php body_class(); ?>>
 		<div id="page" class="hfeed site">
-			<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'foundation' ); ?></a>
+			<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'foundationpress' ); ?></a>
 			<?php get_template_part( 'template-parts/navigation' ) ?>
 
 			<div class="site-inner">

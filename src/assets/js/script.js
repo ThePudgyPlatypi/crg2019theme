@@ -184,7 +184,7 @@ $(document).ready(function($) {
         "#8a6d23",
         "#408a23",
         "#6d238a", 
-        "#ffffff",
+        "#989898",
         "#23408a",
         "#ffc52a",
         "#3adb76",
@@ -192,15 +192,27 @@ $(document).ready(function($) {
         "#cc4b37"
     ];
 
-    $(".cover-link").hover(function() {
+    $(".blog .cover-link").hover(function() {
         let overlay = $(this).siblings(".post-grid-block-inside-cell").children(".entry-media").children(".overlay");
         if($(overlay).is(":hidden")) {
-            $(overlay).css("background", colorArray[Math.floor(Math.random() * 10)]).slideDown(200);
+            $(overlay).css("background", colorArray[Math.floor(Math.random() * 10)]).fadeIn(200);
         }
     }, function() {
         let overlay = $(this).siblings(".post-grid-block-inside-cell").children(".entry-media").children(".overlay");
         if($(overlay).is(":visible")) {
-            $(overlay).slideUp(200);
+            $(overlay).fadeOut(200);
         }
+    });
+
+    $(".resource-grid-block .post-grid-block-inside-cell").each(function(index){
+        if(index > 9) {
+            index = index - 9;
+        };
+
+        $(this).css("border", `1px solid ${colorArray[index]}`);
+    });
+
+    $(".resource-grid-block .background").each(function(index) {
+        $(this).css("background", colorArray[index]);
     });
 });

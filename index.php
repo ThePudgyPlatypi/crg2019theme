@@ -15,8 +15,8 @@
 
 get_header('small'); ?>
 
-<div class="search-widget">
-	<?php dynamic_sidebar( 'Post Widgets' ); ?>
+<div class="search-widget yellow-line yellow-line-center">
+	<?php dynamic_sidebar( 'search-all-widget' ); ?>
 </div>
 
 <div class="entry-content-page full">
@@ -68,7 +68,10 @@ get_header('small'); ?>
 	<?php endif; ?>	
 		
 	<?php //get_sidebar(); ?>
-
+	
+	<div class="post-widget-container">
+		<?php dynamic_sidebar( 'post-widgets' ); ?>
+	</div>
 </div>
 
 <?php get_footer('custom');
