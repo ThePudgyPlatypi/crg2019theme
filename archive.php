@@ -44,11 +44,13 @@ get_header('no'); ?>
 								* If you want to override this in a child theme, then include a file
 								* called content-___.php (where ___ is the Post Format name) and that will be used instead.
 								*/
-								get_template_part( 'template-parts/content', 'block' );
+								$format = get_post_format() ? : 'standard';
+								get_template_part( 'template-parts/content', $format );
 							?>
 					<?php endwhile; ?>
 				
-
+				</div>
+				
 					<?php /* Display navigation to next/previous pages when applicable */ ?>
 						<?php
 						if ( function_exists( 'foundationpress_pagination' ) ) :
@@ -66,7 +68,8 @@ get_header('no'); ?>
 					<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
 				<?php endif; ?>
-			</div>
-		</div><!-- .posts -->
-	</div><!-- #main -->
+			
+	</div><!-- .posts -->
+</div><!-- #main -->
+
 <?php get_footer('custom');

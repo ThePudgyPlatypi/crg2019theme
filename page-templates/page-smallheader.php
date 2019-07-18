@@ -13,36 +13,45 @@ get_header('small');
         <div class="entry-content-page">
             <?php if(is_page("collaborative-response-graphics") || is_page("consultation-development-training")) { ?>
 
+                <!-- PRODUCTS CONTENT -->
                 <?php get_template_part('template-parts/content', 'product'); ?>
 
             <?php } elseif(is_page("meet-the-team") ) { ?>
 
+                <!-- MEET THE TEAM -->
                 <div class="small-header-none-product-container">
                     <div class="page-content yellow-line yellow-line-center">
                         <?php the_content(); ?>
                     </div>
-
+                    
                     <?php get_template_part('template-parts/content'); ?>
 
                 </div>
             <?php } elseif(is_page("database") ) { ?>
+                
+                <!-- RESOURCE CENTER -->
                 <div class="search-widget">
                     <?php dynamic_sidebar( 'search-all-widget' ); ?>
                 </div>
-                
-                <div class="grid-container">
-                    <div class="resource-wrapper">
+                <div class="entry-content-page full">
+	                <div class="post-grid">
+                        <div class="grid-container">
+                            <div class="resource-wrapper">
 
-                        <?php get_template_part('template-parts/content', 'block-resource'); ?>
-
+                                <?php get_template_part('template-parts/content', 'block-resource'); ?>
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="post-widget-container">
                     <?php dynamic_sidebar( 'post-widgets' ); ?>
                 </div>
+
             <?php } else { ?>
-            
+                
+                <!-- DEFAULT -->
                 <div class="small-header-none-product-container">
                 <div class="page-content yellow-line yellow-line-center"></div>
                 <?php the_content(); ?>

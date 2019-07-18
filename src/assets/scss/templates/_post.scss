@@ -5,7 +5,7 @@ Individual post stylings
 */
 
 // standard post
-.post {
+.post, .resources {
     @include xy-grid;
     margin-top: 0;
 
@@ -83,6 +83,11 @@ Individual post stylings
         @include xy-cell(12, $gutters: 100);
         padding-top: rem-calc(60);
         margin: 0 auto;
+
+        &:before, 
+        &:after {
+            display: none;
+        }
 
         @include breakpoint(large) {
             @include xy-cell(6, $gutters: 100);
@@ -214,15 +219,6 @@ Individual post stylings
                 }
             }
 
-            .nav-previous {
-
-
-            }
-
-            .nav-next {
-
-            }
-
             .nav-subtitle {
                 color: #9da5ad;
                 display: block;
@@ -246,6 +242,8 @@ Individual post stylings
                 a {
                     background-color: $primary-color;
                     padding: 10px 15px;
+                    margin: 5px 10px 0 0;
+                    font-size: 0.9rem;
                     color: $white;
                     border-radius: 50px;
 
@@ -255,6 +253,29 @@ Individual post stylings
                     }
                 }
             }
+        }
+    }
+}
+
+.format-link {
+    
+}
+
+.format-video {
+
+    .iframe-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
     }
 }

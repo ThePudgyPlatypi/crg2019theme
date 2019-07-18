@@ -12,9 +12,10 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-<!-- FOR TEAM MEMBERS PAGE -->
+
 	<?php if(is_page("meet-the-team")) { ?>
+		<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+		<!-- FOR TEAM MEMBERS PAGE -->
 		<?php get_template_part('template-parts/content', 'team-members-grid'); ?>
 	<?php } else { ?>
 		<header>

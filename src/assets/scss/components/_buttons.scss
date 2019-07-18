@@ -45,6 +45,15 @@ a.yellow-button-small {
     background-color: #ffc52a;
 }
 
+@mixin blueButton-small() {
+    margin: 20px 0;
+    padding: 6px 50px;
+    font-size: 0.75em;
+    color: white;
+    text-align: center;
+    background-color: $primary-color;
+}
+
 a.yellow-button.yellow-button-solid {
     background-color: rgba(255,197,42,0.7);
     color: #303030;

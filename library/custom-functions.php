@@ -186,7 +186,7 @@ if ( ! function_exists( 'dyad_entry_meta' ) ) :
 	 */
 	function dyad_entry_meta() {
 		// Hide category and tag text for pages.
-		if ( 'post' == get_post_type() ) {
+		if ( 'post' == get_post_type() || 'resources' == get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( esc_html__( ' ', 'dyad' ) );
 			if ( $categories_list && dyad_categorized_blog() ) {
@@ -203,7 +203,7 @@ if ( ! function_exists( 'dyad_post_footer' ) ) :
 	 */
 	function dyad_post_footer() {
 		// Hide category and tag text for pages.
-		if ( 'post' == get_post_type() ) {
+		if ( 'post' == get_post_type() || 'resources' == get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', '' );
 			if ( $tags_list ) {
@@ -266,3 +266,52 @@ function query_post_type($query) {
 	}
 }
 add_filter('pre_get_posts', 'query_post_type');
+
+//remove categories from search
+function exclude_category_from_search($query) {
+
+	if( is_admin() ) {
+		return;
+	} elseif ( is_search() && $query->is_main_query() ) {
+		$post_type = array('post','resources');
+
+		$dash = "-";
+		$content = get_cat_ID('content');
+		$clients = get_cat_ID('clients');
+		$faq_tops = get_cat_ID('faq_topics');
+		$faq_gen = get_cat_ID('general_topic');
+		$faq_prod = get_cat_ID('product_questions');
+		$faq_spec = get_cat_ID('specific_questions');
+		$partners = get_cat_ID('partners');
+		$product = get_cat_ID('product');
+		$consult_bullets = get_cat_ID('consultation_bullets');
+		$crg_bull = get_cat_ID('crg_bullets');
+		$features = get_cat_ID('crg_features');
+		$team = get_cat_ID('team-members');
+		$uncat = get_cat_ID('uncategorized');
+
+		$crg_posts = get_cat_ID('crg_post');
+		$database = get_cat_ID('database');
+
+		$cat_exclude = array($dash.$content, 
+								$dash.$clients, 
+								$dash.$faq_tops, 
+								$dash.$faq_gen, 
+								$dash.$faq_prod,
+								$dash.$faq_spec, 
+								$dash.$partners, 
+								$dash.$product, 
+								$dash.$consult_bullets, 
+								$dash.$features, 
+								$dash.$team, 
+								$dash.$uncat
+							);
+		
+		$cat_include = array($crg_posts, $database);
+
+		$query->set('cat', $cat_exclude);
+		$query->set('post_type', $post_type);
+	}
+}
+add_filter('pre_get_posts','exclude_category_from_search');
+

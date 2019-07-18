@@ -21,7 +21,7 @@
 		<?php endif; ?>
 
 
-		<div class="entry-inner animation-element fade-in">
+		<div class="entry-inner animation-element slide-right">
 
 			<header class="entry-header">
 
@@ -42,8 +42,9 @@
 
 				<?php
 					the_post_navigation( array(
-						'prev_text' => '<div class="nav-previous"><span class="nav-subtitle">' . esc_html__( 'Previous Post', 'foundation' ) . '</span> <span class="nav-title">%title</span></div>',
-						'next_text' => '<div class="nav-next"><span class="nav-subtitle">' . esc_html__( 'Next Post', 'foundation' ) . '</span> <span class="nav-title">%title</span></div>',
+						'prev_text'    => '<div class="nav-previous"><span class="nav-subtitle">' . esc_html__( 'Previous Post', 'foundation' ) . '</span> <span class="nav-title">%title</span></div>',
+						'next_text'    => '<div class="nav-next"><span class="nav-subtitle">' . esc_html__( 'Next Post', 'foundation' ) . '</span> <span class="nav-title">%title</span></div>',
+						'in_same_term' => true,
 					) );
 				?>
 			</div><!-- .entry-content -->

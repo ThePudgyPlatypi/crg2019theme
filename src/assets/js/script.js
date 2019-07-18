@@ -116,8 +116,6 @@ function animationEvent(animationClass) {
         var window_height = $window.height();
         var window_top_position = $window.scrollTop();
         var window_bottom_position = (window_top_position + window_height);
-
-        
        
         $.each($animation_elements, function() {
             var $element = $(this);
@@ -125,7 +123,7 @@ function animationEvent(animationClass) {
             var element_top_position = $element.offset().top;
             var element_bottom_position = (element_top_position + element_height);
             
-            element_top_position = element_top_position + (window_height / 8);
+            element_top_position = (element_top_position - 150) + (window_height / 8);
             element_bottom_position = element_bottom_position - (window_height / 8);
 
             //check to see if this current container is within viewport
@@ -192,7 +190,7 @@ $(document).ready(function($) {
         "#cc4b37"
     ];
 
-    $(".blog .cover-link").hover(function() {
+    $(".cover-link").hover(function() {
         let overlay = $(this).siblings(".post-grid-block-inside-cell").children(".entry-media").children(".overlay");
         if($(overlay).is(":hidden")) {
             $(overlay).css("background", colorArray[Math.floor(Math.random() * 10)]).fadeIn(200);
@@ -210,9 +208,14 @@ $(document).ready(function($) {
         };
 
         $(this).css("border", `1px solid ${colorArray[index]}`);
+        $(this).children(".entry-inner").css("color", `${colorArray[index]}`);
     });
 
     $(".resource-grid-block .background").each(function(index) {
         $(this).css("background", colorArray[index]);
     });
+
+    $(".format-video iframe").wrap("<div class='iframe-container'></div>");
+
+    
 });

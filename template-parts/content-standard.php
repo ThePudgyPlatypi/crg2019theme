@@ -1,13 +1,13 @@
 <?php
 /**
  * Template part for displaying standard post.
- *
+ * Block Grid
  */
 
 ?>
 
 
-<article id="post-<?php the_ID(); ?>" <?php post_class("post-grid-block"); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class("post-grid-block animation-element slide-up"); ?>>
 
 	<div class="post-grid-block-inside" >
 
@@ -21,7 +21,7 @@
 			<!-- Thumbnial exists  -->
 			<div class="post-grid-block-inside-cell">
 				<div class="entry-media">
-					<?php the_post_thumbnail('small');  ?>
+					<?php the_post_thumbnail();  ?>
 					<div class="overlay"></div>
 				</div>
 			</div>
@@ -38,6 +38,7 @@
 							<?php the_excerpt(); ?>
 						</div><!-- .entry-content -->
 					</div><!-- .entry-inner-content -->
+					
 				</div><!-- .entry-inner -->
 			</div> <!-- post-grid-block-inside-cell -->
 

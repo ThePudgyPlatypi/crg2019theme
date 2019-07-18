@@ -26,7 +26,6 @@ get_header('small'); ?>
 			<?php 
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 			$news_cat_args = array(
-				'posts_per_page' => 9,
 				'paged' => $paged,
 				'order' => 'DESC',
 				'orderby' => 'post_date',
@@ -41,9 +40,10 @@ get_header('small'); ?>
 				<?php /* Start the Loop */ ?>
 				<?php while ( $wp_query->have_posts() ) { 
 					$wp_query->the_post(); ?>
+					
 					<!-- testing out grid block, will need more elegant solution -->
-					<?php get_template_part( 'template-parts/content', 'block'); ?>
-					<?php //get_template_part( 'template-parts/content', get_post_format() ); ?>
+					<?php $format = get_post_format() ? : 'standard'; ?>
+					<?php get_template_part( 'template-parts/content', $format ); ?>
 
 				<?php }; ?>
 
