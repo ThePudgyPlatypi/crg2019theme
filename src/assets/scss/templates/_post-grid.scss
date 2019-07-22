@@ -306,6 +306,7 @@ of the Resource center.
 
     .resource-grid-block {
         @include xy-cell(12);
+        margin: 20px;
 
         @include breakpoint(medium) {
             @include xy-cell(6);
@@ -316,28 +317,19 @@ of the Resource center.
         }
 
         .post-grid-block-inside {
-            padding: 50px;
             display: flex;
             justify-content: center;
+            
 
             .post-grid-block-inside-cell {
                 align-self: center;
                 position: relative;
                 display: flex;
+                flex: 0 1 auto;
                 justify-content: center;
-                height: 350px;
-                width: 350px;
-                min-height: 350px;
-                min-width: 350px;
-                padding: 20px;
+                height: 250px;
+                width: 250px;
                 transition: all 0.2s ease-in-out;
-
-                @include breakpoint(medium) {
-                    height: 250px;
-                    width: 250px;
-                    min-height: 250px;
-                    min-width: 250px;
-                }
 
                 a.cover-link {
                     z-index: 2;
@@ -560,4 +552,4 @@ nav[aria-label="Pagination"] {
     li {
         font-size: 1.25rem;
     }
-}
+} 

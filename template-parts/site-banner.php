@@ -22,7 +22,7 @@
             }
         ?>
     </div>
-    <a href="contact" class="yellow-button yellow-button-solid">Contact</a>
+    <a href="#contact" class="yellow-button yellow-button-solid" data-smooth-scroll>Contact</a>
     <div class="header-background">
         <svg preserveAspectRatio="none" viewBox="0 0 100 200">
             <polygon points="50,100 100,0 50,-100 0,0" opacity="0.25"></polygon>

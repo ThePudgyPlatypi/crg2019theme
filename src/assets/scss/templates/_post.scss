@@ -5,6 +5,14 @@ Individual post stylings
 */
 
 // standard post
+h1, h2, h3, h4, h5, h6 {
+
+}
+
+h5 {
+    padding-top: 20px;
+}
+
 .post, .resources {
     @include xy-grid;
     margin-top: 0;
@@ -17,9 +25,36 @@ Individual post stylings
     ul, ol, pre {
         margin-left: rem-calc(30);
         margin-bottom: rem-calc(30);
+        list-style-position: outside;
 
         & ul {
             margin-bottom: 0;
+        }
+    }
+
+    ul {
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+    
+        li {
+            padding: 2px 0;
+            list-style: none;
+            // display: flex; Need to put wrapper around all the contents in li with javascript since content is dynamic
+            // align-items: center;
+
+            a {
+                // display: ;
+            }
+            
+            &:before {
+                content: "\2B2A";
+                color: $secondary-color;
+                font-size: rem-calc(24);
+                line-height: 0;
+                padding: 0 10px 0 0;
+                position: relative;
+            }
         }
     }
 
@@ -27,9 +62,31 @@ Individual post stylings
         width: 80%;
         margin: 0 auto;
         margin-bottom: rem-calc(30);
+        position: relative;
+        display: flex;
 
         cite {
             text-align: right;
+        }
+
+        &:before,
+        &:after {
+            // position: absolute;
+            font-size: 4rem;
+            padding: 10px;
+        }
+
+        &:before {
+            content: "\201C";
+            align-self: flex-start;
+            margin-top: -2rem;
+            padding-right: 15px;
+        }
+
+        &:after {
+            content: "\201D";
+            align-self: flex-end;
+            margin-bottom: -4rem;
         }
     }
 
@@ -56,6 +113,14 @@ Individual post stylings
         @include flex;
         margin: 0 auto;
         // width: 90%;
+    }
+    
+    .webfeedsFeaturedVisual {
+        margin: 0 auto;
+    }
+
+    #related-right, #related-left {
+        display: none;
     }
 
     .entry-media {

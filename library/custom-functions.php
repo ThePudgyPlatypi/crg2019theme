@@ -121,7 +121,9 @@ function get_image($attachment_id, $size=null, $class=null, $src=null, $video=fa
 	if ( $image_attributes && $src == null) {
 		echo "<img class='".$class."' src='".$image_attributes[0]."' alt='".$image_meta."' />";
 	} else if ($image_attributes && $src == "src") {
-		return $image_attributes[0];
+		$url = array_shift($image_attributes);
+		$image_url_string = print_r($url);
+		return $image_url_string;
 	} else if ($videoURL && $src == "src" && $video) {
 		return $videoURL;
 	};
@@ -315,3 +317,15 @@ function exclude_category_from_search($query) {
 }
 add_filter('pre_get_posts','exclude_category_from_search');
 
+//php in text widget
+function php_execute($html){
+	if(strpos($html,"<"."?php")!==false){ 
+		ob_start(); 
+		eval("?".">".$html);
+		$html=ob_get_contents();
+		ob_end_clean();
+	}
+
+	return $html;
+}
+add_filter('widget_text','php_execute',100);

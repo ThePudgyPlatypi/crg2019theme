@@ -102,7 +102,7 @@
                         <div class="text-container-left animation-element slide-right">
                             <h2 class="yellow shared-feature-h2 blue-line"><?php echo $post->post_title ?></h2>
                             <p class="text-block-left"><?php echo $post->post_content ?></p>
-                            <a href="#contact" class="yellow-button">Contact</a>
+                            <a href="#contact" class="yellow-button" data-smooth-scroll>Contact</a>
                         </div>
                     </div>
                 </div>
@@ -115,7 +115,7 @@
                         <div class="text-container-right animation-element slide-left">
                             <h2 class="blue shared-feature-h2 yellow-line"><?php echo get_the_title(); ?></h2>
                             <p class="text-block-right"><?php echo $post->post_content ?></p>
-                            <a href="#contact" class="yellow-button">Contact</a>
+                            <a href="#contact" class="yellow-button" data-smooth-scroll>Contact</a>
                         </div>
                         <div class="img-container-right animation-element slide-right">
                             <div class="overlay-nocolor product-white-gradient"></div>

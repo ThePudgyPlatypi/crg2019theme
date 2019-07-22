@@ -1,0 +1,92 @@
+.category-chief_keith_corner {
+    .taxonomy-description {
+        color: $white;
+        font-size: 1rem;
+        z-index: 1;
+
+        @include breakpoint(medium) {
+            font-size: 1.75rem;
+        }
+    }
+    .post-grid {
+
+        .shadow-box {
+            margin-bottom: 40px;
+            margin-top: 40px;
+            z-index: 0;
+
+            @include breakpoint(medium) {
+                margin-top: 0;
+            }
+
+            &:before,
+            &:after {
+                z-index: -1;
+            }
+        }
+
+        .white-background {
+            background-color: rgba(255, 255, 255, 1);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            z-index: 400;
+        }
+
+        .grid-x {
+            padding: 45px 30px 30px 30px;
+            justify-content: center;
+        }
+
+        .keith-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-keith {
+            padding-bottom: 20px;
+
+            @include breakpoint(medium) {
+                padding-bottom: 0;
+            };
+
+            ul {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                position: relative;
+
+                li {
+                    list-style: none;
+                    padding: 5px;
+                    font-size: 1.5rem;
+                    text-align: center;
+
+                    .link-text {
+                        position: absolute;
+                        // transform: translateY(%);
+                        opacity: 0;
+                        // padding-bottom: 10px;
+                        left: 0;
+                        font-size: 0.8rem;
+                        width: 100%;
+                    }
+
+                    &:hover {
+
+                        .link-text {
+                            // transform: translateY(0);
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        .bio-container {
+            h6 {
+                font-size: 2rem;
+            }
+        }
+    }
+}

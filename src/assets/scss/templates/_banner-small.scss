@@ -52,4 +52,9 @@
 
 .small-header-none-product-container {
     @include xy-grid-container;
+    padding-top: 40px;
+}
+
+.category-chief_keith_corner .title {
+    flex-direction: column;
 }

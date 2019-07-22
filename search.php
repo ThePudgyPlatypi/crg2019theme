@@ -64,6 +64,10 @@ get_header('no'); ?>
 
 	</div><!-- .post-grid -->
 
+	<div class="post-widget-container">
+		<?php dynamic_sidebar( 'post-widgets' ); ?>
+	</div>
+
 </div><!-- #main -->
 
 

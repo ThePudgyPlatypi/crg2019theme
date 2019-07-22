@@ -45,13 +45,6 @@
     position: relative;
     overflow: hidden;
 
-    &.image-main {
-        // height: 70vh;
-
-        @include breakpoint(medium) {
-        }
-    }
-
     .grids {
         z-index: 1;
     }
@@ -71,19 +64,22 @@
             img {
                 object-fit: cover;
                 object-position: center;
-          
+                min-width: 100%;
+                height: auto;
             }
         }
 
         .products-img-container {
-            // position: absolute;
             height: 100%;
-            max-width: 100%;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
 
             img {
                 object-fit: cover;
                 object-position: center;
-                
+                min-width: 100%;
+                height: auto;
             }
         }
 
@@ -93,6 +89,10 @@
 
         & > div {
             @include xy-grid-container;
+        }
+
+        .button-container {
+            margin-top: 10px;
         }
     }
 }
@@ -104,3 +104,4 @@
     @include xy-grid-container(1400px);
     // check card.scss for rest
 }
+ 

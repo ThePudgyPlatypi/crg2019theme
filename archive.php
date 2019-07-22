@@ -48,20 +48,19 @@ get_header('no'); ?>
 								get_template_part( 'template-parts/content', $format );
 							?>
 					<?php endwhile; ?>
-				
 				</div>
 				
-					<?php /* Display navigation to next/previous pages when applicable */ ?>
-						<?php
-						if ( function_exists( 'foundationpress_pagination' ) ) :
-							foundationpress_pagination();
-						elseif ( is_paged() ) :
-						?>
-							<nav id="post-nav">
-								<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
-								<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
-							</nav>
-					<?php endif; ?>
+				<?php /* Display navigation to next/previous pages when applicable */ ?>
+					<?php
+					if ( function_exists( 'foundationpress_pagination' ) ) :
+						foundationpress_pagination();
+					elseif ( is_paged() ) :
+					?>
+						<nav id="post-nav">
+							<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
+							<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
+						</nav>
+				<?php endif; ?>
 
 				<?php else : ?>
 
@@ -70,6 +69,11 @@ get_header('no'); ?>
 				<?php endif; ?>
 			
 	</div><!-- .posts -->
-</div><!-- #main -->
+
+	<div class="post-widget-container">
+		<?php dynamic_sidebar( 'post-widgets' ); ?>
+	</div>
+
+</div><!-- entry-content-page -->
 
 <?php get_footer('custom');

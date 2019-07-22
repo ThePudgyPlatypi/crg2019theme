@@ -23,7 +23,7 @@
 						echo $content->post_content;
 					?>
 				<div class="button-container">
-					<a href="#contact" class="blue-button">Contact</a>\
+					<a href="#contact" class="blue-button" data-smooth-scroll>Contact</a>
 				</div>
 			</div>
 		</div>
@@ -36,14 +36,11 @@
 
 	<div class="home products image-main">
 		<!-- grid overlay -->
-		<img class="grids" src="<?php bloginfo('template_url'); ?>\src\assets\images\svgGrid.png">
+		<img class="grids" src="<?php bloginfo('template_url'); ?>\dist\assets\images\svgGrid.png">
 		
 		<div class="products-container">
-			<div class="home products-img-container-bg" >
-				<?php get_image($CRG_home_image_bg, "full", null); ?>
-			</div>
-			<div class="home products-img-container animation-element slide-up" >
-				<?php get_image($CRG_Home_image, "full", "home products-img"); ?>
+			<div class="home products-img-container" style="background-image:url(<?php get_image($CRG_home_image_bg, "full", null, "src"); ?>)">
+				<?php get_image($CRG_Home_image, "full", "home products-img animation-element slide-up"); ?>
 			</div>
 		</div>
 	</div>

@@ -164,7 +164,9 @@ function animationEvent(animationClass) {
     };
 }
 
+
 $(document).ready(function($) {
+
     // make page visible once all is loaded
     $("html").css({opacity: 0, visibility: "visible"}).animate({opacity: 1}, 500);
 
@@ -216,6 +218,4 @@ $(document).ready(function($) {
     });
 
     $(".format-video iframe").wrap("<div class='iframe-container'></div>");
-
-    
 });
