@@ -329,3 +329,5 @@ function php_execute($html){
 	return $html;
 }
 add_filter('widget_text','php_execute',100);
+
+add_filter('jpeg_quality', function($arg){return 100;});

@@ -61,8 +61,54 @@
 	<!-- PRODUCTS LIST AND CLIENT SLIDER -->
 	<div class="home other-products">
 		<div class="spacer"></div>
-		<div class="product-cards" data-equalizer>
-			<?php get_template_part('template-parts/card', 'product'); ?>
+			<div class="product-cards" data-equalizer>
+				<?php get_template_part('template-parts/card', 'product'); ?>
+			</div>
+		</div>
+
+		
+		<div class="search-widget yellow-line yellow-line-center home">
+			<h2 class="text-center blue">Recent Critical Response Group News</h2>
+			<?php dynamic_sidebar( 'search-all-widget' ); ?>
+		</div>
+
+		<div class="recent-posts-container full">
+			<div class="recent-posts-grid post-grid">
+				<div class="post-wrapper">
+					<?php
+					$new_posts = array(
+						'post_type' => 'post',
+						'posts_per_page' => '3',
+						'category_name' => 'crg_post',
+					);
+					
+					$wp_query = new WP_Query($new_posts); ?>
+
+					<?php if ( $wp_query->have_posts() ) { ?>
+
+						<?php /* Start the Loop */ ?>
+						<?php while ( $wp_query->have_posts() ) { 
+							$wp_query->the_post(); ?>
+							
+							<!-- testing out grid block, will need more elegant solution -->
+							<?php $format = get_post_format() ? : 'standard'; ?>
+							<?php get_template_part( 'template-parts/content', $format ); ?>
+
+						<?php }; ?>
+
+					<?php } else { ?>
+
+						<?php get_template_part( 'template-parts/content', 'none' ); ?>
+
+					<?php }; // End have_posts() check. ?>
+
+					<?php wp_reset_postdata(); ?>
+				</div>
+			</div><!-- end post grid -->
+		</div> <!-- end recent posts container -->
+
+		<div class="post-widget-container">
+			<?php dynamic_sidebar( 'post-widgets' ); ?>
 		</div>
 	</div>
 </div>

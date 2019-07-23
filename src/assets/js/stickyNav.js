@@ -3,7 +3,7 @@ $(document).ready(function() {
     var width = $(window).width();
     var isStuck = false;
 
-    console.log("top offset: " + stickyNavTop + ", is stuck? " + isStuck);
+    // console.log("top offset: " + stickyNavTop + ", is stuck? " + isStuck);
     if($('#masthead').hasClass('noHeader')) {
       isStuck = true;
     } else {
@@ -11,7 +11,7 @@ $(document).ready(function() {
         var scrollTop = $(window).scrollTop();
         width = $(window).width();
         // console.log("scroll top: " + scrollTop);
-        if (scrollTop >= stickyNavTop && !isStuck && width > 640) { 
+        if (scrollTop >= stickyNavTop && !isStuck && width >= 640) { 
           $('#masthead').addClass('sticky');
           // console.log("sticky added");
         } else {

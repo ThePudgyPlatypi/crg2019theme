@@ -5,6 +5,10 @@ of the Resource center.
 
 */
 
+.recent-posts-container {
+    margin-top: 30px;
+}
+
 .post-grid {
     @include xy-grid();
     flex-direction: column;

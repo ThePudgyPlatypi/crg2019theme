@@ -1,0 +1,60 @@
+.partners-wrapper {
+    @include xy-grid;
+
+    .entry-media {
+        @include xy-cell(12, $gutters: 0);
+
+        @include breakpoint(large) {
+            @include xy-cell(6, $gutters: 0);
+        }
+
+        .entry-media-thumb {
+            width: 100%;
+            height: 50vh;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+
+            @include breakpoint(large) {
+                height: 100%;
+            }
+        }
+    }
+
+    .entry-inner {
+        @include xy-cell(12, $gutters: 100);
+        padding-top: rem-calc(60);
+        margin: 0 auto;
+
+        &:before, 
+        &:after {
+            display: none;
+        }
+
+        @include breakpoint(large) {
+            @include xy-cell(6, $gutters: 100);
+            margin: 0 auto;
+        }
+
+        .entry-header {
+            @include flex;
+            @include flex-direction(column);
+            align-items: center;
+
+            h1 {
+                text-align: center;
+                padding-top: rem-calc(30);
+                padding-bottom: rem-calc(30);
+            }
+        }
+
+        .entry-content{
+            padding-top: rem-calc(50);
+
+            nav {
+                padding-top: rem-calc(30);
+            }
+        }
+    }
+}

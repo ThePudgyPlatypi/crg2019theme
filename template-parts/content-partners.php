@@ -1,146 +1,63 @@
-<div class="partner-page">
-    <div class="hover-cards">
-        <?php
-        // LOOP FOR CHIEF PARTNERS
+<div class="partners-wrapper">
+    <div class="entry-media">
+        <div class="entry-media-thumb" style="background-image: url(<?php echo get_the_post_thumbnail_url(get_queried_object_id(), "full"); ?>); "></div>
+    </div><!-- .entry-media -->
 
-        $top = array(
-            'post_type' => 'partners',
-            'category_name' => 'partner_top',
-        );
+    <div class="entry-inner animation-element slide-right">
+        <header class="entry-header">
+            <?php the_title( '<h1 class="header yellow blue-line blue-line-center">', '</h1>' ); ?>
+        </header><!-- .entry-header -->
 
-        // The Query
-        $the_query = new WP_Query( $top ); ?>
+        <div class="entry-content">
+            <div class="partner-page">
+                <div class="partner-cards">
+                    <?php
+                    // LOOP FOR CHIEF PARTNERS
+                    $meta_value = 'order';
 
-        <div class="grid-container">
-            <div class="grid-x grid-margin-x align-spaced align-middle card-relative" data-equalizer>
-                <?php // The Loop
-                if ( $the_query->have_posts() ) {
-                    while ( $the_query->have_posts() ) {
-                        $the_query->the_post(); ?>
-                    <div class="cell small-12 medium-4" data-equalizer-watch>
-                        <a class="hover-card-activator" href="<?php echo get_post_meta( get_the_ID(), 'url', true ) ?>" target="_blank">
-                            <div class="card partner-card">
-                                <div class="card-section">
-                                    <?php the_post_thumbnail(); ?>
+                    $top = array(
+                        'post_type' => 'partners',
+                        'category_name' => 'partners',
+                        'nopaging' => true,
+                        'meta_key' => $meta_value,
+                        'order' => 'ASC',
+                        'orderby' => 'meta_value_num',
+                    );
+
+                    // The Query
+                    $the_query = new WP_Query( $top ); ?>
+
+                    <div class="grid-container">
+                        <div class="grid-x grid-margin-x" data-equalizer>
+                            <?php // The Loop
+                            if ( $the_query->have_posts() ) {
+                                while ( $the_query->have_posts() ) {
+                                    $the_query->the_post(); ?>
+                                <div class="cell" data-equalizer-watch>
+                                    <div class="card">
+                                        <a class="hover-card-activator">
+                                            <div class="card-section">
+                                                <?php the_post_thumbnail(); ?>
+                                            </div>
+                                            <div class="card-divider"><?php the_title() ?></div>
+                                        </a>
+                                        <div class="card-section partner-desc">
+                                            <?php the_content(); ?>
+                                        </div>
+                                    </div>
                                 </div>
-                                <p class="partner-name-hover"><?php the_title() ?></p>
-                            </div>
-                        </a>
-                    </div>
-                <?php }
-                    wp_reset_postdata();
-                } else {
-                    // no posts found
-                } ?>
-            </div>
-        </div>
-
-        <?php
-        // LOOP FOR CHIEF PARTNERS
-
-        $chiefs = array(
-            'post_type' => 'partners',
-            'category_name' => 'partner_chiefs',
-        );
-
-        // The Query
-        $the_query = new WP_Query( $chiefs ); ?>
-
-        <div class="grid-container">
-            <div class="grid-x grid-margin-x align-spaced align-middle card-relative" data-equalizer>
-            <?php // The Loop
-            if ( $the_query->have_posts() ) {
-                while ( $the_query->have_posts() ) {
-                    $the_query->the_post(); ?>
-                <div class="cell small-12 medium-2" data-equalizer-watch>
-                    <a class="hover-card-activator" href="<?php echo get_post_meta( get_the_ID(), 'url', true ) ?>" target="_blank">
-                        <div class="card partner-card">
-                            <div class="card-section">
-                                <?php the_post_thumbnail(); ?>
-                            </div>
-                            <p class="partner-name-hover"><?php the_title() ?></p>
+                            <?php }
+                                wp_reset_postdata();
+                            } else {
+                                // no posts found
+                            } ?>
                         </div>
-                    </a>
-                </div>
-            <?php }
-                wp_reset_postdata();
-            } else {
-                // no posts found
-            } ?>
-
-            </div>
-        </div>
-
-        <?php 
-        //==========================================
-        // LOOP FOR TECH PARTNERS
-        $tech = array(
-            'post_type' => 'partners',
-            'category_name' => 'partner_tech',
-        ); ?>
-
-        <div class="grid-container">
-            <div class="grid-x grid-margin-x align-spaced align-middle card-relative" data-equalizer>
-            <?php
-            // The Query
-            $the_query = new WP_Query( $tech );
-            // The Loop
-                if ( $the_query->have_posts() ) {
-                    while ( $the_query->have_posts() ) { 
-                        $the_query->the_post(); ?>
-                    <div class="cell small-12 medium-3" data-equalizer-watch>
-                        <a class="hover-card-activator" href="<?php echo get_post_meta( get_the_ID(), 'url', true ) ?>" target="_blank">
-                            <div class="card partner-card">
-                                <div class="card-section">
-                                    <?php the_post_thumbnail(); ?>
-                                </div>
-                                <p class="partner-name-hover"><?php the_title() ?></p>
-                            </div>
-                        </a>
                     </div>
-                <?php }
-                    /* Restore original Post Data */
-                    wp_reset_postdata();
-                } else {
-                    // no posts found
-                } ?>
-            </div>
-        </div>
+                </div><!-- hover-cards -->
+            </div><!-- partner-page -->
+        </div><!-- .entry-content -->
 
-        <?php
-        //==========================================
-        // LOOP FOR DRONE PARTNERS and CONSULTANTS
-        $drone = array(
-            'post_type' => 'partners',
-            'category_name' => 'partner_drone, partner_consultants',
-        ); ?>
+    </div><!-- .entry-inner -->
+</div>
 
-        <div class="grid-container">
-            <div class="grid-x grid-margin-x align-spaced align-middle card-relative" data-equalizer>
-            <?php
-            // The Query
-            $the_query = new WP_Query( $drone );
-            // The Loop
-                if ( $the_query->have_posts() ) {
-                    while ( $the_query->have_posts() ) { 
-                        $the_query->the_post(); ?>
-                    <div class="cell small-12 medium-3" data-equalizer-watch>
-                        <a class="hover-card-activator" href="<?php echo get_post_meta( get_the_ID(), 'url', true ) ?>" target="_blank">
-                            <div class="card partner-card">
-                                <div class="card-section">
-                                    <?php the_post_thumbnail(); ?>
-                                </div>
-                                <p class="partner-name-hover"><?php the_title() ?></p>
-                            </div>
-                        </a>
-                    </div>
-                <?php }
-                    /* Restore original Post Data */
-                    wp_reset_postdata();
-                } else {
-                    // no posts found
-                } ?>
-            </div>
-        </div>
-    </div><!-- hover-cards -->
-</div><!-- partner-page -->
+<?php //echo get_post_meta( get_the_ID(), 'url', true ) ?>

@@ -247,14 +247,26 @@ $navHeight: 130px + 15px;
 
                                         @include breakpoint(medium) {
                                             font-size: .65rem;
+
+                                            & .sub-menu {
+                                                font-size: .65rem;
+                                            }
                                         }
 
                                         @include breakpoint(middle) {
                                             font-size: .75rem;
+
+                                            & .sub-menu {
+                                                font-size: .75rem;
+                                            }
                                         }
 
                                         @include breakpoint(large) {
                                             font-size: 1rem;
+
+                                            & .sub-menu {
+                                                font-size: 1rem;
+                                            }
                                         }
 
                                         &.is-active a {
