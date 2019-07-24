@@ -164,6 +164,10 @@ a {
 // Search
 // ++++++++++++++++++++++++++++++++++++++++++++++++
 
+.blog .entry-content-page {
+    padding-top: 30px;
+}
+
 .search-widget {
     display: flex;
     justify-content: center;
@@ -534,7 +538,7 @@ a {
     position: absolute;
     object-fit: cover;
     object-position: 0 0;
-    z-index: -2;
+    z-index: 0;
     width: 200%;
     max-width: initial; 
     min-height: 200%;

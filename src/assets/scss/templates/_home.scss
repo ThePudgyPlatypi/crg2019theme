@@ -108,3 +108,54 @@
 .search-widget.home {
     margin-top: 100px;
 }
+
+.news.see-more {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-color: desaturate($primary-color, 25); 
+    padding: 5rem;
+
+    .yellow-button {
+        transition: all 0.2s ease-in-out;
+    }
+
+    .see-more-inner {
+        align-self: center;
+        position: relative;
+        display: flex;
+        flex: 0 1 auto;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+
+        &:before {
+            content: "\2B27";
+            position: absolute;
+            left: 0;
+            transform: translateX(-50%) rotate(90deg);
+            transform-origin: center center;
+            font-size: 3rem;
+            color: inherit;
+        }
+
+        p {
+            align-self: center;
+            font-size: 2.5rem;
+            text-align: right;
+            width: 50%;
+            font-weight: bold;
+            line-height: 3rem;
+        }
+    }
+
+    a {
+        position: relative;
+        padding: 0;
+        margin: 0;
+        height: 250px;
+        width: 250px;
+    }
+}

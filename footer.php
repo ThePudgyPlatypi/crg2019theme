@@ -1,6 +1,10 @@
 <?php
-// Default Footer
+/**
+ * Custom footer for CRG Child Theme
+ */
+
 ?>
+
 </div><!-- #content -->
 
 <footer id="colophon" class="site-footer" role="contentinfo">
@@ -11,7 +15,7 @@
 				<h2 class="header yellow blue-line blue-line-center animation-element slide-down">Explore CRG</h2>
 				<div>
 					<a href="products" class="yellow-button animation-element slide-left">Products</a>
-					<a href="#contact" class="yellow-button animation-element slide-right">Contact</a>
+					<a href="#contact" class="yellow-button animation-element slide-right" data-smooth-scroll>Contact</a>
 				</div>
 			</div>
 		</div>
@@ -19,11 +23,9 @@
 
 	
 
-	<div class="footer-contact-container" id="contact" style="<?php echo 'background-image: url('.get_image("footer", "full", null, "src").')' ?>">
-		<div class="footer-box-container" title="<?php the_title_attribute(); ?>">
+	<div class="footer-contact-container" id="contact" style="background-image: url('<?php get_image("footer", "full", null, "src") ?>')">
+	<div class="footer-box-container" title="<?php the_title_attribute(); ?>">
 			<div class="overlay"></div>
-			<!-- grid overlay -->
-			<img class="grids" src="<?php bloginfo('template_url'); ?>\src\assets\images\svgGrid.png">
 		</div>
 		<div class="footer-contact-main">
 			<div class="crg-center-logo-container footer">

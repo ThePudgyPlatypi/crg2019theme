@@ -104,11 +104,14 @@ function get_image($attachment_id, $size=null, $class=null, $src=null, $video=fa
 	if(is_int($attachment_id)) {
 		$image_attributes = wp_get_attachment_image_src($attachment_id, $size);
 	} elseif(is_string($attachment_id)) {
+		
 		$image = wp_get_attachment_by_post_name($attachment_id);
+		
 		if($video) {
 			$videoURL = wp_get_attachment_url($image->ID);
 		} else {
 			$image_attributes = wp_get_attachment_image_src($image->ID, $size);
+			
 		};		
 	};
 	
@@ -121,9 +124,8 @@ function get_image($attachment_id, $size=null, $class=null, $src=null, $video=fa
 	if ( $image_attributes && $src == null) {
 		echo "<img class='".$class."' src='".$image_attributes[0]."' alt='".$image_meta."' />";
 	} else if ($image_attributes && $src == "src") {
-		$url = array_shift($image_attributes);
-		$image_url_string = print_r($url);
-		return $image_url_string;
+		$url = $image_attributes[0];
+		echo $url;
 	} else if ($videoURL && $src == "src" && $video) {
 		return $videoURL;
 	};
@@ -280,16 +282,17 @@ function exclude_category_from_search($query) {
 		$dash = "-";
 		$content = get_cat_ID('content');
 		$clients = get_cat_ID('clients');
-		$faq_tops = get_cat_ID('faq_topics');
-		$faq_gen = get_cat_ID('general_topic');
-		$faq_prod = get_cat_ID('product_questions');
-		$faq_spec = get_cat_ID('specific_questions');
+		$faq_tops = get_cat_ID('FAQ Topics');
+		$faq_gen = get_cat_ID('General Questions');
+		$faq_prod = get_cat_ID('Product Questions');
+		$faq_spec = get_cat_ID('Specific Questions');
 		$partners = get_cat_ID('partners');
 		$product = get_cat_ID('product');
-		$consult_bullets = get_cat_ID('consultation_bullets');
-		$crg_bull = get_cat_ID('crg_bullets');
-		$features = get_cat_ID('crg_features');
-		$team = get_cat_ID('team-members');
+		$consult_bullets = get_cat_ID('Consultation Bullets');
+		$consult_features = get_cat_ID('Consultation Features');
+		$crg_bull = get_cat_ID('CRG Features');
+		$features = get_cat_ID('CRG Bullets');
+		$team = get_cat_ID('team members');
 		$uncat = get_cat_ID('uncategorized');
 
 		$crg_posts = get_cat_ID('crg_post');
@@ -304,15 +307,18 @@ function exclude_category_from_search($query) {
 								$dash.$partners, 
 								$dash.$product, 
 								$dash.$consult_bullets, 
+								$dash.$consult_features, 
 								$dash.$features, 
 								$dash.$team, 
 								$dash.$uncat
 							);
 		
 		$cat_include = array($crg_posts, $database);
-
-		$query->set('cat', $cat_exclude);
-		$query->set('post_type', $post_type);
+		
+		$cat_exclude_string = implode(",", $cat_exclude);
+		// print_r($cat_exclude_string);
+		$query->set('cat', $cat_exclude_string);
+		// $query->set('post_type', $post_type);
 	}
 }
 add_filter('pre_get_posts','exclude_category_from_search');

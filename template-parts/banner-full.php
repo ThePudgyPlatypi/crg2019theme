@@ -9,19 +9,19 @@
                 <source src="<?php bloginfo('template_url'); ?>/dist/assets/images/HeaderVideo1080-veryfast.mp4" type="video/mp4">
             </video>
         <?php } else if (is_page('about')) { ?>
-            <!-- <div class="story">  -->
-            <div class="story">
-                <video autoplay loop muted class="banner-video" poster="<?php echo get_the_post_thumbnail_url() ?>">
-                    <source src="<?php bloginfo('template_url'); ?>/dist/assets/images/Crg-Corporate-Video-Smaller-480-2" type="video/mp4">
-                </video>
-            </div>
+            <video autoplay loop muted preload="metadata" id="myVideo" class="banner-video" poster="<?php echo get_the_post_thumbnail_url() ?>">
+                <source src="<?php bloginfo('template_url'); ?>/dist/assets/images/Crg-Corporate-Video-Smaller-480-2" type="video/mp4">
+            </video>
         <?php } else {
             get_the_post_thumbnail();            
         } ?>
     </div>
         
         <!-- grid overlay -->
-        <img class="grids" src="<?php bloginfo('template_url'); ?>/dist/assets/images/svgGrid.png">
+        <?php if(is_front_page()) { ?>
+            <img class="grids" src="<?php bloginfo('template_url'); ?>/dist/assets/images/svgGrid.png">
+        <?php } ?>
+        
         <div class="silver-border"></div>
 
         <div class="site-banner-header-container">

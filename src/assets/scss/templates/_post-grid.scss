@@ -42,8 +42,14 @@ of the Resource center.
 
         &.format-link {
             @include xy-cell(auto, $gutters: 0);
-            flex: 1 1 50%;
+            flex: 1 1 100%;
             margin-top: 0;
+
+            flex-basis: 100%;
+
+            @include breakpoint(medium) {
+                flex: 1 1 50%;
+            }
 
             @include breakpoint(large) {
                 flex: 1 1 33.33333%;

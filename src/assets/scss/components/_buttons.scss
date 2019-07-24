@@ -38,7 +38,7 @@ a.yellow-button {
 
 a.yellow-button-small {
     margin: 20px 0;
-    padding: 6px 50px;
+    padding: .25rem 1.5rem;
     font-size: 0.75em;
     color: white;
     text-align: center;
@@ -47,7 +47,7 @@ a.yellow-button-small {
 
 @mixin blueButton-small() {
     margin: 20px 0;
-    padding: 6px 50px;
+    padding: .25rem 1.5rem;
     font-size: 0.75em;
     color: white;
     text-align: center;

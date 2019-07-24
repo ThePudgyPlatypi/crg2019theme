@@ -28,10 +28,9 @@
 		?>
 	</p>
 
-	<?php elseif ( is_search() ) : ?>
+	<?php elseif ( is_search() || is_archive() ) : ?>
 
 	<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'foundationpress' ); ?></p>
-	<?php dynamic_sidebar("Post Widgets") ?>
 
 	<?php else : ?>
 

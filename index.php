@@ -74,4 +74,4 @@ get_header('small'); ?>
 	</div>
 </div>
 
-<?php get_footer('custom');
+<?php get_footer();

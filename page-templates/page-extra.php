@@ -39,6 +39,6 @@ get_header('no'); ?>
     wp_reset_query(); //resetting the page query
 };
 
-get_footer('custom');
+get_footer();
 
 ?>

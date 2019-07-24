@@ -76,11 +76,11 @@
 			<div class="recent-posts-grid post-grid">
 				<div class="post-wrapper">
 					<?php
-					$new_posts = array(
-						'post_type' => 'post',
-						'posts_per_page' => '3',
-						'category_name' => 'crg_post',
-					);
+						$new_posts = array(
+							'post_type' => 'post',
+							'posts_per_page' => '3',
+							'category_name' => 'crg_post',
+						);
 					
 					$wp_query = new WP_Query($new_posts); ?>
 
@@ -93,7 +93,7 @@
 							<!-- testing out grid block, will need more elegant solution -->
 							<?php $format = get_post_format() ? : 'standard'; ?>
 							<?php get_template_part( 'template-parts/content', $format ); ?>
-
+							
 						<?php }; ?>
 
 					<?php } else { ?>
@@ -101,9 +101,15 @@
 						<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
 					<?php }; // End have_posts() check. ?>
-
-					<?php wp_reset_postdata(); ?>
-				</div>
+						<div class="news see-more">
+							<a class="yellow-button animation-element fade-in" href="/news">
+								<div class="see-more-inner">
+									<p>see more news</p>
+								</div>
+							</a>
+						</div>
+					<?php wp_reset_query(); ?>
+				</div>		
 			</div><!-- end post grid -->
 		</div> <!-- end recent posts container -->
 

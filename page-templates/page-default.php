@@ -17,4 +17,4 @@ if(is_page(36)) {
 	get_template_part('template-parts/content');
 };
 
-get_footer('custom'); ?>
+get_footer(); ?>

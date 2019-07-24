@@ -9,24 +9,13 @@
             @include xy-gutters($gutter-position: top left right);
         }
 
-        .story {
-            position: relative;
-            width: 100%;
-            height: 100%;
-
-            img {
-                position: absolute;
-                z-index: -1;
-            }
-        }
-
         .silver-border {
             position: absolute;
             top: 0;
             right: 0;
             bottom: 0;
             left: 0;
-            z-index: -1;
+            z-index: 0;
             border: 4px solid #E6E6E6;
             display: none;
 
@@ -43,7 +32,7 @@
             bottom: 0;
             width: 100vw;
             max-width: initial;
-            z-index: -2;
+            z-index: 0;
 
             @include breakpoint(medium) {
                 height: 100vh;
@@ -127,7 +116,7 @@
                 .banner-title {
                     position: relative;
                     line-height: 1rem;
-                    font-size: 1rem;
+                    font-size: 1.5rem;
                     color: $primary-color;
                     padding: 20px 20px 20px 20px;
 
@@ -141,7 +130,7 @@
                     }
 
                     @include breakpoint(medium) {
-                        font-size: 1.5rem;
+                        font-size: 1.75rem;
                     }
     
                     @include breakpoint(large) {
@@ -175,7 +164,7 @@
                 position: absolute;
                 bottom: 0;
                 right: 0;
-                z-index: -2;
+                z-index: 0;
                 background-color: black;
                 color: $light-gray;
                 padding: 10px;

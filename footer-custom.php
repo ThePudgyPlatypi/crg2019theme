@@ -23,7 +23,7 @@
 
 	
 
-	<div class="footer-contact-container" id="contact" style="background-image: url('<?php get_image("footer", "full", null, "src") ?>')" ">
+	<div class="footer-contact-container" id="contact" style="background-image: url('<?php get_image("footer", "full", null, "src") ?>')">
 		<div class="footer-box-container" title="<?php the_title_attribute(); ?>">
 			<div class="overlay"></div>
 		</div>

@@ -63,6 +63,6 @@ get_header('small');
 
     wp_reset_query(); //resetting the page query
 
-get_footer('custom'); 
+get_footer(); 
 
 ?>

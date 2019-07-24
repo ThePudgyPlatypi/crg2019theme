@@ -34,7 +34,7 @@ function custom_post_type_team() {
          * is like Posts.
          */ 
          'hierarchical'        => false,
-         'public'              => true,
+         'public'              => false,
          'show_ui'             => true,
          'show_in_menu'        => true,
          'show_in_nav_menus'   => true,
@@ -85,7 +85,7 @@ function custom_post_type_clients() {
         * is like Posts.
         */ 
         'hierarchical'        => false,
-        'public'              => true,
+        'public'              => false,
         'show_ui'             => true,
         'show_in_menu'        => true,
         'show_in_nav_menus'   => true,
@@ -137,7 +137,7 @@ function custom_post_type_partners() {
         * is like Posts.
         */ 
         'hierarchical'        => false,
-        'public'              => true,
+        'public'              => false,
         'show_ui'             => true,
         'show_in_menu'        => true,
         'show_in_nav_menus'   => true,
