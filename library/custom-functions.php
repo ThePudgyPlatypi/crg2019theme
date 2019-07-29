@@ -337,3 +337,12 @@ function php_execute($html){
 add_filter('widget_text','php_execute',100);
 
 add_filter('jpeg_quality', function($arg){return 100;});
+
+// format phone number - found on stack overflow
+function telephoneFormatter($phone) {
+	print preg_replace('~.*(\d{3})[^\d]{0,7}(\d{3})[^\d]{0,7}(\d{4}).*~', '($1) $2-$3', $phone). "\n";
+}
+
+function formatLinkSmallButton($postID) {
+	echo get_post_meta($postID, "url", true);
+}

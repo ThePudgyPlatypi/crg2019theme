@@ -156,6 +156,28 @@
 
                 li {
                     padding: 0 20px 0 0 !important;
+                    list-style: none;
+                    padding: 5px;
+                    font-size: 1.5rem;
+                    text-align: left;
+
+                    .link-text {
+                        position: absolute;
+                        // transform: translateY(%);
+                        opacity: 0;
+                        // padding-bottom: 10px;
+                        left: 0;
+                        font-size: 0.8rem;
+                        width: 100%;
+                    }
+
+                    &:hover {
+
+                        .link-text {
+                            // transform: translateY(0);
+                            opacity: 1;
+                        }
+                    }
                 }
             }
         }

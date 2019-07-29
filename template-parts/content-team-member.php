@@ -31,10 +31,11 @@
             <?php }; ?>
 
             <!-- PHONE -->
-            <?php if(metadata_exists('post', get_the_ID(), 'phone')) { ?>
-                <a href="tele:">
+            <?php if(metadata_exists('post', get_the_ID(), 'phone')) { 
+                $phone = get_post_meta(get_the_ID(), "phone", true); ?>
+                <a href="tel: <?php telephoneFormatter($phone); ?> ">
                     <i class="fas fa-phone"></i>
-                    <?php echo get_post_meta(get_the_ID(), "phone", true); ?>
+                    <?php telephoneFormatter($phone); ?>
                 </a>
             <?php } else { ?> 
                 <a href="tele:">
@@ -46,48 +47,63 @@
             <!-- SOCIAL MEDIA -->
             <div class="team-member-social">
                 <ul>
-                    <!-- linkedin -->
-                    <?php if(metadata_exists('post', get_the_ID(), 'facebook')) { ?>
+                    <!-- Webpage -->
+                    <?php if(metadata_exists('post', get_the_ID(), 'website')) { ?>
                         <li>
-                            <a href="<?php echo get_post_meta(get_the_ID(), "facebook", true); ?>">
-                                <i class="fab fa-linkedin"></i>
+                            <a href="<?php echo get_post_meta(get_the_ID(), "website", true); ?>" target="_blank">
+                                <i class="fas fa-globe"></i>
                             </a>
+                            <span class="link-text">Personal Profile</span>
                         </li>   
                     <?php }; ?>
 
                     <!-- facebook -->
                     <?php if(metadata_exists('post', get_the_ID(), 'facebook')) { ?>
                         <li>
-                            <a href="<?php echo get_post_meta(get_the_ID(), "facebook", true); ?>">
+                            <a href="<?php echo get_post_meta(get_the_ID(), "facebook", true); ?>" target="_blank">
                                 <i class="fab fa-facebook"></i>
                             </a>
+                            <span class="link-text">Facebook</span>
+                        </li>   
+                    <?php }; ?>
+
+                    <!-- linkedin -->
+                    <?php if(metadata_exists('post', get_the_ID(), 'linkedin')) { ?>
+                        <li>
+                            <a href="<?php echo get_post_meta(get_the_ID(), "linkedin", true); ?>" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <span class="link-text">LinkedIn</span>
                         </li>   
                     <?php }; ?>
 
                     <!-- instagram -->
-                    <?php if(metadata_exists('post', get_the_ID(), 'facebook')) { ?>
+                    <?php if(metadata_exists('post', get_the_ID(), 'instagram')) { ?>
                         <li>
-                            <a href="<?php echo get_post_meta(get_the_ID(), "facebook", true); ?>">
+                            <a href="<?php echo get_post_meta(get_the_ID(), "instagram", true); ?>" target="_blank">
                                 <i class="fab fa-instagram"></i>
                             </a>
+                            <span class="link-text">Instagram</span>
                         </li>   
                     <?php }; ?>
 
                     <!-- twitter-->
-                    <?php if(metadata_exists('post', get_the_ID(), 'facebook')) { ?>
+                    <?php if(metadata_exists('post', get_the_ID(), 'twitter')) { ?>
                         <li>
-                            <a href="<?php echo get_post_meta(get_the_ID(), "facebook", true); ?>">
+                            <a href="<?php echo get_post_meta(get_the_ID(), "twitter", true); ?>" target="_blank">
                                 <i class="fab fa-twitter"></i>
                             </a>
+                            <span class="link-text">Twitter</span>
                         </li>   
                     <?php }; ?>
 
                     <!-- youtube-->
-                    <?php if(metadata_exists('post', get_the_ID(), 'facebook')) { ?>
+                    <?php if(metadata_exists('post', get_the_ID(), 'youtube')) { ?>
                         <li>
-                            <a href="<?php echo get_post_meta(get_the_ID(), "facebook", true); ?>">
+                            <a href="<?php echo get_post_meta(get_the_ID(), "youtube", true); ?>" target="_blank">
                                 <i class="fab fa-youtube"></i>
                             </a>
+                            <span class="link-text">YouTube</span>
                         </li>   
                     <?php }; ?>
                 </ul>

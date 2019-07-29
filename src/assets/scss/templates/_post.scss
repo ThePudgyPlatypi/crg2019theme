@@ -21,6 +21,15 @@ h5 {
         margin-top: 45px;
     }
 
+    p {
+        padding: 0;
+        font-size: 1.2rem;
+
+        @include breakpoint(large) {
+            padding: 10px 30px;
+        }
+    }
+
     // basic styles
     ul, ol, pre {
         margin-left: rem-calc(30);
@@ -108,6 +117,10 @@ h5 {
         }
     }
 
+    .wp-caption-text {
+        font-size: 0.85rem;
+    }
+
     // for embedded videos 
     iframe {
         @include flex;
@@ -115,13 +128,21 @@ h5 {
         // width: 90%;
     }
     
+    // plugins styling
     .webfeedsFeaturedVisual {
         margin: 0 auto;
         display: none !important;
 
         @include breakpoint(large) {
             display: block !important;
+            margin-bottom: 60px !important;
         }
+    }
+
+    .shared-counts-wrap.after_content.style-slim {
+        text-align: center;
+        padding-top: 20px;
+        margin: 0;
     }
 
     #related-right, #related-left {
@@ -145,6 +166,7 @@ h5 {
 
             @include breakpoint(large) {
                 height: 100%;
+                background-position: -500px 50px;
             }
         }
     }

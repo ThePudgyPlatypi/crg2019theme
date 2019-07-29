@@ -20,4 +20,4 @@ get_header('no'); ?>
 
 	</main><!-- #primary -->
 
-<?php get_footer('custom'); ?>
+<?php get_footer(); ?>

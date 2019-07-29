@@ -76,4 +76,4 @@ get_header('no'); ?>
 
 </div><!-- entry-content-page -->
 
-<?php get_footer('custom');
+<?php get_footer();

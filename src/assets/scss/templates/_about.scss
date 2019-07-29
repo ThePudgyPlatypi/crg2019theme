@@ -8,3 +8,7 @@
 .story-container {
     @include xy-grid-container;
 }
+
+.wp-block-image {
+    padding: 40px;
+}

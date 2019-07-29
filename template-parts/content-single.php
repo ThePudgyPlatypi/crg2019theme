@@ -39,7 +39,8 @@
 
 			<div class="entry-content">
 				<?php the_content(); ?>
-
+				<a class="small-button" target="_blank" href="<?php formatLinkSmallButton(get_the_ID()); ?>">Visit</a>
+				
 				<?php
 					the_post_navigation( array(
 						'prev_text'    => '<div class="nav-previous"><span class="nav-subtitle">' . esc_html__( 'Previous Post', 'foundation' ) . '</span> <span class="nav-title">%title</span></div>',
@@ -54,4 +55,8 @@
 		</div><!-- .entry-inner -->
 	<?php }; ?> <!-- end of if-statement -->
 </article><!-- #post-## --><!-- #post-## -->
+<div class="spacer"></div>
+<div class="post-widget-container">
+	<?php dynamic_sidebar( 'post-widgets' ); ?>
+</div>
 

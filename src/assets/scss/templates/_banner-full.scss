@@ -36,6 +36,7 @@
 
             @include breakpoint(medium) {
                 height: 100vh;
+                object-position: center;
                 bottom: auto;
             }
         }

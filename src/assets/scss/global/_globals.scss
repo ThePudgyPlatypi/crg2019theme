@@ -240,8 +240,44 @@ a {
     margin-bottom: rem-calc(30);
     margin-top: rem-calc(30);
 
+    .widget_nav_menu  {
+        position: relative;
+        margin-top: 20px;
+
+        h6 {
+            font-size: 1.25rem;
+            padding-top: 20px;
+        }
+
+        &:before {
+            content: "";
+            left: 50%;
+            position: absolute;
+            top: 0;
+            border-top: 1px solid #e0e0e0;
+            left: 37.5%;
+            right: 37.5%;
+        }
+
+        &:after {
+            background-color: #e7ae01;
+            border-radius: 12px;
+            height: 12px;
+            margin: -6px 0 0 -6px;
+            width: 12px;
+            content: "";
+            left: 50%;
+            position: absolute;
+            top: 0;
+        }
+    }
+
     h6 {
         font-size: 2rem;
+    }
+
+    .menu, .menu.horizontal {
+        justify-content: center;
     }
 
     .mc4wp-form-fields {

@@ -5,9 +5,10 @@
         $seniors = array(
             'post_type' => 'team',
             'category_name' => 'senior_leadership',
+            'meta_key' => 'order',
             'nopaging' => true,
             'order' => 'ASC',
-            'orderby' => 'title',
+            'orderby' => 'meta_value',
         );
 
         $the_query = new WP_Query($seniors);
@@ -43,9 +44,10 @@
         $fullTimers = array(
             'post_type' => 'team',
             'category_name' => 'full_timers',
+            'meta_key' => 'order',
             'nopaging' => true,
             'order' => 'ASC',
-            'orderby' => 'title',
+            'orderby' => 'meta_value',
         );
 
         $the_query = new WP_Query($fullTimers);
@@ -80,9 +82,10 @@
         $fullTimers = array(
             'post_type' => 'team',
             'category_name' => 'cartographers',
+            'meta_key' => 'order',
             'nopaging' => true,
             'order' => 'ASC',
-            'orderby' => 'title',
+            'orderby' => 'meta_value',
         );
 
         $the_query = new WP_Query($fullTimers);

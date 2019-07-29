@@ -7,6 +7,18 @@
 
 </div><!-- #content -->
 
+<div class="small reveal" id="newsletter" data-reveal data-animation-in="slide-in-down" data-animation-out="slide-out-up">
+	<h1>Keep up to date on the latest public safety news</h1>
+	
+	<div class="post-widget-container">
+		<?php dynamic_sidebar( 'post-widgets' ); ?>
+	</div>
+
+	<button class="close-button" data-close aria-label="Close modal" type="button">
+		<span aria-hidden="true">×</span>
+	</button>
+</div>
+   
 <footer id="colophon" class="site-footer" role="contentinfo">
 	<div class="spacer"></div>
 	<div class="explore-crg-container footer">

@@ -197,8 +197,15 @@ function accordianPushOut() {
   });
 }
 
-
 $(document).ready(function($) {
+    let currentLocation =  window.location.pathname;
+
+    if(sessionStorage.getItem('newsletterPopup') === null && (currentLocation.includes("news") || currentLocation.includes("database") || currentLocation.includes("crg_post") || currentLocation.includes("resources"))) {
+        setTimeout(function() {
+            $("#newsletter").foundation('open');
+            sessionStorage.setItem('newsletterPopup', true);
+        }, 10000);
+    };
 
     // make page visible once all is loaded
     $("html").css({opacity: 0, visibility: "visible"}).animate({opacity: 1}, 500);
@@ -252,5 +259,8 @@ $(document).ready(function($) {
         $(this).css("background", colorArray[index]);
     });
 
-    $(".format-video iframe").wrap("<div class='iframe-container'></div>");
+    // wrap iframes with flex video
+    $(".format-video iframe").wrap("<div class='flex-video widescreen'></div>");
+
+    
 });
