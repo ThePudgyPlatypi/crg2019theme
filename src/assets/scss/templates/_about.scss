@@ -1,12 +1,17 @@
 .site-banner-content .site-banner-media .story {
     .banner-video {
-        z-index: -1;
+        z-index: 0;
         object-position: 50% 50%;
     }
 }
 
 .story-container {
     @include xy-grid-container;
+    margin-top: 60px;
+
+    @include breakpoint(medium) {
+        margin-top: 20px;
+    }
 }
 
 .wp-block-image {

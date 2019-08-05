@@ -343,6 +343,58 @@ function telephoneFormatter($phone) {
 	print preg_replace('~.*(\d{3})[^\d]{0,7}(\d{3})[^\d]{0,7}(\d{4}).*~', '($1) $2-$3', $phone). "\n";
 }
 
-function formatLinkSmallButton($postID) {
-	echo get_post_meta($postID, "url", true);
+
+// adding in shortcode to take care of small blue buttons on link posts
+function formatLinkSmallButton($atts = [], $content = null, $tags = '') {
+
+	// normalize attribute keys, lowercase
+	$atts = array_change_key_case((array)$atts, CASE_LOWER);
+	// override default attributes with user attributes
+    $link_atts = shortcode_atts([
+		'url' => 'https://www.crgplans.com',
+		'color' => 'blue'
+	], $atts, $tag);
+
+	if($link_atts['color'] === 'yellow') {
+		$class = 'yellow-button-small';
+	} else {
+		$class = 'small-button';
+	}
+	
+	$o = '<p><a href="'. esc_html__($link_atts['url'], 'small_button') .'" class="'. esc_html__($class) .'" target="_blank" rel="noopener noreferrer">Visit</a></p>';
+
+	return $o;
+	// echo get_post_meta($postID, "url", true);
 }
+
+// shortcode to add buttons
+function small_button_shortcodes_init()
+{
+	add_shortcode('small_button', 'formatLinkSmallButton');
+}
+add_action('init', 'small_button_shortcodes_init');
+
+// filter just iframes on post format video preview
+function wpse_media_types( $types )
+{
+   return ['video', 'embed', 'iframe' ];
+}
+
+function videoFilter($content) {
+	if (has_post_format('video') && !is_single()) {
+		// Get the avialable media items from the content
+		add_filter( 'media_embedded_in_content_allowed_types', 'wpse_media_types' );
+		$media = get_media_embedded_in_content( $content );
+		remove_filter( 'media_embedded_in_content_allowed_types', 'wpse_media_types' );
+
+		// Only use the first media item if available 
+		if( $media ) {
+        	$content = array_shift( $media );   
+			return $content;
+		}
+	} else {
+		return $content;
+	}
+}
+
+add_filter('the_content', 'videoFilter');

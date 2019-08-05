@@ -26,15 +26,15 @@ function hiResVideoEnding(id, container, src, alt) {
     };
 }
 
-function addUniqueIDCreator(element, prefix) {
-    // adding ID's to all image containers on product page for switching content
-    var container = document.getElementsByClassName(element);
+// function addUniqueIDCreator(element, prefix) {
+//     // adding ID's to all image containers on product page for switching content
+//     var container = document.getElementsByClassName(element);
  
-    for(var i = 0; i < container.length; i++) {
-        var $this = jQuery(container[i]);
-        $this.attr("id", prefix + i);
-    };
-}
+//     for(var i = 0; i < container.length; i++) {
+//         var $this = jQuery(container[i]);
+//         $this.attr("id", prefix + i);
+//     };
+// }
 
 //chunking function
 function chunk (arr, len) {
@@ -197,7 +197,23 @@ function accordianPushOut() {
   });
 }
 
+function msieversion() {
+
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE ");
+
+    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))  // If Internet Explorer, return version number
+    {
+        alert("This site has not been optimized for Internet Explorer 11 and below. Please open in Chrome, Firefox, Safari, or Edge.");
+    }
+
+    return false;
+}
+
 $(document).ready(function($) {
+    // detect IE and try to warn them the site does not support IE11 and below
+    msieversion();
+
     let currentLocation =  window.location.pathname;
 
     if(sessionStorage.getItem('newsletterPopup') === null && (currentLocation.includes("news") || currentLocation.includes("database") || currentLocation.includes("crg_post") || currentLocation.includes("resources"))) {
@@ -212,7 +228,7 @@ $(document).ready(function($) {
 
     moveFigcaptionIntoAnchor(".blocks-gallery-item", "a", "figcaption");
 
-    hiResVideoEnding("myVideo","#header-video-container", "../wp-content/uploads/2019/06/HeaderMovie4k-Poster.jpg");
+    hiResVideoEnding("myVideo","#header-video-container", "wp-content/themes/CRG_2019/dist/assets/images/HeaderMoviePoster.jpg");
 
     newsBlockFlip(".post-grid-block-inside", ".post-grid-block-inside-cell");
 
@@ -259,8 +275,7 @@ $(document).ready(function($) {
         $(this).css("background", colorArray[index]);
     });
 
-    // wrap iframes with flex video
-    $(".format-video iframe").wrap("<div class='flex-video widescreen'></div>");
+    // wrap iframes and video embeds with flex video
+    $(".format-video iframe, .format-video figure.wp-block-video, .format-video video").wrap("<div class='flex-video widescreen'></div>");
 
-    
 });

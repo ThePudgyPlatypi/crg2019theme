@@ -110,12 +110,13 @@
             </div>
 
         </div>
-
-        <div class="team-member-p">
-            <div class="team-member-content">
-                <?php the_content() ?>
+        <?php if($post->post_content !== "") { ?>
+            <div class="team-member-p">
+                <div class="team-member-content">
+                        <?php the_content(); ?>
+                </div>
             </div>
-        </div>
+        <?php }; ?>
     </div>
       
     <div class="team-member-post-navigation">

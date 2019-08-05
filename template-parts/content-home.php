@@ -102,7 +102,7 @@
 
 					<?php }; // End have_posts() check. ?>
 						<div class="news see-more">
-							<a class="yellow-button animation-element fade-in" href="/news">
+							<a class="yellow-button animation-element fade-in" href="news">
 								<div class="see-more-inner">
 									<p>see more news</p>
 								</div>

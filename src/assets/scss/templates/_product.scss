@@ -24,4 +24,9 @@
     p.yellow-line {
         margin-top: 50px;
     }
+
+    .full-width-container .img-container-right img,
+    .full-width-container .img-container-left img {
+        height: 100%;
+    }
 }

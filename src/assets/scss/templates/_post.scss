@@ -24,6 +24,9 @@ h5 {
     p {
         padding: 0;
         font-size: 1.2rem;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-word;
 
         @include breakpoint(large) {
             padding: 10px 30px;
@@ -137,6 +140,12 @@ h5 {
             display: block !important;
             margin-bottom: 60px !important;
         }
+    }
+
+    a.small-button {
+        align-self: flex-end;
+        margin-bottom: 0;
+        @include blueButton-small();
     }
 
     .shared-counts-wrap.after_content.style-slim {

@@ -5,7 +5,7 @@
         <?php if (is_page('Critical Response Group')) { ?>
             <!-- video -->
             <!-- header-video-container only here to get the ending video image in -->
-            <video autoplay muted preload="metadata" id="myVideo" class="banner-video" <?php echo 'poster="'. get_image("poster4k", "full", null, "src") .'"'?>>
+            <video autoplay muted preload="metadata" id="myVideo" class="banner-video" data-object-fit="cover" <?php echo 'poster="'. get_the_post_thumbnail_url() .'"'?>>
                 <source src="<?php bloginfo('template_url'); ?>/dist/assets/images/HeaderVideo1080-veryfast.mp4" type="video/mp4">
             </video>
         <?php } else if (is_page('about')) { ?>

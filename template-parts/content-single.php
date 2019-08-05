@@ -10,9 +10,11 @@
 
 	<?php if(in_category('team-members')) { 
 
-		get_template_part("template-parts/content", "team-member");
+		get_template_part("template-parts/content", "team-member"); ?>
 
-	} else { ?>
+	</article><!-- #post-## --><!-- #post-## -->
+
+	<?php } else { ?>
 
 		<?php if ( has_post_thumbnail() && 'image' != get_post_format() ) : ?>
 			<div class="entry-media">
@@ -39,7 +41,6 @@
 
 			<div class="entry-content">
 				<?php the_content(); ?>
-				<a class="small-button" target="_blank" href="<?php formatLinkSmallButton(get_the_ID()); ?>">Visit</a>
 				
 				<?php
 					the_post_navigation( array(
@@ -53,10 +54,12 @@
 			<?php dyad_post_footer(); ?>
 
 		</div><!-- .entry-inner -->
+
+		</article><!-- #post-## --><!-- #post-## -->
+	<div class="spacer"></div>
+	<div class="post-widget-container">
+		<?php dynamic_sidebar( 'post-widgets' ); ?>
+	</div>
 	<?php }; ?> <!-- end of if-statement -->
-</article><!-- #post-## --><!-- #post-## -->
-<div class="spacer"></div>
-<div class="post-widget-container">
-	<?php dynamic_sidebar( 'post-widgets' ); ?>
-</div>
+
 

@@ -4,6 +4,7 @@
     }
 
     .senior-grid,
+    .managers-grid,
     .full-timers-grid,
     .interns-grid {
         @include xy-grid;
@@ -18,12 +19,14 @@
 
             &:hover,
             &:focus {
-                transform: scale(1.1);
                 
                 a {
-                    img {
+                    .img-container {
                         border-radius: 100%;
-                        // border: 4px solid $primary-color;
+                    }
+
+                    img {
+                        transform: scale(1.1);
                     }
                 }
             }
@@ -52,9 +55,11 @@
                 text-align: center;
 
                 .img-container {
+                    transition: all 0.15s ease-in-out;
+                    overflow: hidden;
 
                     img {
-                        transition: all 0.3s ease-in-out;
+                        transition: all 2s ease-in-out;
                         object-fit: cover;
                     }
                 }
@@ -135,6 +140,7 @@
 
             @include breakpoint(middle) {
                 margin-bottom: 5px;
+                color: $secondary-color;
             }
         }
 
@@ -149,6 +155,20 @@
 
             strong {
                 font-size: 1.2rem;
+
+                @include breakpoint(middle) {
+                    color: $secondary-color;
+                }
+            }
+
+            a {
+                @include breakpoint(middle) {
+                    color: $white;
+
+                    &:hover {
+                        color: $secondary-color;
+                    }
+                }
             }
 
             .team-member-social {
@@ -161,6 +181,12 @@
                     font-size: 1.5rem;
                     text-align: left;
 
+                    i {
+                        @include breakpoint(middle) {
+                            color: $white;
+                        }
+                    }
+
                     .link-text {
                         position: absolute;
                         // transform: translateY(%);
@@ -169,6 +195,10 @@
                         left: 0;
                         font-size: 0.8rem;
                         width: 100%;
+
+                        @include breakpoint(middle) {
+                            color: $white;
+                        }
                     }
 
                     &:hover {
@@ -192,6 +222,7 @@
                 padding: 40px 40px 40px 40px;
                 font-size: 1.4rem;
                 max-width: 80%;
+                color: $white;
             }
         }
     }

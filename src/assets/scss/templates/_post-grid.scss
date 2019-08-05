@@ -284,6 +284,7 @@ of the Resource center.
     .format-standard { 
         .post-grid-block-inside-cell {
             min-height: 350px;
+            height: auto;
         }
 
         .entry-content {
@@ -304,6 +305,7 @@ of the Resource center.
                 height: 100%;
                 object-fit: cover;
                 transition: all 0.2s ease-in-out;
+                font-family: 'object-fit: cover;';
             }
         }
     }
@@ -483,7 +485,6 @@ of the Resource center.
                     }
 
                     p:last-child {
-                        height: 100%;
                         width: 100%;
                         display: flex;
                         flex-basis: 100%;
@@ -537,16 +538,6 @@ of the Resource center.
         .entry-inner-content {
             width: 100%;
             align-self: initial !important;
-        }
-        
-        .iframe-container {
-            position: relative;
-            width: 100%;
-            height: 0;
-    
-            iframe {
-                
-            }
         }
     }
 }

@@ -159,6 +159,11 @@ a {
     &:focus {
         color: $secondary-color;
     }
+
+    &.no-pointer {
+        -moz-cursor: pointer;
+        cursor: default;
+    }
 }
 // ++++++++++++++++++++++++++++++++++++++++++++++++
 // Search
@@ -581,5 +586,40 @@ a {
     
     @include breakpoint(medium) {
         
+    }
+}
+
+//annoying internet explorer rules to atleast make most of the page show up
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* IE10+ CSS styles go here */
+    html {
+        width: 100%;
+        height: 100%;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .animation-element,
+    .animation-element.slide-left,
+    .animation-element-quick.slide-left,
+    .animation-element.slide-right,
+    .animation-element-quick.slide-right,
+    .animation-element.slide-up,
+    .animation-element-quick.slide-up,
+    .animation-element.slide-down,
+    .animation-element-quick.slide-down,
+    .animation-element.fade-in,
+    .animation-element-quick.fade-in {
+        -ms-transform: translate(0, 0);
+        opacity: 1;
+        position: relative;
+    }
+
+    .header-background {
+        display: none;
+    }
+
+    .site-banner-header {
+        width: auto !important;
     }
 }
