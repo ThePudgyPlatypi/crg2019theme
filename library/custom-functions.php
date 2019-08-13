@@ -64,12 +64,40 @@ add_action( 'widgets_init', 'crg_widgets' );
 // this gives me the ability to add shortcode to widgets
 add_filter('widget_text', 'do_shortcode');
 
-/* New excerpt length of 120 words*/
-function my_excerpt_length($length) {
-	return 30;
-}
-add_filter('excerpt_length', 'my_excerpt_length');
+// /* New excerpt length of 120 words*/
+// function my_excerpt_length($length) {
+// 	return 30;
+// }
+// add_filter('excerpt_length', 'my_excerpt_length');
 
+function edit_excerpt_content($text) {
+	$raw_excerpt = $text;
+    if ( '' == $text ) {
+        //Retrieve the post content.
+        $text = get_the_content(''); 
+        //remove shortcode tags from the given content.
+        $text = strip_shortcodes( $text );
+        $text = apply_filters('the_content', $text);
+        $text = str_replace(']]>', ']]&gt;', $text);
+     
+        //Regular expression that strips the header tags and their content.
+        $regex = '#(<h([1-6])[^>]*>)\s?(.*)?\s?(<\/h\2>)#';
+        $text = preg_replace($regex,'', $text);
+     
+        /***Change the excerpt word count.***/
+        $excerpt_word_count = 30; //This is WP default.
+        $excerpt_length = apply_filters('excerpt_length', $excerpt_word_count);
+         
+        /*** Change the excerpt ending.***/
+        $excerpt_end = '[...]'; //This is the WP default.
+        $excerpt_more = apply_filters('excerpt_more', '<br />' . $excerpt_end);
+         
+        $excerpt = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+	}
+	
+	return apply_filters('wp_trim_excerpt', $excerpt, $raw_excerpt);
+}
+add_filter('get_the_excerpt', 'edit_excerpt_content', 5);
 
 // Next functions are for getting images from media library more easily
 // These will allow me to put in a id or a name of the image and have it show up
@@ -352,7 +380,8 @@ function formatLinkSmallButton($atts = [], $content = null, $tags = '') {
 	// override default attributes with user attributes
     $link_atts = shortcode_atts([
 		'url' => 'https://www.crgplans.com',
-		'color' => 'blue'
+		'color' => 'blue',
+		'text' => 'Visit'
 	], $atts, $tag);
 
 	if($link_atts['color'] === 'yellow') {
@@ -361,7 +390,7 @@ function formatLinkSmallButton($atts = [], $content = null, $tags = '') {
 		$class = 'small-button';
 	}
 	
-	$o = '<p><a href="'. esc_html__($link_atts['url'], 'small_button') .'" class="'. esc_html__($class) .'" target="_blank" rel="noopener noreferrer">Visit</a></p>';
+	$o = '<p><a href="'. esc_html__($link_atts['url'], 'small_button') .'" class="'. esc_html__($class) .'" target="_blank" rel="noopener noreferrer">'.$link_atts['url'].'</a></p>';
 
 	return $o;
 	// echo get_post_meta($postID, "url", true);
