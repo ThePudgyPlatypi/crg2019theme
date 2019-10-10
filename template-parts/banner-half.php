@@ -5,8 +5,8 @@
 ?>
 
 <div class="half-header-container grid-container full collaborative-response-graphic" style="background-image: url(<?php 
-        if(is_archive()) {
-            get_image("keiths-corner-cropped", "full", null, "src"); 
+        if(is_archive() ) {
+            get_image("newsletter-banner-small", "full", null, "src");
         } else {
             echo $featured_image;
         }; ?>)">

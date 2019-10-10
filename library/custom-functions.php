@@ -104,19 +104,21 @@ add_filter('get_the_excerpt', 'edit_excerpt_content', 5);
 function wp_get_attachment_by_post_name( $post_name ) {
 	$args = array(
 		'posts_per_page' => 1,
-		'post_status' => 'inherit',
+		'post_status'    => 'inherit',
 		'post_type'      => 'attachment',
 		'title'          => $post_name,
 	);
 
 	$get_attachment = new WP_Query( $args );
-
-	if ( $get_attachment->posts[0] )
+	
+	if ( is_archive() && $get_attachment->posts[1] ) {
+		return $get_attachment->posts[1];
+	} elseif ( $get_attachment->posts[0] ) {
 		return $get_attachment->posts[0];
-	else
-	  	return false;
+	} else {
+		return false;
+	}
 }
-
 // how to use
 // add the name of whatever image/video you want
 // pick a size, if nothing is put then it will default to full size
@@ -144,11 +146,9 @@ function get_image($attachment_id, $size=null, $class=null, $src=null, $video=fa
 	};
 	
 	$image_meta = get_post_meta($attachment_id, '_wp_attachment_image_alt', true);
-
 	if(!$class == null) {
 		$class=$class;
 	}
-
 	if ( $image_attributes && $src == null) {
 		echo "<img class='".$class."' src='".$image_attributes[0]."' alt='".$image_meta."' />";
 	} else if ($image_attributes && $src == "src") {
@@ -390,15 +390,14 @@ function formatLinkSmallButton($atts = [], $content = null, $tags = '') {
 		$class = 'small-button';
 	}
 	
-	$o = '<p><a href="'. esc_html__($link_atts['url'], 'small_button') .'" class="'. esc_html__($class) .'" target="_blank" rel="noopener noreferrer">'.$link_atts['url'].'</a></p>';
+	$o = '<p><a href="'. esc_html__($link_atts['url'], 'small_button') .'" class="'. esc_html__($class) .'" target="_blank" rel="noopener noreferrer">'.esc_html__($link_atts['text'], 'small_button').'</a></p>';
 
 	return $o;
 	// echo get_post_meta($postID, "url", true);
 }
 
 // shortcode to add buttons
-function small_button_shortcodes_init()
-{
+function small_button_shortcodes_init() {
 	add_shortcode('small_button', 'formatLinkSmallButton');
 }
 add_action('init', 'small_button_shortcodes_init');
