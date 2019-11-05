@@ -47,6 +47,7 @@ get_header('small'); ?>
                                 </div>
                                 <h2 class="text-center blue yellow-line yellow-line-center">Latest Newsletter</h1>
                                 <?php the_title("<h3 class='text-center'>","</h3>"); ?>
+                                <span class="previous-newsletter-posts-link" data-smooth-scroll><a href="#previous-newsletter-posts">Previous Newsletters</a></span>
                             </div>
                             <div <?php post_class("cell small-12 sticky") ?> id="post-<?php the_ID(); ?>">
                                 <?php the_content(); ?>
@@ -70,7 +71,7 @@ get_header('small'); ?>
 
         if ( $query->have_posts() ) : ?>
 
-            <div class="post-wrapper">
+            <div class="post-wrapper" id="previous-newsletter-posts">
                 <?php /* Start the Loop */
 
                 while ( $query->have_posts() ) : $query->the_post(); ?>

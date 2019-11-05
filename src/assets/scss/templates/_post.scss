@@ -71,11 +71,16 @@ h5 {
     }
 
     blockquote  {
-        width: 80%;
+        width: 100%;
+        padding: 0.5625rem 0;
         margin: 0 auto;
         margin-bottom: rem-calc(30);
         position: relative;
         display: flex;
+
+        @include breakpoint(medium) {
+            width: 80%
+        }
 
         cite {
             text-align: right;
@@ -190,7 +195,7 @@ h5 {
             display: none;
         }
 
-        @include breakpoint(large) {
+        @include breakpoint(xlarge) {
             @include xy-cell(6, $gutters: 100);
             margin: 0 auto;
         }
@@ -347,18 +352,23 @@ h5 {
 
             .tags-links {
                 @include flex;
+                flex-wrap: wrap;
 
                 a {
-                    background-color: $primary-color;
-                    padding: 10px 15px;
+                    border: 1px solid $light-gray;
+                    padding: 5px 5px;
                     margin: 5px 10px 0 0;
-                    font-size: 0.9rem;
-                    color: $white;
-                    border-radius: 50px;
+                    font-size: 0.75rem;
+                    color: $dark-gray;
+
+                    @include breakpoint(medium) {
+                        font-size: 0.9rem;
+                    }
 
                     &:hover,
                     &:focus {
                         color: $secondary-color;
+                        background: lighten($dark-gray, 20);
                     }
                 }
             }
@@ -387,4 +397,23 @@ h5 {
             border: 0;
         }
     }
+}
+
+.post-author-widget-container {
+
+   section {
+        @include xy-cell(12, $gutters: 0);
+        @include clearfix;
+        margin-top: 50px;
+        padding: 40px;
+        background-color: lighten($light-gray, 8);
+
+        @include breakpoint(medium) {
+            @include xy-cell(12, $gutters: 100);
+        }
+
+        p {
+          font-size: 0.95rem;  
+        }
+   }
 }

@@ -55,6 +55,18 @@ if ( ! function_exists( 'foundationpress_sidebar_widgets' ) ) :
 				'after_title'   => '</h6>',
 			)
 		);
+
+		register_sidebar(
+			array(
+				'id'            => 'author',
+				'name'          => __( 'Author Widget', 'foundationpress' ),
+				'description'   => __( 'Widget that displays author on each page.', 'foundationpress' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h6>',
+				'after_title'   => '</h6>',
+			)
+		);
 	}
 
 	add_action( 'widgets_init', 'foundationpress_sidebar_widgets' );

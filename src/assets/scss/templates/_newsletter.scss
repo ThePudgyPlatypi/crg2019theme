@@ -39,8 +39,12 @@
         }
 
         .grid-x {
-            padding: 45px 30px 30px 30px;
+            padding: 5px;
             justify-content: center;
+
+            @include breakpoint(medium) {
+                padding: 45px 30px 30px 30px;
+            }
         }
 
         .keith-image {
@@ -93,5 +97,19 @@
                 font-size: 2rem;
             }
         }
+    }
+
+    .wp-block-image {
+        padding: 0;
+
+        @include breakpoint(medium) {
+            padding: 5px;
+        }
+    }
+
+    .previous-newsletter-posts-link {
+        display: block;
+        text-align: center;
+        font-size: 0.85rem;
     }
 }

@@ -51,6 +51,10 @@
 				?>
 			</div><!-- .entry-content -->
 
+			<div class="post-author-widget-container">
+				<?php dynamic_sidebar( 'author' ); ?>
+			</div>
+
 			<?php dyad_post_footer(); ?>
 
 		</div><!-- .entry-inner -->
