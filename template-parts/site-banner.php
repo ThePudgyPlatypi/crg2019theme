@@ -5,7 +5,13 @@
     <h1 class="banner-title home product">
         <?php the_title(); ?>
     </h1>
-    <strong>We work today to save lives tomorrow</strong>
+    <strong>
+        <?php 
+            $tagline = get_bloginfo('description'); 
+            echo $tagline;
+        ?>
+        <span class="trademark-symbol">&#8482;</span>
+    </strong>
     <div class="social-media-menu">
         <?php
             if ( has_nav_menu( 'social' ) ) {

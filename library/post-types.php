@@ -1,5 +1,44 @@
 <?php 
 
+
+// Add the custom columns to the partners post type:
+add_filter( 'manage_partners_posts_columns', 'set_custom_edit_partners_columns' );
+function set_custom_edit_partners_columns($columns) {
+    $columns['order'] = __( 'Order', 'CRG2019' );
+    return $columns;
+}
+
+add_action( 'manage_partners_posts_custom_column' , 'custom_partners_column', 10, 2 );
+function custom_partners_column( $column, $post_id ) {
+    if ( 'order' === $column ) {
+        post_meta_default_column_value('order', $post_id);
+    }
+}
+
+// Add the custom columns to the Team post type:
+add_filter( 'manage_team_posts_columns', 'set_custom_edit_team_columns' );
+function set_custom_edit_team_columns($columns) {
+    $columns['order'] = __( 'Order', 'CRG2019' );
+    return $columns;
+}
+
+add_action( 'manage_team_posts_custom_column' , 'custom_team_column', 10, 2 );
+function custom_team_column( $column, $post_id ) {
+    if ( 'order' === $column ) {
+        post_meta_default_column_value('order', $post_id);
+    }
+}
+
+function post_meta_default_column_value($value, $post_id) {
+    $x = get_post_meta( $post_id , $value , true );
+        if ($x == '') {
+            echo 'x';
+        } else {
+            echo $x;
+        }
+}
+
+
 function custom_post_type_team() {
  
  // Set UI labels for Custom Post Type

@@ -2,7 +2,6 @@
     // need to refactor this so it does not have to be hard coded in.
     $CRG_page = 46;
     $consultation_page = 48;
-    // $training_page = 50;
     // $opsview = 409;
     
     if(is_page($CRG_page)) {
@@ -11,16 +10,15 @@
     } elseif (is_page($consultation_page)) {
         $cat_name = "consultation_feature";
         $cat_bullet_name = "consultation_bullets";
+    } elseif (is_page("product-printing-services")) {
+        $cat_name = "product_features";
+        $cat_bullet_name = "product_bullets";
     };
-    // } elseif (is_page($training_page)) {
-    //     $cat_name = "training_features";
-    //     $cat_bullet_name = "training_bullets";
-    // };
 
 ?>
 
 <main id="primary" class="content-area product" role="main">
-    <?php if(is_page($consultation_page)) { ?>
+<?php if(is_page($consultation_page)) { ?>
         <div class="product-bullets-container yellow-line yellow-line-center">
             <ul class="product-bullets">
                 <?php
@@ -61,23 +59,28 @@
                             </div>
                         </div>
                     </li>
-    <?php } 
+                <?php } 
     $counter++;
     endwhile;
     wp_reset_postdata(); ?>
             
             </ul> <!-- product-bulletse -->
          </div> <!--Product bullets container  -->
-    <?php } elseif(is_page($CRG_page)) { ?>
-        <p class="yellow-line yellow-line-center"></p>
-        <div class="grid-container">
-            <?php 
-                $content = get_page_by_title("collaborative response graphics", OBJECT, 'post'); 
-                echo $content->post_content;
-            ?>
-        </div>
-    <?php }; ?>
+<?php } elseif(is_page($CRG_page)) { ?>
+    <p class="yellow-line yellow-line-center"></p>
+    <div class="grid-container">
+        <?php 
+            the_content();
+        ?>
+            
+    </div>
 
+    <!-- //interactive map -->
+    <div class="grid-container">
+        <div class="grid-x">
+            <iframe class="alexMap" src="http://alex.map" frameborder="0"></iframe>
+        </div>
+    </div>
 
     <?php 
     $argsFeatures = array(
@@ -126,7 +129,75 @@
             </div>
         <?php } 
         $counter2++;
-    endwhile; 
-    wp_reset_postdata();?>
+        endwhile;  ?>
+
+<?php } elseif(is_page("product-printing-services")) { ?>
+        <p class="yellow-line yellow-line-center"></p>
+        <div class="grid-container">
+            <?php 
+                the_content();
+            ?>
+        </div>
+        
+                
+        <div class="grid-container">
+            <div class="grid-x"><!-- // alex map -->
+                <div class="cell small-12">
+                    <p class="text-center">Use the interactive map to view videos of printed Collaboratives Response Graphics in use during emergency situations.</p>
+                </div>
+                <div class="cell small-12">
+                    <iframe class="alexMap" src="http://alex.map" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <div class="spacer"></div>
+        <div class="grid-container">
+            <div class="grid-x">
+                <div class="cell small-12">
+                    <h2 class="blue shared-feature-h2 yellow-line">Pricing and Sizing</h2>
+                </div>
+                <div class="cell small-12">
+                    <p class="">Critical Response Group offers many different sizes to fit every application. From standard large format one-sided prints to ringed flipbooks and fold out maps.</p>
+                </div>
+            </div>
+            <div class="grid-x align-middle align-center grid-padding-x">
+                <div class="cell small-12 large-6">
+                    <h3 class="yellow text-center">Basic one-sided print sizing chart</h3>
+                    <p class="text-center">Use this chart to compare sizes of prints</p>
+                    <?php get_image("sizing-chart", 'large') ?>
+                </div>
+                <div class="cell small-12 large-6">
+                    <dl class="definition-list">
+                        <dt>12x18 Large Format CRG</dt>
+                        <dd>
+                            <ul>
+                                <li>One sided & dry erase lamination: $12.25/ea.</li>
+                                <li>One sided with no lamination: $9.50/ea.</li>
+                            </ul>
+                        </dd>
+
+                        <dt>24x36 Poster CRG</dt>
+                        <dd>
+                            <ul>
+                                <li>One sided & dry erase lamination: $55.75/ea.</li>
+                                <li>One sided with no lamination: $40.00/ea.</li>
+                            </ul>
+                        </dd>
+
+                        <dt>36x48 Table Top CRG</dt>
+                        <dd>
+                            <ul>
+                                <li>One sided & dry erase lamination: $83.75/ea.</li>
+                                <li>One sided with no lamination: $67.50/ea.</li>
+                            </ul>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    <?php }; ?>
+
+    <?php wp_reset_postdata();?>
 
 </main><!-- #main -->

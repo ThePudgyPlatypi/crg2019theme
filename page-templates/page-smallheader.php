@@ -11,7 +11,7 @@ get_header('small');
     while ( have_posts() ) : the_post(); ?> <!--Because the_content() works only inside a WP Loop -->
 
         <div class="entry-content-page">
-            <?php if(is_page("collaborative-response-graphics") || is_page("consultation-development-training")) { ?>
+            <?php if(is_page("collaborative-response-graphics") || is_page("consultation-development-training") || is_page("product-printing-services")) { ?>
 
                 <!-- PRODUCTS CONTENT -->
                 <?php get_template_part('template-parts/content', 'product'); ?>

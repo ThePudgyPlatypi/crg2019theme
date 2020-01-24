@@ -155,6 +155,11 @@
                     @include breakpoint(large) {
                         font-size: 1.2rem;
                     }
+
+                    .trademark-symbol {
+                        vertical-align: super;
+                        font-size: 0.6rem;
+                    }
                 }
 
                 a {
