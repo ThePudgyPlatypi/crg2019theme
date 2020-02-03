@@ -426,3 +426,19 @@ function videoFilter($content) {
 }
 
 add_filter('the_content', 'videoFilter');
+
+// get post by slug name
+function get_post_by_slug($slug){
+    $posts = get_posts(array(
+            'name' => $slug,
+            'posts_per_page' => 1,
+            'post_type' => 'product',
+            'post_status' => 'publish'
+    ));
+    
+    if(! $posts ) {
+        throw new Exception("NoSuchPostBySpecifiedID");
+    }
+
+    return $post[0];
+}

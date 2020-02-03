@@ -161,41 +161,51 @@
                     <p class="">Critical Response Group offers many different sizes to fit every application. From standard large format one-sided prints to ringed flipbooks and fold out maps.</p>
                 </div>
             </div>
-            <div class="grid-x align-middle align-center grid-padding-x">
-                <div class="cell small-12 large-6">
-                    <h3 class="yellow text-center">Basic one-sided print sizing chart</h3>
-                    <p class="text-center">Use this chart to compare sizes of prints</p>
-                    <?php get_image("sizing-chart", 'large') ?>
-                </div>
-                <div class="cell small-12 large-6">
-                    <dl class="definition-list">
-                        <dt>12x18 Large Format CRG</dt>
-                        <dd>
-                            <ul>
-                                <li>One sided & dry erase lamination: $12.25/ea.</li>
-                                <li>One sided with no lamination: $9.50/ea.</li>
-                            </ul>
-                        </dd>
 
-                        <dt>24x36 Poster CRG</dt>
-                        <dd>
-                            <ul>
-                                <li>One sided & dry erase lamination: $55.75/ea.</li>
-                                <li>One sided with no lamination: $40.00/ea.</li>
-                            </ul>
-                        </dd>
-
-                        <dt>36x48 Table Top CRG</dt>
-                        <dd>
-                            <ul>
-                                <li>One sided & dry erase lamination: $83.75/ea.</li>
-                                <li>One sided with no lamination: $67.50/ea.</li>
-                            </ul>
-                        </dd>
-                    </dl>
+            <div class="grid-x align-center grid-padding-x">
+                <div class="cell small-12">
+                    <h3 class="yellow text-center">Basic one-sided print pricing and sizing chart</h3>
+                    <p class="text-center">Use this chart to compare sizes, prices, and features of our print products</p>
                 </div>
             </div>
-        </div>
+
+            <div class="grid-x grid-padding-x">
+
+                <div class="cell small-12 large-6">
+                    <?php get_image("sizing-chart", 'large') ?>
+                </div>
+
+                <div class="cell small-12 large-6">
+                    <div>
+                        <dl class="definition-list">
+                            <dt>12x18 Large Format CRG</dt>
+                            <dd>
+                                <ul>
+                                    <li>One sided & dry erase lamination: $12.25/ea.</li>
+                                    <li>One sided with no lamination: $9.50/ea.</li>
+                                </ul>
+                            </dd>
+
+                            <dt>24x36 Poster CRG</dt>
+                            <dd>
+                                <ul>
+                                    <li>One sided & dry erase lamination: $55.75/ea.</li>
+                                    <li>One sided with no lamination: $40.00/ea.</li>
+                                </ul>
+                            </dd>
+
+                            <dt>36x48 Table Top CRG</dt>
+                            <dd>
+                                <ul>
+                                    <li>One sided & dry erase lamination: $83.75/ea.</li>
+                                    <li>One sided with no lamination: $67.50/ea.</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end grid-container -->
     <?php }; ?>
 
     <?php wp_reset_postdata();?>
