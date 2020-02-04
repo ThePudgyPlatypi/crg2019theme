@@ -166,10 +166,25 @@ a {
     }
 }
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+// Alex Map Styles
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+
+.alexMapText {
+    color: white;
+    padding-top: 25px;
+    text-align: center;
+}
+
+.alexMapWrapper {
+    z-index: 10;
+}
+
 .alexMap {
     width: 100%;
     height: 500px;
-    // margin-top: 50px;
+    z-index: 1;
+    padding-bottom: 50px;
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++

@@ -23,6 +23,14 @@ get_header('small');
                     <div class="page-content yellow-line yellow-line-center">
                         <?php the_content(); ?>
                     </div>
+
+                    <nav class="main-navigation" role="navigation">
+                        <?php wp_nav_menu( array(
+                            'theme_location' => 'team',
+                            'menu_id' => 'team-menu',
+                            'container_class' => 'team-menu',
+                        ) ); ?>
+                    </nav>
                     
                     <?php get_template_part('template-parts/content'); ?>
 

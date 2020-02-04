@@ -13,6 +13,8 @@ register_nav_menus(
 		'mobile-nav' => esc_html__( 'Mobile', 'foundationpress' ),
 		'social' => __( 'Social' ),
 		'primary' => __( 'Primary Menu' ),
+		'team' => __('Team Navigation'),
+		'print' => __('Print Products Navigation')
 	)
 );
 
