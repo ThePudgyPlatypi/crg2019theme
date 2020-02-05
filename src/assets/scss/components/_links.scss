@@ -6,3 +6,15 @@
 [data-whatinput="touch"] a:focus, button:focus {
   outline: none;
 }
+
+.top-link-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  
+
+  a {
+    padding: 10px;
+    width: 100px;
+  }
+} 

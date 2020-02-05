@@ -1,7 +1,6 @@
 <div class="team-member-grid">
 
     <?php if(get_category_by_slug('senior_leadership')->category_count > 0) { ?>
-        <div id="leadership"></div>
         <div class="senior-grid">
             <?php // ===============================
             // SENIOR LEADERSHIP
@@ -30,8 +29,9 @@
                             <p><?php echo get_post_meta(get_the_ID(), "title", true); ?></p>
                         </a>
                     </div>
-                    <?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); 
-                }
+                    <?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
+
+                <?php }
             } else {
                 // no posts found
             }
@@ -41,6 +41,11 @@
             // END OF SENIORS ?>
         </div>
     <?php }; ?>
+    
+    <!-- styles in _links -->
+    <div class="top-link-container">
+        <a class="top-link yellow-button" href="#top">^ Top</a>
+    </div>
 
     <!-- // Managers -->
     <?php if(get_category_by_slug('managers')->category_count > 0) { ?>
@@ -83,6 +88,11 @@
         </div>
     <?php }; ?>
 
+    <!-- styles in _links -->
+    <div class="top-link-container">
+        <a class="top-link yellow-button" href="#top">^ Top</a>
+    </div>
+
     <?php if(get_category_by_slug('full_timers')->category_count > 0) { ?>
         <div class="divider yellow-line yellow-line-center" id="employees"></div>
         <div class="full-timers-grid">
@@ -123,6 +133,11 @@
             // END OF FULL TIMERS ?>
         </div>
     <?php }; ?>
+
+    <!-- styles in _links -->
+    <div class="top-link-container">
+        <a class="top-link yellow-button" href="#top">^ Top</a>
+    </div>
 
     <?php if(get_category_by_slug('cartographers')->category_count > 0) { ?>
         <div class="divider yellow-line yellow-line-center"></div>
@@ -165,6 +180,11 @@
         </div>
     <?php }; ?>
 
+    <!-- styles in _links -->
+    <!-- <div class="top-link-container">
+        <a class="top-link yellow-button" href="#top">^ Top</a>
+    </div> -->
+
     <?php if(get_category_by_slug('advisors')->category_count > 0) { ?>
         <div class="divider yellow-line yellow-line-center" id="advisors"></div>
         <div class="advisors-grid">
@@ -186,7 +206,7 @@
                     $the_query->the_post(); ?>
 
                     <div class="grid-item advisor">
-                        <a class="no-pointer">
+                        <a href="<?php the_permalink(); ?>">
                             <div class="img-container">
                                 <?php the_post_thumbnail('team-thumbnail'); ?>
                             </div>
@@ -205,5 +225,10 @@
             <!-- END OF INTERNS/CARTOGRAPHERS -->
         </div>
     <?php }; ?>
+
+    <!-- styles in _links -->
+    <div class="top-link-container">
+        <a class="top-link yellow-button" href="#top">^ Top</a>
+    </div>
 </div>
 	

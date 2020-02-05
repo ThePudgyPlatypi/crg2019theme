@@ -320,3 +320,10 @@ $navHeight: 130px + 15px;
         }
     }
 }
+
+// Team navigation
+.menu-team-nav-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}

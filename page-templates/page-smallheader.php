@@ -21,17 +21,10 @@ get_header('small');
                 <!-- MEET THE TEAM -->
                 <div class="small-header-none-product-container">
                     <div class="page-content yellow-line yellow-line-center">
+                        <?php dynamic_sidebar('team-menu-widgets') ?>
                         <?php the_content(); ?>
                     </div>
 
-                    <nav class="main-navigation" role="navigation">
-                        <?php wp_nav_menu( array(
-                            'theme_location' => 'team',
-                            'menu_id' => 'team-menu',
-                            'container_class' => 'team-menu',
-                        ) ); ?>
-                    </nav>
-                    
                     <?php get_template_part('template-parts/content'); ?>
 
                 </div>
