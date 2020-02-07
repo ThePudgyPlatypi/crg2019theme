@@ -3,12 +3,12 @@
     $advisors = ($post_category[0]->name === 'advisors' ? true : false);
 ?>
 
-<?php if( $advisors ) { ?> <div class="full-image advisor"> <?php } else { ?> <div class="full-image"> <?php }; ?>
+<?php if( $advisors ) { ?> <div class="advisor full-image"> <?php } else { ?> <div class="full-image"> <?php }; ?>
     <div class="team-member-bg">
         <?php the_post_thumbnail("large") ?>
     </div>
 
-    <div class="<?php ( !$advisors ) ? print "team-member-desc" : print "advisor-desc" ?> animation-element slide-right" >
+    <div class="<?php ( $advisors ) ? print "advisor-desc" : print "team-member-desc" ?> animation-element slide-right" >
         <h1 class="team-member-h1 yellow-line">
             <?php the_title() ?>
         </h1>
