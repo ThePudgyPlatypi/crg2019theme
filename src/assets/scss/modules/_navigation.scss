@@ -323,7 +323,21 @@ $navHeight: 130px + 15px;
 
 // Team navigation
 .menu-team-nav-container {
+    
     display: flex;
     justify-content: center;
     padding: 10px 0;
+
+    #menu-team-nav {
+        @include xy-grid;
+
+        li {
+            @include xy-cell(6);
+            text-align: center;
+
+            @include breakpoint(medium) {
+                @include xy-cell(3);
+            }
+        }
+    }
 }
