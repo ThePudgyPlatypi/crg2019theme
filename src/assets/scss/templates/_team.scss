@@ -309,6 +309,10 @@
 
     .team-member-p {
         color: initial;
+
+        @include breakpoint(medium) {
+            
+        }
     }
 }
 
