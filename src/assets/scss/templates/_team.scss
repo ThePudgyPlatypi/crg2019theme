@@ -105,6 +105,14 @@
             }
         } 
     }
+
+    .team-member-post-navigation {
+        .nav-links {
+            a {
+                color: $black !important;
+            }
+        }
+    }
 }
 
 .full-image {
@@ -277,9 +285,20 @@
 
     .team-member-h1 {
         color: initial;
+        padding-left: 10px;
+
+        @include breakpoint(large) {
+            padding-left: 40px;
+        }
     }
 
     .team-member-contact {
+        padding-left: 10px;
+
+        @include breakpoint(large) {
+            padding-left: 40px;
+        }
+
         strong {
             color: initial;
         }
