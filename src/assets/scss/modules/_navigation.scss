@@ -341,3 +341,56 @@ $navHeight: 130px + 15px;
         }
     }
 }
+
+//product navigation
+.product-menu-container {
+    @include xy-grid-container;
+    text-align: center;
+    margin: 20px auto 70px auto;
+
+    .product-menu {
+        @include xy-grid;
+
+        .product-icon-container {
+            @include xy-cell(6);
+
+            @include breakpoint(large) {
+                @include xy-cell(3);
+            }
+
+            .product-icon {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+                animation: out .1s steps(4) 1;
+                background-size: 2000px 200px;
+    
+                &:hover {
+                    animation: in .2s steps(6) 1;
+                    background-position: -1200px;
+                    // background-size: 2400px 200px;
+                }
+    
+                &.product-mappack {
+                    background-image: url("../images/Mappack-sprite-sheet.png");
+                }
+    
+                &.product-geopack {
+                    background-image: url("../images/Geopack-sprite-sheet.png");
+                }
+    
+                &.product-command-poster {
+                    background-image: url("../images/Command-Poster-sprite-sheet.png");
+                }
+    
+                &.product-command-pack {
+                    background-image: url("../images/Command-Pack-sprite-sheet.png");
+                }
+            }
+
+            .product-icon-name {
+                font-weight: bold;
+            }
+        }
+    }
+}

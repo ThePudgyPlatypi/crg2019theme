@@ -170,21 +170,34 @@ a {
 // Alex Map Styles
 // ++++++++++++++++++++++++++++++++++++++++++++++++
 
-.alexMapText {
-    color: white;
-    padding-top: 25px;
-    text-align: center;
-}
+.map-wrapper {
+    div {
+        z-index: 1;
 
-.alexMapWrapper {
-    z-index: 10;
-}
+        .map-head {
+            padding-top: 25px;
+        }
+        
+        .map-content {
+            .map-text {
+                color: white;
+                padding: 12.5px 10px 12.5px;
+                text-align: center;
+            }
+        }
+        
+        .map-frame {
+            width: 100%;
+            height: 500px;
+            z-index: 1;
+            padding-bottom: 50px;
 
-.alexMap {
-    width: 100%;
-    height: 500px;
-    z-index: 1;
-    padding-bottom: 50px;
+            .map {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }  
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++

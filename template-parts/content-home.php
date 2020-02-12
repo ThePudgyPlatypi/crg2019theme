@@ -58,9 +58,19 @@
 		</div>
 	</div>
 
+	<div class="grid-container">
+		<div class="grid-x">
+			<div class="cell small-12">
+				<h4 class="blue text-center yellow-line yellow-line-center">Check out our print formats for CRGs</h3>
+				<?php get_template_part('template-parts/product', 'menu'); ?>
+			</div>
+		</div>
+	</div>
+
 	<!-- PRODUCTS LIST AND CLIENT SLIDER -->
 	<div class="home other-products">
-		<div class="spacer"></div>
+		<!-- <div class="spacer"></div> -->
+			<h4 class="blue text-center yellow-line yellow-line-center">All products available from CRG</h4>
 			<div class="product-cards" data-equalizer>
 				<?php get_template_part('template-parts/card', 'product'); ?>
 			</div>

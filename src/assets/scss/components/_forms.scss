@@ -1,3 +1,29 @@
+.print-contact-container {
+    @include xy-grid-container;
+    padding: 80px 0 20px 0;
+
+    .wpcf7 {
+        .wpcf7-form {
+            @include xy-grid;
+            p {
+                label {
+                    color: black !important;
+                }
+    
+                &:nth-child(5),
+                &:nth-child(6),
+                &:nth-child(7) {
+                    @include xy-cell(12);
+
+                    @include breakpoint(medium) {
+                        @include xy-cell(4);
+                    }
+                }
+            }
+        }   
+    }
+}
+
 .page-template-page-extra .wpcf7,
 .wpcf7 {
     .wpcf7-form {

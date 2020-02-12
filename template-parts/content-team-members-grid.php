@@ -43,7 +43,7 @@
     <?php }; ?>
     
     <!-- styles in _links -->
-    <div class="top-link-container">
+    <div class="top-link-container" data-smooth-scroll>
         <a class="top-link yellow-button" href="#top">^ Top</a>
     </div>
 
@@ -89,7 +89,7 @@
     <?php }; ?>
 
     <!-- styles in _links -->
-    <div class="top-link-container">
+    <div class="top-link-container" data-smooth-scroll>
         <a class="top-link yellow-button" href="#top">^ Top</a>
     </div>
 
@@ -135,7 +135,7 @@
     <?php }; ?>
 
     <!-- styles in _links -->
-    <div class="top-link-container">
+    <div class="top-link-container" data-smooth-scroll>
         <a class="top-link yellow-button" href="#top">^ Top</a>
     </div>
 
@@ -227,7 +227,7 @@
     <?php }; ?>
 
     <!-- styles in _links -->
-    <div class="top-link-container">
+    <div class="top-link-container" data-smooth-scroll>
         <a class="top-link yellow-button" href="#top">^ Top</a>
     </div>
 </div>

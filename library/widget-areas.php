@@ -25,7 +25,7 @@ if ( ! function_exists( 'foundationpress_sidebar_widgets' ) ) :
 				'id'            => 'team-menu-widgets',
 				'name'          => __( 'Team Menu widgets', 'foundationpress' ),
 				'description'   => __( 'Drag widgets to this Team menu container.', 'foundationpress' ),
-				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'before_widget' => '<section id="%1$s" class="widget %2$s" data-smooth-scroll>',
 				'after_widget'  => '</section>',
 				'before_title'  => '<h6>',
 				'after_title'   => '</h6>',
@@ -73,6 +73,18 @@ if ( ! function_exists( 'foundationpress_sidebar_widgets' ) ) :
 				'id'            => 'author',
 				'name'          => __( 'Author Widget', 'foundationpress' ),
 				'description'   => __( 'Widget that displays author on each page.', 'foundationpress' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h6>',
+				'after_title'   => '</h6>',
+			)
+		);
+
+		register_sidebar(
+			array(
+				'id'            => 'printing',
+				'name'          => __( 'Printing Widget', 'foundationpress' ),
+				'description'   => __( 'Widget that displays print contact form on printing products page.', 'foundationpress' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',
 				'before_title'  => '<h6>',

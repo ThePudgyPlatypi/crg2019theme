@@ -67,6 +67,7 @@
 @import "global/gutenberg";
 @import "global/custom-mixins";
 @import "global/globals";
+@import "global/animations";
 
 // Modules
 @import "modules/navigation";
@@ -100,6 +101,6 @@
 @import "templates/post";
 @import "templates/post-grid";
 @import "templates/newsletter";
-
+@import "templates/pricing-sizing";
 
 

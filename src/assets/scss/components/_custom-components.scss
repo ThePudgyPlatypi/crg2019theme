@@ -72,7 +72,7 @@
             .img-container-right {
                 @include flex;
                 @include flex-align($x: center);
-                @include flex-align-self(top);
+                align-self: center;
 
                 .overlay-nocolor {
                     opacity: 0;

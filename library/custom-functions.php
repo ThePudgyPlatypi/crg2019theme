@@ -409,7 +409,7 @@ function wpse_media_types( $types )
 }
 
 function videoFilter($content) {
-	if (has_post_format('video') && !is_single()) {
+	if ( ( has_post_format('video') && !is_single() ) ) {
 		// Get the avialable media items from the content
 		add_filter( 'media_embedded_in_content_allowed_types', 'wpse_media_types' );
 		$media = get_media_embedded_in_content( $content );
