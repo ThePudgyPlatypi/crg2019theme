@@ -73,6 +73,17 @@ Use these settings to add a post into the Meet the Team Page
 - You must add order meta tag to each employee or it will not show up. The Order meta will align them on the grid in the order that you wish
 - The pagination will be wrong unless you adjust the date and time of the post to fit where you want. Basically if you add a new employee the pagination (those little buttons that let you get to the next employee when inside an employee post already) will be wrong because the newest employee will be all the way at the end of the list and not where you expect them.
 
+**Meta**
+You can use meta tags title, email, phone, and select media links. If the field does no exist it is not added. If you fill in phone, email, or title with the words default it will print crg email and phone. Links will dislplay an icon for the corresponding social media place.
+
+- Links
+  - website -> use for personal link
+  - linkedin
+  - youtube
+  - twitter
+  - instagram
+  - facebook
+
 ## Partner Posts
 Use these settings to add a post into the Partners Page
 
