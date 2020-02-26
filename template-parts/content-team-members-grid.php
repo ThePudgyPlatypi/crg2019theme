@@ -18,15 +18,18 @@
             // The Loop
             if ( $the_query->have_posts() ) {
                 while ( $the_query->have_posts() ) {
-                    $the_query->the_post(); ?>
+                    $the_query->the_post(); 
+                    $value = get_post_meta(get_the_ID(), "title", true); ?>
 
                     <div class="grid-item senior">
                         <a href="<?php the_permalink(); ?>">
+
                             <div class="img-container">
                                 <?php the_post_thumbnail('team-thumbnail'); ?>
                             </div>
+
                             <strong> <?php the_title(); ?> </strong> 
-                            <p><?php echo get_post_meta(get_the_ID(), "title", true); ?></p>
+                            <p><?php echo print_company_title(); ?></p>
                         </a>
                     </div>
                     <?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
@@ -73,7 +76,7 @@
                                 <?php the_post_thumbnail('team-thumbnail'); ?>
                             </div>
                             <strong> <?php if(get_the_title() !== "zzzfiller") { the_title(); } ?> </strong> 
-                            <p><?php echo get_post_meta(get_the_ID(), "title", true); ?></p>
+                            <p><?php echo print_company_title(); ?></p>
                         </a>
                     </div>
                     <?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); 
@@ -119,7 +122,7 @@
                                 <?php the_post_thumbnail('team-thumbnail'); ?>
                             </div>
                             <strong> <?php if(get_the_title() !== "zzzfiller") { the_title(); } ?> </strong> 
-                            <p><?php echo get_post_meta(get_the_ID(), "title", true); ?></p>
+                            <p><?php echo print_company_title(); ?></p>
                         </a>
                     </div>
                     <?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); 
@@ -165,7 +168,7 @@
                                 <?php the_post_thumbnail('team-thumbnail'); ?>
                             </div>
                             <strong> <?php if(get_the_title() !== "zzzfiller") { the_title(); } ?> </strong> 
-                            <p><?php echo get_post_meta(get_the_ID(), "title", true); ?></p>
+                            <p><?php echo print_company_title(); ?></p>
                         </a>
                     </div>
                     <?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); 
@@ -179,11 +182,6 @@
             <!-- END OF INTERNS/CARTOGRAPHERS -->
         </div>
     <?php }; ?>
-
-    <!-- styles in _links -->
-    <!-- <div class="top-link-container">
-        <a class="top-link yellow-button" href="#top">^ Top</a>
-    </div> -->
 
     <?php if(get_category_by_slug('advisors')->category_count > 0) { ?>
         <div class="divider yellow-line yellow-line-center" id="advisors"></div>
@@ -211,7 +209,7 @@
                                 <?php the_post_thumbnail('team-thumbnail'); ?>
                             </div>
                             <strong> <?php if(get_the_title() !== "zzzfiller") { the_title(); } ?> </strong> 
-                            <p><?php echo get_post_meta(get_the_ID(), "title", true); ?></p>
+                            <p><?php echo print_company_title(); ?></p>
                         </a>
                     </div>
                     <?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); 

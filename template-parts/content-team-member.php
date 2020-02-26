@@ -15,40 +15,13 @@
         <div class="team-member-contact">
 
             <!-- TITLE -->
-            <?php if(metadata_exists('post', get_the_ID(), 'title')) { ?>
-                <strong>
-                    <?php echo get_post_meta(get_the_ID(), "title", true); ?>
-                </strong>
-            <?php } else { ?> 
-                <strong>Critical Response Group</strong>
-            <?php }; ?>
+            <strong><?php echo print_company_title(); ?></strong>
 
             <!-- EMAIL -->
-            <?php if(metadata_exists('post', get_the_ID(), 'email')) { ?>
-                <a href="mailto:">
-                    <i class="fas fa-envelope"></i>
-                    <?php echo get_post_meta(get_the_ID(), "email", true); ?>
-                </a>
-            <?php } else { ?> 
-                <a href="mailto:">
-                    <i class="fas fa-envelope"></i>
-                    contact@crgplans.com
-                </a>
-            <?php }; ?>
+            <?php echo print_email(); ?>
 
             <!-- PHONE -->
-            <?php if(metadata_exists('post', get_the_ID(), 'phone')) { 
-                $phone = get_post_meta(get_the_ID(), "phone", true); ?>
-                <a href="tel: <?php telephoneFormatter($phone); ?> ">
-                    <i class="fas fa-phone"></i>
-                    <?php telephoneFormatter($phone); ?>
-                </a>
-            <?php } else { ?> 
-                <a href="tele:">
-                    <i class="fas fa-phone"></i>
-                    (732) 779-4393 
-                </a>
-            <?php }; ?>
+            <?php echo print_phone(); ?>
 
             <!-- SOCIAL MEDIA -->
             <div class="team-member-social">

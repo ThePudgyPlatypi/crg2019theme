@@ -368,7 +368,7 @@ add_filter('jpeg_quality', function($arg){return 100;});
 
 // format phone number - found on stack overflow
 function telephoneFormatter($phone) {
-	print preg_replace('~.*(\d{3})[^\d]{0,7}(\d{3})[^\d]{0,7}(\d{4}).*~', '($1) $2-$3', $phone). "\n";
+	return preg_replace('~.*(\d{3})[^\d]{0,7}(\d{3})[^\d]{0,7}(\d{4}).*~', '($1) $2-$3', $phone). "\n";
 }
 
 
@@ -454,3 +454,54 @@ function get_id_by_slug($page_slug) {
 		return null;
 	}
 }
+
+function print_company_title() {
+	if(metadata_exists('post', get_the_ID(), 'title')) {
+		$value = trim( get_post_meta(get_the_ID(), 'title', true) );
+		
+		if( strcasecmp($value, 'blank') == 0 || strcasecmp($value, '') == 0 ) {
+			return "";
+		} else {
+			return $value;
+		};
+	} else {
+		return "";
+	};
+}
+add_action('the_post', 'print_company_title');
+
+function print_email() {
+	$default = "contact@crgplans.com";
+	if(metadata_exists('post', get_the_ID(), 'email')) {
+		$value = trim( get_post_meta(get_the_ID(), 'email', true) );
+		
+		if( strcasecmp($value, 'blank') == 0 || strcasecmp($value, '') == 0 ) {
+			return "";
+		} elseif ( strcasecmp($value, 'default') == 0 ){
+			return '<a href="mailto:contact@crgplans.com"><i class="fas fa-envelope"></i> '.$default.'</a>';
+		} else {
+			return '<a href="mailto:'.$value.'"><i class="fas fa-envelope"></i> '.$value.'</a>';
+		};
+	} else {
+		return "";
+	};
+}
+add_action('the_post', 'print_email');
+
+function print_phone() {
+	$default = "(732) 779-4393";
+	if(metadata_exists('post', get_the_ID(), 'phone')) {
+		$value = trim( get_post_meta(get_the_ID(), 'phone', true) );
+		
+		if( strcasecmp($value, 'blank') == 0 || strcasecmp($value, '') == 0 ) {
+			return "";
+		} elseif ( strcasecmp($value, 'default') == 0 ){
+			return '<a href="tel:'.telephoneFormatter($default).'"><i class="fas fa-phone"></i> '.$default.'</a>';
+		} else {
+			return '<a href="tel:'.telephoneFormatter($value).'"><i class="fas fa-phone"></i> '.telephoneFormatter($value).'</a>';
+		};
+	} else {
+		return "";
+	};
+}
+add_action('the_post', 'print_phone');
