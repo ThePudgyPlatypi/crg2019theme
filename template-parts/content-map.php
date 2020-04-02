@@ -14,7 +14,7 @@
         </div>
         <div class="grid-x">
             <div class="cell small-12 map-frame">
-                <iframe class="map" src="http://alex.map" frameborder="0"></iframe>
+                <iframe class="map" src="https://www.crgplans.com/interactive_map/index.html" frameborder="0"></iframe>
             </div>  
         </div>
     </div>

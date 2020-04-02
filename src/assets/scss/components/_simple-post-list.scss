@@ -1,0 +1,43 @@
+// find example on the Giving Back/Philanthropy page
+.post-list {
+
+    .post-item {
+        border: 1px solid #fafafa;
+        margin: 10px 0;
+        min-height: 200px;
+
+        &:hover {
+            background-color: #fafafa;
+        }
+
+        .post-wrapper-link {
+            color: $black;
+            padding: 40px;
+            height: 100%;
+            width: 100%;
+
+            .img-container {
+                padding-bottom: 10px;
+                display: flex;
+                justify-content: center;
+
+                img {
+                    max-height: 120px;
+                    width: auto;
+                }
+
+                @include breakpoint(medium) {
+                    padding-right: 10px;
+                    justify-content: left;
+                }
+            }
+
+            .post-content-wrapper {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+        }
+    }
+}

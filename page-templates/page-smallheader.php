@@ -50,12 +50,23 @@ get_header('small');
                     <?php dynamic_sidebar( 'post-widgets' ); ?>
                 </div>
 
+            <?php } elseif(is_page("philanthropy") ) { ?>
+
+                <div class="small-header-none-product-container">
+                    <div class="page-content yellow-line yellow-line-center"></div>
+                    
+                    <?php the_content(); ?>
+
+                    <?php get_template_part('template-parts/content', 'philanthropy'); ?>
+                </div>
+
             <?php } else { ?>
                 
                 <!-- DEFAULT -->
                 <div class="small-header-none-product-container">
-                <div class="page-content yellow-line yellow-line-center"></div>
-                <?php the_content(); ?>
+                    <div class="page-content yellow-line yellow-line-center"></div>
+                    <?php the_content(); ?>
+                </div>
                     
             <?php }; ?> <!-- Page Content -->
         </div><!-- .entry-content-page -->

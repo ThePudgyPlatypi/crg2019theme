@@ -36,6 +36,10 @@
         @include breakpoint(medium) {
             display: block;
         }
+
+        &.philanthropy {
+            // top: -40%;
+        }
     }
 
     .title {
