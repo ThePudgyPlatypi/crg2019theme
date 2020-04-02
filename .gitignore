@@ -7,6 +7,5 @@ config.yml
 *.log
 .idea/
 *.swp
-packaged/
 wpcs/
 vendor/
