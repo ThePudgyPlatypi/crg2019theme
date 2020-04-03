@@ -228,7 +228,7 @@ $(document).ready(function($) {
 
     moveFigcaptionIntoAnchor(".blocks-gallery-item", "a", "figcaption");
 
-    hiResVideoEnding("myVideo","#header-video-container", "wp-content/themes/CRG_2019/dist/assets/images/HeaderMoviePoster.jpg");
+    hiResVideoEnding("myVideo","#header-video-container", "wp-content/themes/CRG_2019v2/dist/assets/images/HeaderMoviePoster.jpg");
 
     newsBlockFlip(".post-grid-block-inside", ".post-grid-block-inside-cell");
 
