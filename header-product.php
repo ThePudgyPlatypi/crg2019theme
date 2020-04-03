@@ -13,7 +13,6 @@
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<<<<<<< HEAD
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-82072758-1"></script>
 		<script>
@@ -23,8 +22,6 @@
 
 		  gtag('config', 'UA-82072758-1');
 		</script>
-=======
->>>>>>> 27d4735f56d39b9b67c5f497a74830096ded7bae
 		<?php wp_head(); ?>
 	</head>
 	
