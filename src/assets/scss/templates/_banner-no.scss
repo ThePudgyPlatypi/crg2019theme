@@ -1,0 +1,17 @@
+
+.page-template-page-extra .site-content {
+    margin-top: 2rem;
+
+    @include breakpoint(medium) {
+        margin-top: 6rem;
+    }
+
+    @include breakpoint(middle) {
+        margin-top: 8rem;
+    }
+}
+
+//partners page
+.page-id-1060 .site-content {
+    margin-top: 0;
+}

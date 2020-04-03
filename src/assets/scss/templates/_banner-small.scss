@@ -1,0 +1,73 @@
+/* CLIENT/CONTACT/PRODUCT Page */
+.half-header-container {
+    height: 25vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 0;
+    position: relative;
+    overflow: hidden;
+
+    @include breakpoint(medium) {
+        height: 50vh;
+    }
+
+    .grids {
+        z-index: 0;
+    }
+
+    .overlay {
+        z-index: 1;
+    }
+
+    .half-banner-video {
+        display: none;
+        position: absolute; 
+        top: 0;
+        right: 0; 
+        bottom: 0;
+        min-width: 100%; 
+        min-height: 100%;
+        width: auto; 
+        height: auto; 
+        z-index: 0;
+        background-size: cover;
+        overflow: hidden;
+
+        @include breakpoint(medium) {
+            display: block;
+        }
+    }
+
+    .title {
+        @include flex;
+        @include flex-align($x: center, $y: middle);
+        height: 25vh;
+
+        @include breakpoint(medium) {
+            height: 50vh;
+        }
+
+        h1 {
+            z-index: 2;
+            font-size: 2rem;
+
+            @include breakpoint(medium) {
+                font-size: 4rem;
+            }
+
+            @include breakpoint(middle) {
+                font-size: 5rem;
+            }
+        }
+    }
+}
+
+.small-header-none-product-container {
+    @include xy-grid-container;
+    padding-top: 40px;
+}
+
+.category-chief_keith_corner .title,
+.category-newsletter .title  {
+    flex-direction: column;
+}

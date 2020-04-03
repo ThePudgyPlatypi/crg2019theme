@@ -1,0 +1,11 @@
+// animations for in and out state of Product navigation
+
+@keyframes in {
+    from { background-position: 0px; }
+      to { background-position: -1200px; }
+ }
+
+ @keyframes out {
+    from { background-position: -1200px; }
+      to { background-position: -2000px; }
+ }

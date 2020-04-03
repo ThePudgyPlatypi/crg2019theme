@@ -1,0 +1,49 @@
+.wp-block-gallery {
+    @include xy-grid-container;
+    
+    .blocks-gallery-item {
+        padding: 10px;
+        height: 200px;
+        width: 200px;
+
+        figure {
+            border: none;
+            position: relative;
+            text-align: center;
+            box-shadow: none;
+            border: none;
+            transition: all 0.2s ease-in-out;
+
+            &:hover,
+            &:focus {
+                transform: scale(1.2);
+                box-shadow: none;
+
+                figcaption {
+                    transform: translateY(50%);
+                    opacity: 0.8;
+                    bottom: 50%;
+                }
+            }
+                
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+                transition: all 0.2s ease-in-out;
+            }
+
+            figcaption {
+                display: block;
+                position: absolute;
+                padding: 10px 0;
+                color: $secondary-color;
+                opacity: 0;
+                transition: 0.2s all;
+                transform: translateY(100%);
+                text-align: center;
+                background-color: $dark-gray;
+            }
+        }
+    }
+}

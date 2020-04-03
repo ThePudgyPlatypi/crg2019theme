@@ -1,0 +1,56 @@
+// social media menu
+@mixin social-media($alignment) {
+    ul {
+        @include flex;
+        @include flex-align($x: $alignment);
+        li {
+            list-style: none;
+            padding: 20px 20px;
+
+            &:hover,
+            &:focus {
+                a {
+                    color: $secondary-color;
+                }
+            }
+
+            a {
+                color: $light-blue-gray;
+            }
+        }
+    }
+}
+
+@mixin blur($px: 0) {
+    -webkit-filter: blur(#{$px}px) !important;
+    -ms-filter: blur(#{$px}px) !important;
+    -moz-filter: blur(#{$px}px) !important;
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'blur\'><feGaussianBlur stdDeviation=\'#{$px}\' /></filter></svg>#blur");
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='#{$px}');
+}
+
+@mixin reorder() {
+    .post-grid-block-inside-cell {
+        &.reorder-1 {
+            order: 1;
+
+            .entry-inner {
+                &:before {
+                    left: initial !important;
+                    transform: translate(50%, -50%) !important;
+                    right: 50% !important;
+                }
+
+                &:after {
+                    left: initial !important;
+                    right: 50% !important;
+                    transform: translate(50%, -50%) !important;
+                }
+            }
+        }
+
+        &.reorder-2 {
+            order: 2;
+        }
+    };
+}

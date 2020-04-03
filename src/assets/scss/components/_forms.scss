@@ -1,0 +1,80 @@
+.print-contact-container {
+    @include xy-grid-container;
+    padding: 80px 0 20px 0;
+
+    .wpcf7 {
+        .wpcf7-form {
+            @include xy-grid;
+            p {
+                label {
+                    color: black !important;
+                }
+    
+                &:nth-child(5),
+                &:nth-child(6),
+                &:nth-child(7) {
+                    @include xy-cell(12);
+
+                    @include breakpoint(medium) {
+                        @include xy-cell(4);
+                    }
+                }
+            }
+        }   
+    }
+}
+
+.page-template-page-extra .wpcf7,
+.wpcf7 {
+    .wpcf7-form {
+        @include xy-grid;
+        p {
+            &:nth-child(-n+4) {
+                @include xy-cell(12);
+
+                @include breakpoint(medium) {
+                    @include xy-cell(4);
+                }
+            }
+
+            &:nth-child(n+5) {
+                @include xy-cell(12);
+            }
+
+            label {
+                color: $white;
+            }
+
+            input {
+                color: #303030;
+            } 
+
+            input[type='submit'] {
+                margin: 20px 0;
+                width: 100px;
+                height: 50px;
+                color: $secondary-color;
+                text-align: center;
+                border: 4px $secondary-color solid;
+                background: transparent;
+
+                &:hover,
+                &:focus {
+                    background: darken($secondary-color, 30);
+                }
+            }
+        }
+    }
+}
+
+.page-template-page-extra .entry-content-page {
+    .wpcf7 label {
+        color: $black !important;
+        text-align: center;
+    }
+}
+
+.wpcf7-validation-errors {
+    color: red;
+    width: 100%;
+}

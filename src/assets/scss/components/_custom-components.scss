@@ -1,0 +1,322 @@
+// ++++++++++++++++++++++++++++
+// Components
+// ++++++++++++++++++++++++++++
+
+// Cards - Clients and Partners
+.partner-card,
+.client-card {
+    @include flex;
+    @include flex-align($x: center);
+    border: none;
+
+    .card-section {
+        img {
+            width: 100%;
+        }
+    }
+}
+
+// featured left and right
+.full-width-container {
+    position: relative;
+
+    .full-width-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: $CRG-gray;
+    }
+
+    .feature-right-container,
+    .feature-left-container {
+        @include xy-grid-container;
+
+        .width-container {
+            @include xy-grid();
+            padding: 100px 0;
+
+            .text-container-right,
+            .text-container-left,
+            .img-container-left,
+            .img-container-right {
+                @include xy-cell(12);
+
+                @include breakpoint(middle) {
+                    @include xy-cell(6);
+                }
+            }
+
+            .text-container-right,
+            .text-container-left {
+                h2 {
+                    padding-top: 30px;
+                    width: 100%;
+
+                    @include breakpoint(medium) {
+                        padding-top: 0;
+                    }
+                }
+
+                p {
+                    padding: 20px 0;  
+                }
+
+                
+            }
+
+            .img-container-left,
+            .img-container-right {
+                @include flex;
+                @include flex-align($x: center);
+                align-self: center;
+
+                .overlay-nocolor {
+                    opacity: 0;
+                }
+
+                @include breakpoint(medium) {
+                    @include flex-align($x: null);
+                }
+
+                @include breakpoint(middle) {
+                    .overlay-nocolor {
+                        opacity: 1;
+                    }
+                }
+
+                img {
+                    // @include flex-align-self(top);
+                }
+            }
+        }
+    }
+
+    .feature-left-container {
+        .text-container-left {
+            color: $white;
+        }
+    }
+
+    .feature-right-container {
+        .text-container-right {
+            order: 2;
+            
+            @include breakpoint(medium) {
+                text-align: right;
+            }
+
+            @include breakpoint(middle) {
+                order: 1;
+            }
+
+            p {
+                text-align: left;
+
+                @include breakpoint(medium) {
+                    text-align: right;
+                }
+            }
+
+            h2 {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+
+                @include breakpoint(medium) {
+                    align-items: flex-end;
+                    text-align: right;
+                }
+            }
+        }
+
+        .img-container-right {
+            order: 1;
+
+            @include breakpoint(middle) {
+                order: 2;
+            }
+        }
+    }
+}
+
+// Floating circle bullets
+.product-bullets-container {
+
+    .product-bullets {
+        @include xy-grid-container;
+        @include xy-grid;
+        padding-top: 0;
+
+        // @include breakpoint(medium) {
+        //     padding-top: 0;
+        // }
+
+        li {
+            list-style: none;
+            width: 100%;
+            @include xy-cell(12);
+            padding-top: 25px;
+
+            @include breakpoint(middle) {
+                @include xy-cell(4);
+            }
+
+            .v-center-container {
+                
+                .v-center-table {
+                    text-align: center;
+                    @include flex;
+                    @include flex-direction(column);
+
+                    @include breakpoint(medium) {
+                        @include flex-direction(row);
+
+                        &.switch-card .product-bullets-img {
+                            order: 2;
+                        }
+    
+                        &.switch-card .product-bullet-p-container {
+                            order: 1;
+                        }
+                    }
+
+                    @include breakpoint(middle) {
+                        @include flex-direction(column);
+                        &.switch-card .product-bullets-img {
+                            order: 1;
+                        }
+    
+                        &.switch-card .product-bullet-p-container {
+                            order: 2;
+                        }
+                    }
+
+                    .product-bullets-img {
+                        margin: 0 auto;
+                        width: 200px;
+                        height: 200px;
+                        border-radius: 100%;
+                        object-fit: cover;
+                        border: 2px solid $primary-color;
+                    }
+
+                    .product-bullet-p-container {
+                        margin: 0 auto;
+                        padding: 20px 0 0 0;
+                        width: 200px;
+                        @include flex-align-self(middle);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Newsletter Modal
+
+#newsletter {
+    h1 {
+        text-align: center;
+        font-size: 1.25rem;
+    }
+
+    .post-widget-container {
+        border: none;
+    }
+}
+
+// Ribbon  
+.ribbon-container {
+    visibility: hidden;
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    overflow: visible;
+    /* so we can see the pseudo-elements we're going to add to the anchor */
+
+    font-size: 18px;
+    /* font-size and line-height must be equal so we can account for the height of the banner */
+
+    line-height: 18px;
+
+    @include breakpoint(medium) {
+        visibility: visible;
+    }
+}
+  
+.ribbon-container:before {
+    content: "";
+    height: 0;
+    width: 0;
+    display: block;
+    position: absolute;
+    top: 3px;
+    right: 0;
+    border-top: 29px solid rgba(0, 0, 0, .3);
+    /* These 4 border properties create the first part of our drop-shadow */
+    
+    border-bottom: 29px solid rgba(0, 0, 0, .3);
+    border-right: 29px solid transparent;
+    border-left: 29px solid transparent;
+}
+  
+.ribbon-container a {
+    display: block;
+    padding: 20px;
+    position: relative;
+    /* allows us to position our pseudo-elements properly */
+    
+    background: $primary-color;
+    overflow: visible;
+    height: 58px;
+    margin-right: 29px;
+    color: #fff;
+    text-decoration: none;
+}
+  
+.ribbon-container a:after {
+    /* this creates the "folded" part of our ribbon */
+    
+    content: "";
+    height: 0;
+    width: 0;
+    display: block;
+    position: absolute;
+    bottom: -15px;
+    right: 25px;
+    border-top: 15px solid darken($primary-color, 10%);
+    border-left: 15px solid transparent;
+}
+  
+.ribbon-container a:before {
+    /* this creates the "forked" part of our ribbon */
+    
+    content: "";
+    height: 0;
+    width: 0;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -29px;
+    border-top: 29px solid $primary-color;
+    border-bottom: 29px solid $primary-color;
+    border-right: 29px solid transparent;
+    border-left: 29px solid transparent;
+}
+  
+.ribbon-container a:hover {
+    background: $primary-color;
+    cursor: default;
+}
+  
+.ribbon-container a:hover:before {
+    /* this makes sure that the "forked" part of the ribbon changes color with the anchor on :hover */
+    
+    border-top: 29px solid $primary-color;
+    border-bottom: 29px solid $primary-color;
+}

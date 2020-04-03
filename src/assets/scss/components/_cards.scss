@@ -1,0 +1,159 @@
+.cards-container {
+
+  @include xy-grid;
+
+  .card {
+    @include breakpoint(small) {
+      @include xy-cell(12);
+
+      .card-content {
+        padding: 1rem;
+      }
+
+    }
+
+    @include breakpoint(medium) {
+      @include xy-cell(1 of 3, true, 0.7rem );
+
+    }
+
+  }
+}
+
+/* -------------------------------------O-------------------------------------------------------------------------------CARDS---------------------- */
+/* CARD STYLING */
+
+.product-cards {
+    @include xy-grid;
+    @include xy-gutters($gutter-position: top left right bottom);
+
+    .card {
+        @include xy-cell(12);
+        // height: 100%;
+        border: 0;
+
+        @include breakpoint(medium) {
+            @include xy-cell(6);
+        }
+
+        @include breakpoint(large) {
+            @include xy-cell(2);
+        }
+
+        .card-section {
+          @include flex;
+          @include flex-direction(column);
+
+            &.card-img {
+                
+                img {
+                    width: 100%;
+                    object-fit: fill;
+                }
+            }
+
+            &.card-title {
+            }
+
+            &.card-paragraph {
+                div {
+                  margin-top: auto;
+                  width: 100%;
+                }
+            }
+        }
+    }
+
+    .card-divider {
+        background: transparent;
+    }
+}
+
+.card-relative {
+  position: relative;
+}
+
+.partner-cards {
+  .cell {
+    @include xy-cell(12);
+    flex-grow: 1; 
+    flex-shrink: 1;
+  }
+
+  .card-section {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+
+    img {
+      max-width: 200px;
+      height: 100%;
+      
+      @include breakpoint(medium) {
+        max-width: 300px;
+      }
+
+      @include breakpoint(middle) {
+        max-width: 400px;
+      }
+    }
+  }
+
+  .card-divider {
+    // background: $CRG-gray;
+    // color: $white;
+    position: relative;
+    background: $white;
+    color: $CRG-gray;
+    justify-content: center;
+    font-size: 1.5rem;
+    
+
+    &:after {
+      position: absolute;
+      z-index: 10;
+      content: "";
+      display: block;
+      opacity: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 5px;
+      background-color: #ffc52a;
+      transition: all 0.2s 
+    }
+  }
+
+  .hover-card-activator {
+    width: 100%;
+    height: 100%;
+
+    &:hover,
+    &:focus {
+      .card-divider::after {
+        opacity: 1;
+        width: 20%;
+      }
+    }
+  }
+
+  .card {
+    transition: 0.2s all;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+    border: none;
+
+    @include breakpoint(medium) {
+      width: 80%;
+    }
+  }
+
+  .partner-desc {
+    display: flex;
+    flex-direction: column;
+  }
+}

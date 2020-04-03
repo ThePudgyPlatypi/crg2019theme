@@ -1,0 +1,36 @@
+.content-area.product {
+    .crg-header {
+        @include xy-grid;
+        text-align: center;
+
+        h1 {
+            @include xy-cell(12);
+        }
+
+        a {
+            @include xy-cell(12);
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+    }
+
+    .product-bullets-container {
+        &:after {
+            margin-top: 50px;
+        }
+    }
+
+    p.yellow-line {
+        margin-top: 50px;
+    }
+
+    .full-width-container .img-container-right img,
+    .full-width-container .img-container-left img {
+        height: 100%;
+    }
+}
+
+.product-desc {
+    padding: 20px;
+}

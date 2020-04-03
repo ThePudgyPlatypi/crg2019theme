@@ -1,0 +1,435 @@
+.team-member-grid {
+    .divider {
+        margin-bottom: 75px;
+    }
+
+    .senior-grid,
+    .managers-grid,
+    .full-timers-grid,
+    .interns-grid,
+    .advisors-grid {
+        @include xy-grid;
+        @include flex-align($x: center);
+
+        .grid-item {
+            @include xy-cell(6);
+            @include xy-gutters(50, $gutter-position: bottom);
+            position: relative;
+            transition: all 0.4s ease-out;
+            padding: 10px;
+
+            &:hover,
+            &:focus {
+                
+                a {
+                    .img-container {
+                        border-radius: 100%;
+                    }
+
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+
+            @include breakpoint(medium) {
+                @include xy-cell(4);
+            }
+
+            @include breakpoint(middle) {
+                @include xy-cell(2.4);
+            }
+
+            a {
+                text-align: center;
+
+                .img-container {
+                    transition: all 0.15s ease-in-out;
+                    overflow: hidden;
+
+                    img {
+                        transition: all 2s ease-in-out;
+                        object-fit: cover;
+                    }
+                }
+
+                strong {
+                    display: block;
+                    font-size: 1.2rem;
+                }
+
+                p {
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+}
+
+.advisor.full-image {
+    @include xy-grid;
+    min-height: initial;
+
+    @include breakpoint(medium) {
+        margin-top: 100px;
+        min-height: calc(100vh - 100px);
+    }
+
+    .team-member-bg {
+        @include xy-cell(12);
+        min-width: initial;
+        height: initial;
+        position: initial;
+
+        @include breakpoint(medium) {
+            max-width: 75vw;
+            margin: auto;
+        }
+
+        @include breakpoint(large) {
+            @include xy-cell(2);
+            margin: initial;
+        }
+
+        img {
+            min-width: 100%;
+            border-radius: initial;
+
+            
+
+            @include breakpoint(large) {
+                border-radius: 100%;
+                height: initial;
+                width: initial;
+                min-width: initial;
+            }
+        } 
+    }
+
+    .team-member-post-navigation {
+        .nav-links {
+            a {
+                color: $black !important;
+            }
+        }
+    }
+}
+
+.full-image {
+    position: relative;
+    min-height: 100vh;
+    margin-top: 0;
+    @include flex;
+    @include flex-align($x: right);
+    @include xy-grid;
+
+    @include breakpoint(medium) {
+        margin-top: 50px;
+        min-height: calc(100vh - 50px);
+    }
+
+    .team-member-bg {
+        min-width: 100%;
+        height: 50vh;
+        @include xy-cell(12);
+        @include xy-gutters(0, $gutter-position: left right);
+        overflow: hidden;
+
+        img{
+            object-fit: cover;
+            object-position: left;
+            min-width: 100%;
+            height: 100%;
+
+            @include breakpoint(medium) {
+                object-position: center;
+            }
+
+            @include breakpoint(middle) {
+                object-position: 20%;
+            }
+
+            @include breakpoint(xlarge) {
+                object-position: left;
+            }
+        }
+
+        @include breakpoint(middle) {
+            position: absolute;
+            height: 100%;
+        }
+    }
+}
+
+.team-member-desc,
+.advisor-desc {
+    @include flex-align-self(middle);
+    @include xy-gutters(100, $gutter-position: left right);
+    z-index: 1;
+    height: 100%;
+
+    @include breakpoint(middle) {
+        @include xy-gutters(50, $gutter-position: left right)
+    }
+
+    .team-member-h1 {
+        margin-top: 10px;
+        font-size: 3.5rem;
+
+        @include breakpoint(middle) {
+            margin-bottom: 5px;
+        }
+    }
+
+    .team-member-contact {
+        @include flex;
+        @include flex-direction(column);
+        margin-bottom: 0;
+
+        @include breakpoint(middle) {
+            margin-bottom: 40px;
+        }
+
+        strong {
+            font-size: 1.2rem;
+
+            @include breakpoint(middle) {
+                color: $secondary-color;
+            }
+        }
+
+        a {
+            @include breakpoint(middle) {
+                color: $white;
+
+                &:hover {
+                    color: $secondary-color;
+                }
+            }
+        }
+
+        .team-member-social {
+            @include social-media(left);
+
+            li {
+                padding: 0 20px 0 0 !important;
+                list-style: none;
+                padding: 5px;
+                font-size: 1.5rem;
+                text-align: left;
+                position: relative;
+
+                i {
+                    @include breakpoint(middle) {
+                        color: $white;
+                    }
+                }
+
+                .link-text {
+                    position: absolute;
+                    // transform: translateY(%);
+                    opacity: 0;
+                    // padding-bottom: 10px;
+                    left: 0;
+                    top: 30px;
+                    font-size: 0.8rem;
+                    width: 200px;
+
+                    @include breakpoint(middle) {
+                        color: $white;
+                    }
+                }
+
+                &:hover {
+
+                    .link-text {
+                        // transform: translateY(0);
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .team-member-p {
+        padding: 20px 10px;
+        background: rgba(255, 255, 255, 0.2);
+        max-width: 100%;
+        font-size: 1.2rem;
+
+        @include breakpoint(middle) {
+            padding: 40px 40px 40px 40px;
+            font-size: 1.4rem;
+            max-width: 80%;
+            color: $white;
+        }
+    }
+}
+
+// Advisor desc styling
+.advisor-desc {
+    @include xy-cell(12);
+    max-width: initial;
+    // margin: auto;
+
+    @include breakpoint(medium) {
+        max-width: 75vw;
+        margin: auto;
+    }
+
+    @include breakpoint(large) {
+        @include xy-cell(8);
+        // max-width: initial;
+        // margin: initial;
+    }
+
+    .team-member-h1 {
+        color: initial;
+        padding-left: 10px;
+
+        @include breakpoint(large) {
+            padding-left: 40px;
+        }
+    }
+
+    .team-member-contact {
+        padding-left: 10px;
+
+        @include breakpoint(large) {
+            padding-left: 40px;
+        }
+
+        strong {
+            color: initial;
+        }
+
+        a {
+            color: initial;
+
+            &:hover {
+                color: $secondary-color;
+            }
+        }
+
+        .team-member-social {
+            @include social-media(left);
+
+            li {
+                i {
+                    color: initial;
+                }
+
+                .link-text {
+                    color: initial;
+                }
+            }
+        }
+    }
+
+    .team-member-p {
+        color: initial;
+
+        @include breakpoint(medium) {
+            
+        }
+    }
+}
+
+// Team Member Description
+.team-member-desc {
+    @include xy-cell(12);
+
+    @include breakpoint(middle) {
+        @include xy-cell(6);
+    }
+
+    .team-member-h1 {
+        @include breakpoint(middle) {
+            color: $secondary-color;
+        }
+    }
+}    
+
+.team-member-post-navigation {
+    width: 100%;
+    @include xy-cell(12);
+    @include flex-align-self(bottom);
+    z-index: 1;
+
+    .navigation.post-navigation{
+        .nav-links {
+            @include xy-grid; 
+            @include flex-align($x: right);
+
+            & > .nav-previous,
+            & > .nav-next {
+                @include xy-cell(6);
+                padding: 20px;
+                
+                a {
+                    width: 100%;
+                    color: $black;
+
+                    @include breakpoint(middle) {
+                        color: $white;
+                    }
+                }
+
+                span {
+                    &.nav-subtitle {
+                        display: none;
+                    }
+
+                    &.nav-title {
+                        font-weight: bold;
+                        transition: all 0.3s ease-out;
+                    }
+                }
+            }
+
+            &:hover,
+            &:focus {
+                .nav-next .nav-next,
+                .nav-previous .nav-previous {
+                    .nav-title {
+                        transform: scale(1.1);
+                    }
+                    
+                }
+            }
+            
+            .nav-previous .nav-previous {
+                @include flex;
+                // @include flex-direction()
+
+                &:before {
+                    content: "";
+                    @include css-triangle(10px, $secondary-color, left);
+                    @include flex-align-self(middle);
+                    margin-right: 20px;
+                }
+
+                span {
+                    padding-right: 10px;
+                }
+            }
+
+            .nav-next .nav-next {
+                text-align: right;
+                @include flex;
+                @include flex-align($x: right);
+
+                &:after {
+                    content: "";
+                    @include css-triangle(10px, $secondary-color, right);
+                    @include flex-align-self(middle);
+                    margin-left: 20px;
+                }
+
+                span {
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
+}
