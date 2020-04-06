@@ -1,7 +1,6 @@
 <div class="post-list grid-container">
     <div class="grid-X">
-        <?php // ===============================
-        // SENIOR LEADERSHIP
+        <?php
         $nfp = array(
             'post_type' => 'post',
             'category_name' => 'donation-organizations',

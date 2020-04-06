@@ -27,8 +27,11 @@ $slug = get_post_field( 'post_name', get_post() );
         <?php get_template_part('template-parts/card', 'product');?>
     </div>
     	
-<?php } elseif(is_page('our-partners')) {
+<?php
+} elseif(is_page('our-partners')) {
     get_template_part('template-parts/content', 'partners');
+} elseif(is_page('advisors')) {
+    get_template_part('template-parts/content', 'advisors');
 } else {
     // TO SHOW THE PAGE CONTENTS
     while ( have_posts() ) : the_post(); ?>
