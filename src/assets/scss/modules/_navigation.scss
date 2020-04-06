@@ -325,19 +325,16 @@ $navHeight: 130px + 15px;
 .menu-team-nav-container {
     
     display: flex;
-    justify-content: center;
     padding: 10px 0;
 
     #menu-team-nav {
         @include xy-grid;
+        flex: 1 0 auto;
+        justify-content: center;
 
         li {
-            @include xy-cell(6);
+            @include xy-cell(3);
             text-align: center;
-
-            @include breakpoint(medium) {
-                @include xy-cell(3);
-            }
         }
     }
 }
