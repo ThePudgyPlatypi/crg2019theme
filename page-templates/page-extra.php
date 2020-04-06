@@ -30,9 +30,10 @@ $slug = get_post_field( 'post_name', get_post() );
 <?php
 } elseif(is_page('our-partners')) {
     get_template_part('template-parts/content', 'partners');
-} elseif(is_page('advisors')) {
-    get_template_part('template-parts/content', 'advisors');
-} else {
+} elseif(is_page('advisors')) { ?>
+    <h1 class="header blue"><?php the_title(); ?></h1>
+    <?php get_template_part('template-parts/content', 'advisors'); ?>
+<?php } else {
     // TO SHOW THE PAGE CONTENTS
     while ( have_posts() ) : the_post(); ?>
         <h1 class="header yellow blue-line blue-line-center"><?php single_post_title(); ?></h1>
