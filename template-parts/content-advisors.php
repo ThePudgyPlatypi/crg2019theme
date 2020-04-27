@@ -20,7 +20,7 @@
                     $the_query->the_post(); ?>
 
                     <div class="cell small-12 post-item advisor">
-                        <a class="grid-x post-wrapper-link no-pointer">
+                        <div class="grid-x post-wrapper-link no-pointer">
                             <?php if ( has_post_thumbnail() ) { ?>
                                 <div class="img-container cell small-12 medium-4">
                                     <?php the_post_thumbnail(); ?>
@@ -41,7 +41,7 @@
                                     <?php the_content(); ?>
                                 </div>
                             <?php } ?>
-                        </a>
+                        </div>
                     </div>
                     <?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); 
                 } 
