@@ -20,7 +20,7 @@
 
             &:hover,
             &:focus {
-                
+
                 a {
                     .img-container {
                         border-radius: 100%;
@@ -37,7 +37,15 @@
             }
 
             @include breakpoint(middle) {
+                &.senior {
+                    @include xy-cell(3);
+                }
+
                 @include xy-cell(2.4);
+            }
+
+            &.senior a .img-container img {
+                width: 250px;
             }
 
             a {
@@ -95,7 +103,7 @@
             min-width: 100%;
             border-radius: initial;
 
-            
+
 
             @include breakpoint(large) {
                 border-radius: 100%;
@@ -103,7 +111,7 @@
                 width: initial;
                 min-width: initial;
             }
-        } 
+        }
     }
 
     .team-member-post-navigation {
@@ -135,7 +143,7 @@
         @include xy-gutters(0, $gutter-position: left right);
         overflow: hidden;
 
-        img{
+        img {
             object-fit: cover;
             object-position: left;
             min-width: 100%;
@@ -329,9 +337,7 @@
     .team-member-p {
         color: initial;
 
-        @include breakpoint(medium) {
-            
-        }
+        @include breakpoint(medium) {}
     }
 }
 
@@ -348,7 +354,7 @@
             color: $secondary-color;
         }
     }
-}    
+}
 
 .team-member-post-navigation {
     width: 100%;
@@ -356,16 +362,16 @@
     @include flex-align-self(bottom);
     z-index: 1;
 
-    .navigation.post-navigation{
+    .navigation.post-navigation {
         .nav-links {
-            @include xy-grid; 
+            @include xy-grid;
             @include flex-align($x: right);
 
-            & > .nav-previous,
-            & > .nav-next {
+            &>.nav-previous,
+            &>.nav-next {
                 @include xy-cell(6);
                 padding: 20px;
-                
+
                 a {
                     width: 100%;
                     color: $black;
@@ -389,15 +395,16 @@
 
             &:hover,
             &:focus {
+
                 .nav-next .nav-next,
                 .nav-previous .nav-previous {
                     .nav-title {
                         transform: scale(1.1);
                     }
-                    
+
                 }
             }
-            
+
             .nav-previous .nav-previous {
                 @include flex;
                 // @include flex-direction()
